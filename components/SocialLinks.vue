@@ -1,11 +1,11 @@
 <template>
     <div>
         <div class="flex space-x-4 stroke-white">
-                <a href="" class="transition duration-200 hover:stroke-primary">
+                <a href="https://github.com/Freeman-md" class="transition duration-200 hover:stroke-primary">
                     <Github class="transition duration-200 stroke-white hover:stroke-primary" />
                 </a>
 
-                <a href="" class="transition duration-200 hover:stroke-primary">
+                <a href="https://www.linkedin.com/in/freeman-madudili-9864101a2/" class="transition duration-200 hover:stroke-primary">
                     <Linkedin class="transition duration-200 stroke-white hover:stroke-primary" />
                 </a>
             </div>
