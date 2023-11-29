@@ -1,6 +1,7 @@
 import svgLoader from 'vite-svg-loader'
 
 export default defineNuxtConfig({
+  ssr: true,
   devtools: { enabled: true },
   vite: {
     plugins: [
