@@ -1,5 +1,5 @@
 <template>
   <div>
-    <NuxtWelcome />
+    <h1 class="text-primary">Hello from TailwindCSS</h1>
   </div>
 </template>
