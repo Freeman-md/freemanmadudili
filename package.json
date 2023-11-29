@@ -18,5 +18,8 @@
     "vite-svg-loader": "^5.1.0",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "vue3-marquee": "^4.1.0"
   }
 }
