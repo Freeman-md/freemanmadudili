@@ -1,5 +1,6 @@
 <template>
-  <div>
-    <h1 class="text-primary">Hello from TailwindCSS</h1>
+  <div class="bg-secondary w-screen h-screen">
+    <AppHeader />
+    <NuxtPage />
   </div>
 </template>
