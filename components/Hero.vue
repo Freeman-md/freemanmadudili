@@ -2,7 +2,7 @@
     <div class="container flex flex-col space-y-6 sm:space-y-0 sm:flex-row sm:-space-x-16 lg:-space-x-32 xl:-space-x-48 justify-center items-center py-20 lg:py-32">
         <!-- Banner section with social links -->
         <div class="flex flex-col space-y-6 items-center w-1/2">
-            <img src="/images/banner.svg" alt="Freeman Madudili">
+            <img src="/images/banner.png" alt="Freeman Madudili" class="object-contain">
 
             <!-- Social Links -->
             <SocialLinks class="hidden sm:inline-block" />
