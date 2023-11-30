@@ -8,10 +8,13 @@ export default <Partial<Config>>{
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#64FFDA'
+          DEFAULT: '#64FFDA',
         },
         secondary: {
           DEFAULT: '#020C1B'
+        },
+        smoky: {
+          DEFAULT: '#AAAAAA'
         }
       },
     }

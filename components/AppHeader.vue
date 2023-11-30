@@ -1,6 +1,6 @@
 
 <template>
-    <header class="fixed backdrop-blur-md w-full">
+    <header class="fixed z-20 backdrop-blur-md w-full">
         <div class="container py-4 flex justify-center md:justify-between space-x-4 items-center">
             <img src="/images/logo.png" alt="Freemancodz" class="w-40" />
 

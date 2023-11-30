@@ -2,12 +2,12 @@
     <div class="py-20 space-y-4">
         <div class="container">
             <h2 class="text-4xl lg:text-5xl xl:text-6xl text-white">
-                Not your regular developer!
-                <span class="text-primary">Skill Sets</span>
+                Adaptable Coding Artisan!
+                <span class="text-primary">Strengths</span>
             </h2>
         </div>
 
-        <Vue3Marquee duration="50">
+        <Vue3Marquee :duration="50">
             <div class="flex space-x-10 items-end">
                 <div
                     class="flex flex-col items-center space-y-4 grayscale transition duration-200 hover:grayscale-0 cursor-pointer"

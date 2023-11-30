@@ -3,5 +3,7 @@
         <Hero />
 
         <Skills />
+
+        <Experience />
     </div>
 </template>
