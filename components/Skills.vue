@@ -1,5 +1,5 @@
 <template>
-    <div class="py-20 space-y-4">
+    <div class="pt-10 pb-20 space-y-2">
         <div class="container">
             <h2 class="text-center sm:text-left text-4xl lg:text-5xl xl:text-6xl text-white">
                 Adaptable Coding Artisan!
