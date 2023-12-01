@@ -1,5 +1,5 @@
 <template>
-    <div class="container py-20 space-y-6 overflow-hidden">
+    <div class="container space-y-6 overflow-hidden">
         <div class="flex space-x-4 items-center justify-between">
             <h2
                 class="text-center sm:text-left text-xl sm:text-4xl lg:text-5xl text-primary"
@@ -16,7 +16,7 @@
             </NuxtLink>
         </div>
 
-        <div class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 xl:gap-0">
             <FeaturedProject
                 v-for="(project, index) in projects"
                 :key="index"

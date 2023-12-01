@@ -1,5 +1,5 @@
 <template>
-    <div class="pt-10 pb-20 space-y-4">
+    <div class="space-y-4">
         <div class="container">
             <h2 class="text-center sm:text-left text-4xl lg:text-5xl text-white">
                 Adaptable Coding Artisan!
@@ -14,7 +14,7 @@
                     v-for="(tool, index) in data.tools"
                     :key="index"
                 >
-                    <div class="w-40">
+                    <div class="w-20 sm:w-40">
                         <img
                             :src="`/images/tools-and-technologies/${tool.image}`"
                             :alt="tool.title"

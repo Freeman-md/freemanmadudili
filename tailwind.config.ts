@@ -13,7 +13,7 @@ export default <Partial<Config>>{
         DEFAULT: '1rem',
         sm: '2rem',
         lg: '4rem',
-        xl: '14rem',
+        xl: '10rem',
       },
     },
     extend: {
