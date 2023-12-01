@@ -6,4 +6,12 @@
   html {
     font-family: "Josefin Sans", system-ui, sans-serif;
   }
+
+  .btn {
+    @apply px-4 py-2 text-smoky border-2 border-smoky rounded transition duration-200 hover:bg-smoky/10
+  }
+
+  .btn-primary {
+    @apply !border-primary !text-primary hover:!bg-primary/10
+  }
 }

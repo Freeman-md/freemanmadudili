@@ -9,5 +9,7 @@
         <FeaturedProjects />
         
         <AboutMe />
+
+        <GetInTouch />
     </div>
 </template>
