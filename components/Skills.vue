@@ -1,7 +1,7 @@
 <template>
-    <div class="pt-10 pb-20 space-y-2">
+    <div class="pt-10 pb-20 space-y-4">
         <div class="container">
-            <h2 class="text-center sm:text-left text-4xl lg:text-5xl xl:text-6xl text-white">
+            <h2 class="text-center sm:text-left text-4xl lg:text-5xl text-white">
                 Adaptable Coding Artisan!
                 <span class="text-primary">Strengths</span>
             </h2>

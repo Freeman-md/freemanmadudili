@@ -1,6 +1,6 @@
 <template>
     <div class="container py-20 space-y-10">
-        <h2 class="text-center sm:text-left text-4xl lg:text-5xl xl:text-6xl text-primary">
+        <h2 class="text-center sm:text-left text-4xl lg:text-5xl text-primary">
             Career Highlights
         </h2>
 

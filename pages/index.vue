@@ -4,6 +4,8 @@
 
         <Skills />
 
-        <Experience />
+        <Experiences />
+
+        <FeaturedProjects />
     </div>
 </template>
