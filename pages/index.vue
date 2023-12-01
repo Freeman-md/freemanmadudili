@@ -2,14 +2,14 @@
     <div class="space-y-20">
         <Hero />
 
-        <Skills />
+        <Skills id="skills" class="scroll-pt-20" />
 
-        <Experiences />
+        <Experiences id="experience" class="scroll-pt-20" />
 
-        <FeaturedProjects />
+        <FeaturedProjects id="portfolio" class="scroll-pt-20" />
         
-        <AboutMe />
+        <AboutMe id="about" class="scroll-pt-20" />
 
-        <GetInTouch />
+        <GetInTouch id="contact" />
     </div>
 </template>
