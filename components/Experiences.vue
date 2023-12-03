@@ -52,7 +52,11 @@
     </div>
 </template>
   
-  <script setup lang="ts">
+<script setup lang="ts">
+const data = useFetch('/api/experiences')
+
+console.log(data)
+
 const TAB_INDEX = 2.75;
 
 const activeTabIndex = ref<number>(0);
