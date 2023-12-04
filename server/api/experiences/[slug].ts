@@ -1,17 +1,17 @@
-import supabase from "~/server/lib/supabase"
-import Experience from "~/types/experience"
+import ExperienceService from "~/server/services/experience-service"
+import Experience from "~/composables/experience";
 
 export default defineEventHandler(async (event) => {
     try {
         const slug = getRouterParam(event, 'slug')
 
-        const { data } = await supabase.from('experiences').select('*').eq('slug', slug)
+        const data = await ExperienceService.getExperienceBySlug(slug!)
 
         if (!data) {
             return {} as Partial<Experience>
         }
 
-        return data[0] as Experience
+        return data
     } catch (error: any) {
         throw createError({
             statusCode: 500,

@@ -51,7 +51,7 @@
 import PlayIcon from "~/assets/svgs/play.svg";
 import LinkIcon from "~/assets/svgs/link.svg";
 
-import type Experience from "~/types/experience";
+import Experience from "~/composables/experience";
 
 const { experience } = defineProps({
     experience: {

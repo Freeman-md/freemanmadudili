@@ -1,9 +1,9 @@
-import supabase from "~/server/lib/supabase"
-import Experience from "~/types/experience"
+import ExperienceService from "../services/experience-service"
+import Experience from "~/composables/experience";
 
 export default defineEventHandler(async (event) => {
     try {
-        const { data } = await supabase.from('experiences').select('company, slug')
+        const data = await ExperienceService.getExperienceCompanies()
 
     if (!data) {
         return []

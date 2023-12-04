@@ -27,7 +27,7 @@
 </template>
   
 <script setup lang="ts">
-import type Experience from "~/types/experience";
+import Experience from "~/composables/experience";
 
 const activeExperienceCompany = useActiveExperienceCompany();
 
