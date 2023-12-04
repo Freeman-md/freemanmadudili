@@ -24,14 +24,15 @@
         <div
             class="flex space-x-4 items-center w-full overflow-y-hidden overflow-x-scroll"
         >
-            <a
-                :href="link.links?.live || link.links?.github"
+            <NuxtLink
+                :to="link.links?.live || link.links?.github"
+                target="_blank"
                 v-for="(link, index) in experience?.projects"
                 :key="index"
                 class="text-smoky transition duration-200 hover:text-white flex space-x-2 min-w-fit"
             >
                 <LinkIcon /> <span>{{ link.title }}</span>
-            </a>
+            </NuxtLink>
         </div>
 
         <!-- Technologies -->
