@@ -1,0 +1,1 @@
+export const useActiveExperienceCompany = () => useState<string>('activeExperienceCompany', () => '')

@@ -10,7 +10,7 @@ export default defineNuxtConfig({
         },
         {
           src: '/js/google-analytics.js'
-        }
+        },
       ]
     }
   },
@@ -18,7 +18,13 @@ export default defineNuxtConfig({
     supabaseUrl: process.env.SUPABASE_URL,
     supabaseKey: process.env.SUPABASE_KEY,
   },
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true
+    }
+  },
   vite: {
     plugins: [
       svgLoader(),

@@ -7,11 +7,12 @@
             </h2>
         </div>
 
-        <Vue3Marquee :duration="50">
-            <div class="flex space-x-10 items-end">
+        <Loading class="mx-auto my-auto w-full" v-if="isFetchingTools" text="Fetching skills" />
+        <VueMarquee :duration="50" v-else>
+            <div class="flex items-end">
                 <div
-                    class="flex flex-col items-center space-y-4 grayscale transition duration-200 hover:grayscale-0 cursor-pointer"
-                    v-for="(tool, index) in data.tools"
+                    class="flex flex-col items-center space-y-4 grayscale transition duration-200 hover:grayscale-0 cursor-pointer mr-10"
+                    v-for="(tool, index) in tools"
                     :key="index"
                 >
                     <div class="w-20 sm:w-40">
@@ -26,10 +27,10 @@
                     }}</span>
                 </div>
             </div>
-        </Vue3Marquee>
+        </VueMarquee>
     </div>
 </template>
 
 <script setup lang="ts">
-const { data } = await useFetch("/api/tools");
+const { data: tools, pending: isFetchingTools } = await useFetch("/api/tools");
 </script>

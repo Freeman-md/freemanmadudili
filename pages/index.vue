@@ -4,7 +4,7 @@
 
         <Skills id="skills" class="scroll-pt-20" />
 
-        <Experiences id="experience" class="scroll-pt-20" />
+        <JobExperiences id="experience" class="scroll-pt-20" />
 
         <FeaturedProjects id="portfolio" class="scroll-pt-20" />
         

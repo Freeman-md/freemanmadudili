@@ -3,15 +3,13 @@ import Experience from "~/types/experience"
 
 export default defineEventHandler(async (event) => {
     try {
-        const id = getRouterParam(event, 'id')
+        const { data } = await supabase.from('experiences').select('company, slug')
 
-        const { data } = await supabase.from('experiences').select('*').eq('id', id)
-
-        if (!data) {
-            return {} as Partial<Experience>
-        }
-
-        return data[0] as Experience
+    if (!data) {
+        return []
+    }
+    
+    return data as Partial<Experience>[]
     } catch (error: any) {
         throw createError({
             statusCode: 500,

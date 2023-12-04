@@ -3,6 +3,11 @@ import supabase from "~/server/lib/supabase"
 export default defineEventHandler(async (event) => {
     try {
         await insertData()
+
+        return {
+            statusCode: 201,
+            message: 'Successfully inserted data'
+        }
     } catch (error: any) {
         throw createError({
             statusCode: 500,
@@ -15,6 +20,7 @@ const insertData = async () => {
     await supabase.from('experiences').insert([
         {
             company: "Pay4Me, Inc.",
+            slug: "pay4me-inc",
             position: "Mid-Level Frontend Developer",
             start_year: 2022,
             end_year: 2023,
@@ -26,7 +32,9 @@ const insertData = async () => {
             projects: [
                 {
                     title: "Pay4Me, Inc.",
-                    url: "https://pay4me.app",
+                    links: {
+                        live: "https://pay4me.app"
+                    },
                 },
             ],
             technologies: [
@@ -49,6 +57,7 @@ const insertData = async () => {
         },
         {
             company: "ScholarsHQ",
+            slug: "scholars-hq",
             position: "Frontend Developer",
             start_year: 2021,
             end_year: 2022,
@@ -60,15 +69,21 @@ const insertData = async () => {
             projects: [
                 {
                     title: "AcrossTheHorizon",
-                    url: "https://acrossthehorizon.net",
+                    links: {
+                        live: "https://acrossthehorizon.net"
+                    },
                 },
                 {
                     title: "BirBur",
-                    url: "https://birbur-updated.netlify.app",
+                    links: {
+                        live: "https://birbur-updated.netlify.app"
+                    },
                 },
                 {
                     title: "Clear Assessments",
-                    url: "https://www.myclearassessments.com/",
+                    links: {
+                        live: "https://www.myclearassessments.com/"
+                    },
                 },
             ],
             technologies: [
@@ -91,6 +106,7 @@ const insertData = async () => {
         },
         {
             company: "Xclusive Designs",
+            slug: "xclusive-designs",
             position: "Software Developer",
             start_year: 2019,
             end_year: 2021,
@@ -105,19 +121,27 @@ const insertData = async () => {
             projects: [
                 {
                     title: "Forexify",
-                    url: "https://github.com/Freeman-md/forexify",
+                    links: {
+                        github: "https://github.com/Freeman-md/forexify"
+                    },
                 },
                 {
                     title: "PinVote",
-                    url: "https://pinvote.freemanmadudili.com",
+                    links: {
+                        live: "https://pinvote.freemanmadudili.com"
+                    },
                 },
                 {
                     title: "Viluxe",
-                    url: "https://viluxe.onrender.com",
+                    links: {
+                        live: "https://viluxe.onrender.com"
+                    },
                 },
                 {
                     title: "Circula",
-                    url: "https://circula-e10ee.web.app/",
+                    links: {
+                        live: "https://circula-e10ee.web.app/"
+                    },
                 },
             ],
             technologies: [

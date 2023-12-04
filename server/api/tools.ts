@@ -12,15 +12,13 @@ export default defineEventHandler(async (event) => {
     const pngFiles = files.filter((file) => file.endsWith('.png'));
 
     // Create an array of objects
-    const imageArray = pngFiles.map((file) => ({
+    const tools = pngFiles.map((file) => ({
       title: formatTitle(file),
       image: file,
     }));
 
     // Send the array as a JSON response
-    return {
-      tools: imageArray,
-    };
+    return tools;
   } catch (err) {
     console.error('Error reading directory:', err);
     throw createError({

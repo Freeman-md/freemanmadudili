@@ -1,5 +1,5 @@
 <template>
-    <span class="text-primary bg-primary/10 py-1 px-3 rounded-full">
+    <span class="block text-primary bg-primary/10 py-1 px-3 rounded-full min-w-fit">
         {{ text }}
     </span>
 </template>
