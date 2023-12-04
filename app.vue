@@ -11,6 +11,7 @@
 
             <Sidebar />
         </div>
+
         <QuickContact />
     </div>
 </template>

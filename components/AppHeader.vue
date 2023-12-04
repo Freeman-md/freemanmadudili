@@ -16,7 +16,7 @@
                 </NuxtLink>
             </div>
 
-            <button class="space-y-2 inline-block md:hidden" @click.prevent="() => toggleSidebar()">
+            <button class="space-y-2 inline-block md:hidden hamburger" @click="() => toggleSidebar()">
                 <div class="w-6 h-0.5 bg-primary transform transition duration-200" :class="{'rotate-45 translate-y-1': isSidebarOpen}"></div>
                 <div class="w-6 h-0.5 bg-primary transform transition duration-200" :class="{'-rotate-45 -translate-y-[0.35rem]': isSidebarOpen}"></div>
             </button>
