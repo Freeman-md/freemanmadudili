@@ -162,7 +162,7 @@ export default defineEventHandler(async (event) => {
 
         return {
             statusCode: 201,
-            message: 'Successfully inserted data'
+            message: 'Successfully inserted experiences'
         }
     } catch (error: any) {
         throw createError({

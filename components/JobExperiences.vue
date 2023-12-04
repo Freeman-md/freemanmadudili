@@ -15,12 +15,12 @@
             ></Loading>
             <JobExperienceCompanies v-else :companies="companies" />
 
+            <!-- Display job experience for company -->
             <Loading
                 class="mx-auto my-auto w-full md:w-3/4"
                 v-if="isFetchingExperience"
                 text="Fetching experience"
             ></Loading>
-
             <JobExperience v-else-if="experience" :experience="experience" />
         </div>
     </div>

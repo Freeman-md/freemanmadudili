@@ -1,8 +1,8 @@
-import ExperienceService from "../services/experience-service"
+import ProjectService from "~/server/services/project-service";
 
 export default defineEventHandler(async (event) => {
     try {
-        const data = await ExperienceService.getExperienceCompanies()
+        const data = await ProjectService.getAllProjects()
 
         if (!data) {
             return []

@@ -16,7 +16,15 @@
             </NuxtLink>
         </div>
 
-        <div class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 xl:gap-0">
+        <Loading
+            v-if="isFetchingProjects"
+            text="Fetching projects"
+            class="mx-auto"
+        ></Loading>
+        <div
+            v-else
+            class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 xl:gap-0"
+        >
             <FeaturedProject
                 v-for="(project, index) in projects"
                 :key="index"
@@ -29,55 +37,7 @@
 <script setup lang="ts">
 import ArrowRightIcon from "~/assets/svgs/arrow-right.svg";
 
-const projects = [
-    {
-        title: "PinVote",
-        image: "/images/projects/pinvote.png",
-        description: "One stop polling app for realtime voting",
-        links: {
-            github: "https://github.com/Freeman-md/pinvote",
-            live: "https://pinvote.freemanmadudili.com",
-        },
-        technologies: [
-            "Node.js",
-            "Express.js",
-            "MongoDB",
-            "EJS",
-            "TailwindCSS",
-        ],
-    },
-    {
-        title: "Viluxe",
-        image: "/images/projects/pinvote.png",
-        description:
-            "Comprehensive E-Commerce Web Application Featuring Seamless Integrated Payment Gateway",
-        links: {
-            github: "https://github.com/Freeman-md/viluxe",
-            live: "https://viluxe.onrender.com",
-        },
-        technologies: [
-            "React.js",
-            "TypeScript",
-            "Redux",
-            "Firebase",
-            "TailwindCSS",
-        ],
-    },
-    {
-        title: "Circula",
-        image: "/images/projects/pinvote.png",
-        description: "Personal Contact Manager App",
-        links: {
-            github: "https://github.com/Freeman-md/circula",
-            live: "https://circula-e10ee.web.app/",
-        },
-        technologies: [
-            "React.js",
-            "TypeScript",
-            "Redux",
-            "Firebase",
-            "TailwindCSS",
-        ],
-    },
-];
+const { data: projects, pending: isFetchingProjects } = await useFetch(
+    "/api/projects"
+);
 </script>

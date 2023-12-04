@@ -1,5 +1,4 @@
 import ExperienceService from "~/server/services/experience-service"
-import Experience from "~/composables/models/experience";
 
 export default defineEventHandler(async (event) => {
     try {
@@ -9,7 +8,7 @@ export default defineEventHandler(async (event) => {
             return []
         }
 
-        return data as Experience[]
+        return data
     } catch (error: any) {
         throw createError({
             statusCode: 500,

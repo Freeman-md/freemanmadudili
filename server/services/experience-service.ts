@@ -6,10 +6,7 @@ class ExperienceService {
     const { data, error } = await supabase.from('experiences').select('*');
 
     if (error) {
-      throw createError({
-        statusCode: +error.code,
-        message: error.message
-      });
+      throw error
     }
 
     return data ?? [];
@@ -19,10 +16,7 @@ class ExperienceService {
     const { data, error } = await supabase.from('experiences').select('*').eq('slug', slug).single();
 
     if (error) {
-      throw createError({
-        statusCode: +error.code,
-        message: error.message
-      });
+      throw error
     }
 
     return data ?? null;
@@ -32,10 +26,7 @@ class ExperienceService {
     const { data, error } = await supabase.from('experiences').insert([experience]).single();
 
     if (error) {
-      throw createError({
-        statusCode: +error.code,
-        message: error.message
-      });
+      throw error
     }
 
     return data ?? null;
@@ -53,10 +44,7 @@ class ExperienceService {
     const { data, error } = await supabase.from('experiences').select('company, slug');
 
     if (error) {
-      throw createError({
-        statusCode: +error.code,
-        message: error.message
-      });
+      throw error
     }
 
     return data ?? []
