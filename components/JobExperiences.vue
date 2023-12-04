@@ -27,7 +27,7 @@
 </template>
   
 <script setup lang="ts">
-import Experience from "~/composables/experience";
+import Experience from "~/composables/models/experience";
 
 const activeExperienceCompany = useActiveExperienceCompany();
 
@@ -35,22 +35,25 @@ const { data: companies, pending: isFetchingCompanies } = await useFetch<
     Partial<Experience>[] | null
 >("/api/experience-companies");
 
-const { data: experience, pending: isFetchingExperience, execute: fetchExperiences } =
-    await useAsyncData<Experience>(
-        `experiences:${activeExperienceCompany.value}`,
-        () => {
-            return $fetch(`/api/experiences/${activeExperienceCompany.value}`);
-        },
-        {
-            watch: [activeExperienceCompany],
-            immediate: false,
-        }
-    );
+const {
+    data: experience,
+    pending: isFetchingExperience,
+    execute: fetchExperiences,
+} = await useAsyncData<Experience>(
+    `experiences:${activeExperienceCompany.value}`,
+    () => {
+        return $fetch(`/api/experiences/${activeExperienceCompany.value}`);
+    },
+    {
+        watch: [activeExperienceCompany],
+        immediate: false,
+    }
+);
 
 onMounted(() => {
     setTimeout(() => {
-        fetchExperiences()
+        fetchExperiences();
     }, 500);
-})
+});
 </script>
-  
+  ~/composables/models/experience

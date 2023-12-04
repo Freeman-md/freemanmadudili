@@ -1,5 +1,5 @@
 import ExperienceService from "~/server/services/experience-service"
-import Experience from "~/composables/experience";
+import Experience from "~/composables/models/experience";
 
 const experiences: Partial<Experience>[] = [
     {

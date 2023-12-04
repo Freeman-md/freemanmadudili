@@ -1,15 +1,15 @@
 import supabase from "../lib/supabase";
-import Experience from "~/composables/experience";
+import Experience from "~/composables/models/experience";
 
 class ExperienceService {
   static async getAllExperiences(): Promise<Experience[]> {
     const { data, error } = await supabase.from('experiences').select('*');
 
     if (error) {
-        throw createError({
-            statusCode: +error.code,
-            message: error.message
-          });
+      throw createError({
+        statusCode: +error.code,
+        message: error.message
+      });
     }
 
     return data ?? [];
@@ -61,7 +61,7 @@ class ExperienceService {
 
     return data ?? []
   }
-  
+
 }
 
 export default ExperienceService;

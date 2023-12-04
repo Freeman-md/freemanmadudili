@@ -27,7 +27,7 @@
 </template>
   
   <script setup lang="ts">
-import Experience from "~/composables/experience";
+import Experience from "~/composables/models/experience";
 
 const { companies } = defineProps({
     companies: Object as () => Partial<Experience>[] | null,
@@ -56,8 +56,8 @@ const selectCompanyTab = (index: number, slug: string | undefined) => {
 };
 
 onMounted(() => {
-    activeTabIndex.value = 0
-    activeExperienceCompany.value = companies ? companies[0].slug! : ''
-})
+    activeTabIndex.value = 0;
+    activeExperienceCompany.value = companies ? companies[0].slug! : "";
+});
 </script>
-  
+  ~/composables/models/experience
