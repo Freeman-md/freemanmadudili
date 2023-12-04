@@ -1,7 +1,6 @@
 import svgLoader from 'vite-svg-loader'
 
 export default defineNuxtConfig({
-  ssr: true,
   app: {
     head: {
       script: [
