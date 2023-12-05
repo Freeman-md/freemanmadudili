@@ -2,7 +2,7 @@ export const useAppLinks = () => {
     const route = useRoute()
 
     const links = useState<string[]>('links', () => {
-        return ["about", "skills", "experience", "portfolio", "blog", "contact"]
+        return ["about", "skills", "experience", "portfolio", "contact", "blog"]
     })
 
     // Function to check if a link is active
