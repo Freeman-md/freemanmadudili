@@ -2,10 +2,10 @@
     <!-- Experience Details Container -->
     <div class="w-full md:w-3/4 flex flex-col space-y-3 overflow-hidden">
         <!-- Experience Information -->
-        <h4 class="text-white">
+        <h6 class="text-white">
             {{ experience?.position }}
             <span class="text-primary">@ {{ experience?.company }}</span>
-        </h4>
+        </h6>
         <p class="text-smoky">
             {{ experience?.start_year }} - {{ experience?.end_year }}
         </p>

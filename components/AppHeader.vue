@@ -2,12 +2,12 @@
 <template>
     <header class="fixed z-50 backdrop-blur-md w-full">
         <div class="container py-4 flex justify-between space-x-4 items-center">
-            <NuxtLink to="/">
+            <NuxtLink aria-label="Go to the top" to="/">
                 <img src="/images/logo.png" alt="Freemancodz" class="w-40" />
             </NuxtLink>
 
             <div class="hidden md:flex space-x-4 lg:space-x-6 text-white text-sm">
-                <NuxtLink class="uppercase transition duration-200 hover:text-primary/70" 
+                <NuxtLink :aria-label="`Go to ${link} section`" class="uppercase transition duration-200 hover:text-primary/70" 
                     :to="`#${link}`"
                     v-for="(link, index) in links"
                     :key="index"

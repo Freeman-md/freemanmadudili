@@ -8,6 +8,7 @@
                 class="flex flex-col space-y-4 p-6 text-white"
             >
                 <NuxtLink
+                    :aria-label="`Go to ${link} section`"
                     v-for="(link, index) in links"
                     :to="`#${link}`"
                     :key="index"

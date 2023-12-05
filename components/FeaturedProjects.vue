@@ -8,6 +8,7 @@
             </h2>
 
             <NuxtLink
+                aria-label="View projects archive"
                 to="/"
                 class="text-sm flex space-x-2 items-center text-smoky stroke-smoky transition duration-200 hover:text-primary hover:stroke-primary"
             >

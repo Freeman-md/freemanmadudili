@@ -16,7 +16,8 @@
                     :key="index"
                 >
                     <div class="w-20 sm:w-40">
-                        <img
+                        <NuxtImg
+                            format="webp"
                             :src="`/images/tools-and-technologies/${tool.image}`"
                             :alt="tool.title"
                             class="w-full object-cover object-center"

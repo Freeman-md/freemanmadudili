@@ -3,14 +3,9 @@ import svgLoader from 'vite-svg-loader'
 export default defineNuxtConfig({
   app: {
     head: {
-      script: [
-        {
-          src: "https://www.googletagmanager.com/gtag/js?id=G-49MQ1SP9TJ"
-        },
-        {
-          src: '/js/google-analytics.js'
-        },
-      ]
+      htmlAttrs: {
+        lang: 'en'
+      }
     }
   },
   runtimeConfig: {
@@ -41,7 +36,8 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    '@nuxt/image',
   ],
   googleFonts: {
     download: true,
