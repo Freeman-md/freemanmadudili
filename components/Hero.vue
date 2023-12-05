@@ -6,7 +6,7 @@
         <div class="flex flex-col space-y-6 items-center w-1/2 min-w-1/2">
             <div class="sm:w-3/4 overflow-hidden">
                 <img
-                    src="/images/banner.svg"
+                    src="/images/banner.png"
                     alt="Freeman Madudili"
                     class="object-cover w-full"
                 />
@@ -17,7 +17,7 @@
         </div>
 
         <!-- About Me Intro -->
-        <div class="w-auto">
+        <div class="w-1/2">
             <h1
                 ref="typewriter"
                 class="text-white text-center sm:text-left text-5xl sm:text-4xl md:text-5xl lg:text-6xl"
