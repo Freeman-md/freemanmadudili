@@ -21,7 +21,6 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@nuxt/image": "^1.1.0",
     "@supabase/supabase-js": "^2.39.0",
     "vue3-marquee": "^4.1.0"
   }

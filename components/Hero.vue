@@ -3,7 +3,7 @@
         <!-- Banner section with social links -->
         <div class="flex flex-col space-y-6 items-center w-1/2">
             <div class="sm:w-3/4 overflow-hidden">
-                <NuxtImg format="webp" src="/images/banner.svg" alt="Freeman Madudili" class="object-cover w-full" />
+                <img src="/images/banner.svg" alt="Freeman Madudili" class="object-cover w-full" />
             </div>
 
             <!-- Social Links -->
