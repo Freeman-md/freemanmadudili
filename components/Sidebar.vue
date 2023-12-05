@@ -2,7 +2,7 @@
     <Transition>
         <aside
             v-if="isSidebarOpen"
-            class="fixed md:hidden z-40 w-60 border-2 border-primary rounded-lg backdrop-blur-lg h-fit right-0 inset-y-0 mr-16 mt-16"
+            class="fixed md:hidden z-40 w-60 border-2 border-primary rounded-lg backdrop-blur-lg h-fit right-0 inset-y-0 mr-4 mt-16"
         >
             <div
                 class="flex flex-col space-y-4 p-6 text-white"
