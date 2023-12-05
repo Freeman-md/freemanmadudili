@@ -17,7 +17,7 @@
         </div>
 
         <!-- About Me Intro -->
-        <div class="w-1/2">
+        <div class="w-full bgxs:w-1/2 min-h-[6rem]">
             <h1
                 ref="typewriter"
                 class="text-white text-center sm:text-left text-5xl sm:text-4xl md:text-5xl lg:text-6xl"
