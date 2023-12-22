@@ -41,7 +41,7 @@ class ExperienceService {
   }
 
   static async getExperienceCompanies(): Promise<Partial<Experience>[]> {
-    const { data, error } = await supabase.from('experiences').select('company, slug');
+    const { data, error } = await supabase.from('experiences').select('company, slug').order('id', { ascending: true });
 
     if (error) {
       throw error
