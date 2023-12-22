@@ -39,7 +39,7 @@
         <div
             class="flex space-x-4 items-center overflow-y-hidden overflow-x-scroll"
         >
-            <Badge
+            <UiBadge
                 v-for="(technology, index) in experience?.technologies"
                 :key="index"
                 :text="technology"

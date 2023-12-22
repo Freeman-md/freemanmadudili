@@ -17,13 +17,13 @@
             </NuxtLink>
         </div>
 
-        <Loading
+        <UiLoading
             v-if="isFetchingProjects"
             text="Fetching projects"
             class="mx-auto"
-        ></Loading>
+        ></UiLoading>
         <div
-            v-else
+            v-else-if="projects"
             class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 xl:gap-0"
         >
             <FeaturedProject
@@ -32,13 +32,14 @@
                 :project="project"
             />
         </div>
+        <UiEmpty v-else message="Featured Projects are currently unavailable" />
     </div>
 </template>
 
 <script setup lang="ts">
 import ArrowRightIcon from "~/assets/svgs/arrow-right.svg";
 
-const { data: projects, pending: isFetchingProjects } = await useFetch(
+const { data: projects, pending: isFetchingProjects, error: fetchingProjectsHasError } = await useFetch(
     "/api/projects"
 );
 </script>

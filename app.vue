@@ -9,10 +9,10 @@
 
             <AppFooter />
 
-            <Sidebar />
+            <UiSidebar />
         </div>
 
-        <QuickContact />
+        <UiQuickContact />
     </div>
 </template>
 

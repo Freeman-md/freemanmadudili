@@ -1,6 +1,15 @@
 import svgLoader from 'vite-svg-loader'
 
 export default defineNuxtConfig({
+  app: {
+    head: {
+      script: [
+        {
+          src: 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js',
+        },
+      ],
+    },
+  },
   runtimeConfig: {
     supabaseUrl: process.env.SUPABASE_URL,
     supabaseKey: process.env.SUPABASE_KEY,

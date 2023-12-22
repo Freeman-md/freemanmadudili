@@ -1,14 +1,20 @@
 <template>
     <div class="space-y-4">
         <div class="container">
-            <h2 class="text-center sm:text-left text-4xl lg:text-5xl text-white">
+            <h2
+                class="text-center sm:text-left text-4xl lg:text-5xl text-white"
+            >
                 Adaptable Coding Artisan!
                 <span class="text-primary">Strengths</span>
             </h2>
         </div>
 
-        <Loading class="mx-auto my-auto w-full" v-if="isFetchingTools" text="Fetching skills" />
-        <VueMarquee :duration="50" v-else>
+        <UiLoading
+            class="mx-auto my-auto w-full"
+            v-if="isFetchingTools"
+            text="Fetching skills"
+        />
+        <VueMarquee :duration="50" v-else-if="tools">
             <div class="flex items-end">
                 <div
                     class="flex flex-col items-center space-y-4 grayscale transition duration-200 hover:grayscale-0 cursor-pointer mr-10"
@@ -28,6 +34,7 @@
                 </div>
             </div>
         </VueMarquee>
+        <UiEmpty v-else message="Skills are currently unavailable" />
     </div>
 </template>
 
