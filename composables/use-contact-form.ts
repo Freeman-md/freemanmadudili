@@ -3,16 +3,16 @@ type Contact = {
     email: string,
     phone: string,
     interest: string,
-    fieldOfStudy?: string,
-    profileUrl?: string,
-    portfolioPurpose?: string,
-    portfolioDescription?: string,
-    personalInformation?: string,
+    field_of_study?: string,
+    profile_url?: string,
+    portfolio_purpose?: string,
+    portfolio_description?: string,
+    personal_information?: string,
     role?: string,
-    roleDescription?: string,
+    role_description?: string,
     budget?: string,
     collaboration?: string,
-    collaborationOverview?: string,
+    collaboration_overview?: string,
     inquiry?: string,
 
     [key: string]: any;
@@ -94,23 +94,23 @@ export const useContactForm = () => {
             value: 'Portfolio Website',
             validation: validateInterest
         },
-        fieldOfStudy: {
+        field_of_study: {
             value: '',
             validation: validateField
         },
-        profileUrl: {
+        profile_url: {
             value: '',
             validation: validateField
         },
-        portfolioPurpose: {
+        portfolio_purpose: {
             value: '',
             validation: validateField
         },
-        portfolioDescription: {
+        portfolio_description: {
             value: '',
             validation: validateField
         },
-        personalInformation: {
+        personal_information: {
             value: '',
             validation: validateField
         },
@@ -118,7 +118,7 @@ export const useContactForm = () => {
             value: '',
             validation: validateField
         },
-        roleDescription: {
+        role_description: {
             value: '',
             validation: validateField
         },
@@ -130,7 +130,7 @@ export const useContactForm = () => {
             value: '',
             validation: validateField
         },
-        collaborationOverview: {
+        collaboration_overview: {
             value: '',
             validation: validateField
         },

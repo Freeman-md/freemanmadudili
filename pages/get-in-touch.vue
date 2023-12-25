@@ -16,40 +16,45 @@
             <div class="grid sm:grid-cols-2 gap-4">
                 <div class="space-y-1">
                     <div class="form-control">
-                    <UserIcon class="w-10" />
+                        <UserIcon class="w-10" />
 
-                    <input name="name" type="text" placeholder="Fullname" v-model="form.name" />
-                </div>
+                        <input
+                            name="name"
+                            type="text"
+                            placeholder="Fullname"
+                            v-model="form.name"
+                        />
+                    </div>
 
-                <small class="text-red-500">{{ errors.name }}</small>
-                </div>
-
-                <div class="space-y-1">
-                    <div class="form-control">
-                    <MailIcon class="w-10" />
-
-                    <input
-                        name="email"
-                        type="text"
-                        placeholder="Email Address"
-                        v-model="form.email"
-                    />
-                </div>
-                <small class="text-red-500">{{ errors.email }}</small>
+                    <small class="text-red-500">{{ errors.name }}</small>
                 </div>
 
                 <div class="space-y-1">
                     <div class="form-control">
-                    <MobileIcon class="w-10" />
+                        <MailIcon class="w-10" />
 
-                    <input
-                        name="phone"
-                        type="text"
-                        placeholder="Phone Number"
-                        v-model="form.phone"
-                    />
+                        <input
+                            name="email"
+                            type="text"
+                            placeholder="Email Address"
+                            v-model="form.email"
+                        />
+                    </div>
+                    <small class="text-red-500">{{ errors.email }}</small>
                 </div>
-                <small class="text-red-500">{{ errors.email }}</small>
+
+                <div class="space-y-1">
+                    <div class="form-control">
+                        <MobileIcon class="w-10" />
+
+                        <input
+                            name="phone"
+                            type="text"
+                            placeholder="Phone Number"
+                            v-model="form.phone"
+                        />
+                    </div>
+                    <small class="text-red-500">{{ errors.email }}</small>
                 </div>
             </div>
 
@@ -90,7 +95,7 @@
                                 name="field-of-study"
                                 type="text"
                                 placeholder="Field of Study"
-                                v-model="form.fieldOfStudy"
+                                v-model="form.field_of_study"
                             />
                         </div>
 
@@ -101,7 +106,7 @@
                                 name="field-of-study"
                                 type="text"
                                 placeholder="Linkedin Profile"
-                                v-model="form.profileUrl"
+                                v-model="form.profile_url"
                             />
                         </div>
                     </div>
@@ -112,7 +117,7 @@
                             placeholder="Purpose of Needing a Portfolio Website"
                             rows="4"
                             class="resize-none"
-                            v-model="form.portfolioPurpose"
+                            v-model="form.portfolio_purpose"
                         ></textarea>
                     </div>
 
@@ -122,7 +127,7 @@
                             placeholder="Description of Ideal Portfolio Website"
                             rows="4"
                             class="resize-none"
-                            v-model="form.portfolioDescription"
+                            v-model="form.portfolio_description"
                         ></textarea>
                     </div>
 
@@ -132,7 +137,7 @@
                             placeholder="Personal Information (Optional)"
                             rows="4"
                             class="resize-none"
-                            v-model="form.personalInformation"
+                            v-model="form.personal_information"
                         ></textarea>
                     </div>
                 </section>
@@ -163,7 +168,7 @@
                             placeholder="Brief Description of Project/Role"
                             rows="4"
                             class="resize-none"
-                            v-model="form.roleDescription"
+                            v-model="form.role_description"
                         ></textarea>
                     </div>
 
@@ -196,7 +201,10 @@
                     <div class="form-control">
                         <BriefcaseIcon class="w-10" />
 
-                        <select name="collaboration" v-model="form.collaboration">
+                        <select
+                            name="collaboration"
+                            v-model="form.collaboration"
+                        >
                             <option value="">Area of Collaboration</option>
                             <option
                                 :value="collaboration"
@@ -214,7 +222,7 @@
                             placeholder="Overview of Collaboration Idea"
                             rows="4"
                             class="resize-none"
-                            v-model="form.collaborationOverview"
+                            v-model="form.collaboration_overview"
                         ></textarea>
                     </div>
                 </section>
@@ -236,7 +244,10 @@
                 </section>
             </div>
 
-            <button class="btn btn-primary disabled:!btn-smoky" :disabled="!isFormValid">
+            <button
+                class="btn btn-primary disabled:!btn-smoky"
+                :disabled="!isFormValid"
+            >
                 Submit & Connect with Freemancodz
             </button>
         </form>
