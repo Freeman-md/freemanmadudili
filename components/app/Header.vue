@@ -3,7 +3,7 @@
     <header class="fixed z-50 backdrop-blur-md w-full">
         <div class="container py-4 flex justify-between space-x-4 items-center">
             <NuxtLink aria-label="Go to the top" to="/">
-                <img src="/images/logo.png" alt="Freemancodz" class="w-40" />
+                <img src="/images/logo.png" alt="Freemancodz" class="w-40 -mt-4" />
             </NuxtLink>
 
             <div class="hidden md:flex space-x-4 lg:space-x-6 text-white text-sm">
