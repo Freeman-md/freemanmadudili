@@ -311,4 +311,8 @@ const handleSubmit = async () => {
             isProcessingForm.value = false
         }
     }
+
+    useSeoMeta({
+    title: 'Connect with Freemancodz',
+});
 </script>
