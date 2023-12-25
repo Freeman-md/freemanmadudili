@@ -313,6 +313,6 @@ const handleSubmit = async () => {
     }
 
     useSeoMeta({
-    title: 'Connect with Freemancodz',
+    title: 'Merry Christmas! 🎄🎁 | Connect with Freemancodz',
 });
 </script>
