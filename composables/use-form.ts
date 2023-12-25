@@ -35,6 +35,7 @@ export const useForm = (initialFields: FormFields, requiredFields: string[] = []
     Object.keys(form).forEach((key) => {
         watch(() => form[key], (newValue) => {
             touchField(key)
+
             // if (touched[key]) {
                 errors[key] = validateField(key, newValue);
             // }
@@ -91,6 +92,14 @@ export const useForm = (initialFields: FormFields, requiredFields: string[] = []
     
         return requiredFieldsFilled && noErrors;
     });
+
+    const resetForm = () => {
+        for (const key in initialFields) {
+            form[key] = initialFields[key].value;
+            errors[key] = '';
+            touched[key] = false;
+        }
+    };
     
 
     return {
@@ -100,6 +109,7 @@ export const useForm = (initialFields: FormFields, requiredFields: string[] = []
         touchField,
         isFormValid,
         validateAll,
-        validateRequiredFields
+        validateRequiredFields,
+        resetForm,
     };
 };

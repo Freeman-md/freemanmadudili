@@ -246,9 +246,11 @@
 
             <button
             type="submit"
-                class="btn btn-primary disabled:!btn-smoky"
+                class="btn btn-primary disabled:!btn-smoky flex items-center justify-center"
                 :disabled="!isFormValid"
             >
+
+            <SpinnerIcon v-if="isProcessingForm" class="animate-spin w-5 h-5 mr-3" />
                 Submit & Connect with Freemancodz
             </button>
         </form>
@@ -261,6 +263,7 @@ import MailIcon from "~/assets/svgs/mail.svg";
 import MobileIcon from "~/assets/svgs/mobile.svg";
 import BriefcaseIcon from "~/assets/svgs/briefcase.svg";
 import LinkIcon from "~/assets/svgs/link.svg";
+import SpinnerIcon from "~/assets/svgs/spinner.svg";
 
 const {
     interests,
@@ -274,6 +277,34 @@ const {
     isSelectedInterest,
     isSelectedBudget,
     isFormValid,
-    handleSubmit
+    validateRequiredFields,
+    resetForm,
 } = useContactForm();
+
+const isProcessingForm = ref(false);
+
+const handleSubmit = async () => {
+        if (!validateRequiredFields()) {
+            alert('form is invalid')
+            return false
+        }
+
+        isProcessingForm.value = true
+
+        try {
+            const response = await useFetch( '/api/contact', {
+                method: 'POST',
+                body: form
+            } );
+
+            if (response.status.value === 'success') {
+                resetForm()
+            }
+        } catch (error) {
+            console.log(error)
+            // Handle exceptions
+        } finally {
+            isProcessingForm.value = false
+        }
+    }
 </script>

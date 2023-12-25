@@ -142,7 +142,7 @@ export const useContactForm = () => {
 
     const requiredFields = ['name', 'email', 'phone', 'interest']
 
-    const { form, errors, isFormValid, touchField, validateAll, validateRequiredFields } = useForm(fields, requiredFields);
+    const { form, errors, isFormValid, touchField, validateAll, validateRequiredFields, resetForm } = useForm(fields, requiredFields);
 
     const selectInterest = (interest: string) => {
         touchField('interest')
@@ -160,25 +160,6 @@ export const useContactForm = () => {
 
     const isSelectedBudget = (budget: string) => form.budget === budget
 
-    const handleSubmit = async () => {
-        if (!validateRequiredFields()) {
-            alert('form is invalid')
-            return false
-        }
-
-        try {
-            const response = await $fetch( '/api/contact', {
-                method: 'POST',
-                body: form
-            } );
-
-            console.log(response)
-        } catch (error) {
-            console.log(error)
-            // Handle exceptions
-        }
-    }
-
     return {
         budgets,
         interests,
@@ -192,6 +173,8 @@ export const useContactForm = () => {
         isSelectedBudget,
         isFormValid,
         touchField,
-        handleSubmit
+        validateAll,
+        validateRequiredFields,
+        resetForm,
     }
 }
