@@ -16,6 +16,18 @@
     @apply !border-primary !text-primary hover:!bg-primary/10
   }
 
+  .btn-white {
+    @apply !border-white !text-white hover:!bg-white/10
+  }
+
+  .form-control {
+    @apply rounded-lg border-2 border-white text-white p-3 flex space-x-2 items-center
+  }
+
+  .form-control input {
+    @apply bg-transparent outline-none border-none focus:outline-none focus:border-none focus:ring-0 w-full text-white
+  }
+
   /* Custom scrollbar styles */
   ::webkit-scrollbar {
     width: 4px; /* Set the width of the scrollbar */

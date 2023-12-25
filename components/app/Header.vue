@@ -14,6 +14,11 @@
                     :class="{ 'text-primary': isLinkActive(link) }"
                     >{{ link }}
                 </NuxtLink>
+                <NuxtLink :aria-label="`Get in touch`" class="uppercase transition duration-200 hover:text-primary/70" 
+                    to="/get-in-touch"
+                    :class="{ 'text-primary': isLinkActive('get-in-touch') }"
+                    >Contact
+                </NuxtLink>
             </div>
 
             <button class="space-y-2 inline-block md:hidden hamburger" @click="() => toggleSidebar()">
