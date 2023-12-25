@@ -3,8 +3,6 @@ import ContactService from "../services/contact-service"
 export default defineEventHandler(async (event) => {
     const body = await readBody(event)
 
-    console.log(body)
-
     try {
         await ContactService.insertContact(body)
 

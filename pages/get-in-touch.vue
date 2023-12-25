@@ -265,6 +265,8 @@ import BriefcaseIcon from "~/assets/svgs/briefcase.svg";
 import LinkIcon from "~/assets/svgs/link.svg";
 import SpinnerIcon from "~/assets/svgs/spinner.svg";
 
+const isProcessingForm = ref(false);
+
 const {
     interests,
     budgets,
@@ -281,7 +283,7 @@ const {
     resetForm,
 } = useContactForm();
 
-const isProcessingForm = ref(false);
+const { showNotification } = useNotification();
 
 const handleSubmit = async () => {
         if (!validateRequiredFields()) {
@@ -299,6 +301,8 @@ const handleSubmit = async () => {
 
             if (response.status.value === 'success') {
                 resetForm()
+
+                showNotification('Thanks for connecting! 👋 Exciting times ahead! 🚀')
             }
         } catch (error) {
             console.log(error)

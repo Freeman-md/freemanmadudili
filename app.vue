@@ -13,6 +13,8 @@
         </div>
 
         <UiQuickContact />
+
+        <UiNotification />
     </div>
 </template>
 
