@@ -20,11 +20,15 @@
     @apply !border-white !text-white hover:!bg-white/10
   }
 
+  .btn-smoky {
+    @apply !border-smoky !text-smoky hover:!bg-smoky/10
+  }
+
   .form-control {
     @apply rounded-lg border-2 border-white text-white p-3 flex space-x-2 items-center
   }
 
-  .form-control input {
+  .form-control input, select, textarea {
     @apply bg-transparent outline-none border-none focus:outline-none focus:border-none focus:ring-0 w-full text-white
   }
 
