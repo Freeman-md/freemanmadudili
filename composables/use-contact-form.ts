@@ -68,7 +68,7 @@ const budgets = [
 const validateField = (value: string) => value.length ? '' : `This field is required`;
 const validateEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Invalid email format';
 const validateName = (value: string) => value.length > 5 ? '' : 'Name must be at least 6 characters long';
-const validatePhone = (value: string) => /^(\+44\s?7\d{3}|\(?07\d{3}\)?|\+44\s?\(0\)\s?\d{3}|\(0\d{4}\)\s?|\(0\d{3}\)\s?|\(0\d{2}\)\s?|\d{4}\s?|\d{5}\s?)[\d\s]{3,9}$/.test(value) ? '' : 'Phone must be a valid UK number';
+const validatePhone = (value: string) => /^\+?([0-9]{1,3})\s?([0-9]{1,4})[\s-]?([0-9]{1,4})[\s-]?([0-9]{1,4})[\s-]?([0-9]{1,9})$/.test(value) ? '' : 'Phone must be a valid number';
 const validateInterest = (value: string) => value && interests.includes(value) ? '' : 'Selected interest is invalid';
 const validateDescription = (value: string) => value.length > 20 ? '' : 'Description must be at least 20 characters long';
 const validateBudget = (value: string) => value && budgets.some(budget => budget.value === value) ? '' : 'Selected budget is not valid';
@@ -142,7 +142,7 @@ export const useContactForm = () => {
 
     const requiredFields = ['name', 'email', 'phone', 'interest']
 
-    const { form, errors, isFormValid, touchField, validateAll } = useForm(fields, requiredFields);
+    const { form, errors, isFormValid, touchField, validateAll, validateRequiredFields } = useForm(fields, requiredFields);
 
     const selectInterest = (interest: string) => {
         touchField('interest')
@@ -161,22 +161,20 @@ export const useContactForm = () => {
     const isSelectedBudget = (budget: string) => form.budget === budget
 
     const handleSubmit = async () => {
-        if (!validateAll()) {
-            console.log('form is invalid')
+        if (!validateRequiredFields()) {
+            alert('form is invalid')
             return false
         }
 
         try {
-            let formData = new FormData();
-            for (let key in form) {
-                formData.append(key, form[key]);
-            }
-
-            const response = await fetch('/', {
+            const response = await $fetch( '/api/contact', {
                 method: 'POST',
-                body: formData,
-            });
+                body: form
+            } );
+
+            console.log(response)
         } catch (error) {
+            console.log(error)
             // Handle exceptions
         }
     }

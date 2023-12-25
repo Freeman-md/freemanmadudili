@@ -65,6 +65,21 @@ export const useForm = (initialFields: FormFields, requiredFields: string[] = []
     
         return isValid;
     };
+
+    const validateRequiredFields = () => {
+        let isRequiredFieldsValid = true;
+    
+        requiredFields.forEach(fieldName => {
+            if (!form[fieldName]) {
+                errors[fieldName] = 'This field is required';
+                isRequiredFieldsValid = false;
+            } else {
+                errors[fieldName] = ''; // Clear error if field is filled
+            }
+        });
+    
+        return isRequiredFieldsValid;
+    };
     
 
     const isFormValid = computed(() => {
@@ -84,6 +99,7 @@ export const useForm = (initialFields: FormFields, requiredFields: string[] = []
         touched,
         touchField,
         isFormValid,
-        validateAll
+        validateAll,
+        validateRequiredFields
     };
 };

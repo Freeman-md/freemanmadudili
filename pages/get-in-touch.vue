@@ -12,7 +12,7 @@
             just want to connect, let's make something amazing together.
         </p>
 
-        <form action="" class="text-white pt-4 space-y-4">
+        <form @submit.prevent="handleSubmit" class="text-white pt-4 space-y-4">
             <div class="grid sm:grid-cols-2 gap-4">
                 <div class="space-y-1">
                     <div class="form-control">
@@ -54,7 +54,7 @@
                             v-model="form.phone"
                         />
                     </div>
-                    <small class="text-red-500">{{ errors.email }}</small>
+                    <small class="text-red-500">{{ errors.phone }}</small>
                 </div>
             </div>
 
@@ -245,6 +245,7 @@
             </div>
 
             <button
+            type="submit"
                 class="btn btn-primary disabled:!btn-smoky"
                 :disabled="!isFormValid"
             >
@@ -273,5 +274,6 @@ const {
     isSelectedInterest,
     isSelectedBudget,
     isFormValid,
+    handleSubmit
 } = useContactForm();
 </script>
