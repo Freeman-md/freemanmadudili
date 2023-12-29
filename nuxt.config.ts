@@ -39,11 +39,22 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
+    '@nuxtjs/supabase'
   ],
   googleFonts: {
     download: true,
     families: {
       'Josefin+Sans': true
     }
+  },
+  supabase: {
+    url: process.env.SUPABASE_URL,
+    key: process.env.SUPABASE_KEY,
+    redirectOptions: {
+      login: '/login',
+      callback: '/confirm',
+      exclude: ['/', '/get-in-touch'],
+    }
+  
   }
 })

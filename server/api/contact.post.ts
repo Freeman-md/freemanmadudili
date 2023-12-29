@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
 
     try {
-        await ContactService.insertContact(body)
+        await ContactService.insertContact(event, body)
 
         return {
             statusCode: 201,
