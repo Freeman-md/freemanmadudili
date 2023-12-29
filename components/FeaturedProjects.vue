@@ -18,16 +18,16 @@
         </div>
 
         <UiLoading
-            v-if="isFetchingProjects"
+            v-if="fetchingProjects.pending"
             text="Fetching projects"
             class="mx-auto"
         ></UiLoading>
         <div
-            v-else-if="projects"
+            v-else-if="fetchingProjects.data"
             class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 xl:gap-0"
         >
             <FeaturedProject
-                v-for="(project, index) in projects"
+                v-for="(project, index) in fetchingProjects.data"
                 :key="index"
                 :project="project"
             />
@@ -39,7 +39,31 @@
 <script setup lang="ts">
 import ArrowRightIcon from "~/assets/svgs/arrow-right.svg";
 
-const { data: projects, pending: isFetchingProjects, error: fetchingProjectsHasError } = await useFetch(
-    "/api/projects"
-);
+const fetchingProjects: {
+    data: never[] | null,
+    pending: boolean,
+    error: string | null,
+} = reactive({
+    data: null,
+    pending: false,
+    error: null,
+})
+
+const { showNotification } = useNotification()
+
+try {
+    fetchingProjects.pending = true
+
+        const projectsApi = useProjects();
+
+        const response = await projectsApi.getAllProjects();
+
+        if (response && response.status === 200) {
+            fetchingProjects.data = response.data
+        }
+    } catch (error: any) {
+        showNotification(error.message || "An error has occurred", "error");
+    } finally {
+        fetchingProjects.pending = false
+    }
 </script>
