@@ -56,7 +56,7 @@ import Experience from "~/composables/models/experience";
 
 const { experience } = defineProps({
     experience: {
-        type: Object as () => Experience | null,
+        type: Object as () => Partial<Experience> | null,
         required: true,
     },
 });
