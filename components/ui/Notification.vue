@@ -2,15 +2,21 @@
     <transition name="slide">
         <div
             v-if="isVisible"
-            class="fixed z-50 top-20 right-4 backdrop-blur-md border-2 border-primary bg-primary/10 text-primary p-4 rounded shadow-lg"
+            class="fixed z-50 top-20 right-4 backdrop-blur-md border-2 p-4 rounded shadow-lg"
+            :class="{
+                'border-primary bg-primary/10 text-primary':
+                    notificationType === 'success',
+                'border-red-500 bg-red-500/10 text-red-500':
+                    notificationType === 'error',
+            }"
         >
-            {{ notification || "Thanks for Connecting" }}
+            {{ notificationMessage || "Thanks for Connecting" }}
         </div>
     </transition>
 </template>
   
   <script setup>
-const { notification, isVisible } = useNotification();
+const { notificationMessage, notificationType, isVisible } = useNotification();
 </script>
   
   <style>

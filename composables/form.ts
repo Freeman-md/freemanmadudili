@@ -1,11 +1,5 @@
 import { reactive, computed, watch } from 'vue';
-
-type FormField = {
-    value: string;
-    validation: (value: string) => string;
-};
-
-type FormFields = { [key: string]: FormField };
+import type { FormFields } from '~/types';
 
 export const useForm = (initialFields: FormFields, requiredFields: string[] = []) => {
     const form = reactive<{ [key: string]: string }>({});

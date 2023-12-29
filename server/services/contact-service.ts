@@ -4,7 +4,7 @@ import Contact from "~/composables/models/contact";
 import supabase from '../lib/supabase';
 
 class ContactService {
-  async insertContact(project: Contact): Promise<Contact | null> {
+  static async insertContact(project: Contact): Promise<Contact | null> {
     const { data, error } = await supabase.from('contacts').insert([project]).single();
 
     if (error) {

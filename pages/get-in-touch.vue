@@ -245,12 +245,14 @@
             </div>
 
             <button
-            type="submit"
+                type="submit"
                 class="btn btn-primary disabled:!btn-smoky flex items-center justify-center"
                 :disabled="!isFormValid"
             >
-
-            <SpinnerIcon v-if="isProcessingForm" class="animate-spin w-5 h-5 mr-3" />
+                <SpinnerIcon
+                    v-if="isProcessingForm"
+                    class="animate-spin w-5 h-5 mr-3"
+                />
                 Submit & Connect with Freemancodz
             </button>
         </form>
@@ -264,6 +266,7 @@ import MobileIcon from "~/assets/svgs/mobile.svg";
 import BriefcaseIcon from "~/assets/svgs/briefcase.svg";
 import LinkIcon from "~/assets/svgs/link.svg";
 import SpinnerIcon from "~/assets/svgs/spinner.svg";
+import type Contact from "~/composables/models/contact";
 
 const isProcessingForm = ref(false);
 
@@ -286,33 +289,35 @@ const {
 const { showNotification } = useNotification();
 
 const handleSubmit = async () => {
-        if (!validateRequiredFields()) {
-            alert('form is invalid')
-            return false
-        }
-
-        isProcessingForm.value = true
-
-        try {
-            const response = await useFetch( '/api/contact', {
-                method: 'POST',
-                body: form
-            } );
-
-            if (response.status.value === 'success') {
-                resetForm()
-
-                showNotification('Thanks for connecting! 👋 Exciting times ahead! 🚀')
-            }
-        } catch (error) {
-            console.log(error)
-            // Handle exceptions
-        } finally {
-            isProcessingForm.value = false
-        }
+    if (!validateRequiredFields()) {
+        alert("form is invalid");
+        return false;
     }
 
-    useSeoMeta({
-    title: 'Merry Christmas! 🎄🎁 | Connect with Freemancodz',
+    try {
+        isProcessingForm.value = true;
+
+        const contactsApi = useContacts();
+
+        const contact = form as unknown as Contact;
+
+        const response = await contactsApi.createContact(contact);
+
+        if (response && response.status === 201) {
+            resetForm();
+
+            showNotification(
+                "Thanks for connecting! 👋 Exciting times ahead! 🚀"
+            );
+        }
+    } catch (error: any) {
+        showNotification(error.message || "An error has occurred", "error");
+    } finally {
+        isProcessingForm.value = false;
+    }
+};
+
+useSeoMeta({
+    title: "Merry Christmas! 🎄🎁 | Connect with Freemancodz",
 });
 </script>
