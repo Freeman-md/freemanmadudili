@@ -10,10 +10,6 @@ export default defineNuxtConfig({
       ],
     },
   },
-  runtimeConfig: {
-    supabaseUrl: process.env.SUPABASE_URL,
-    supabaseKey: process.env.SUPABASE_KEY,
-  },
   devtools: {
     enabled: true,
 
@@ -39,7 +35,6 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
-    '@nuxtjs/supabase'
   ],
   googleFonts: {
     download: true,
@@ -47,14 +42,4 @@ export default defineNuxtConfig({
       'Josefin+Sans': true
     }
   },
-  supabase: {
-    url: process.env.SUPABASE_URL,
-    key: process.env.SUPABASE_KEY,
-    redirectOptions: {
-      login: '/login',
-      callback: '/confirm',
-      exclude: ['/', '/get-in-touch'],
-    }
-  
-  }
 })
