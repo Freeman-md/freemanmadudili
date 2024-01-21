@@ -23,7 +23,7 @@
 </style>
 
 <script setup lang="ts">
-const title = "Merry Christmas! 🎄🎁 | Freeman Madudili - Digital Coding Artisan"
+const title = "Freeman Madudili - Digital Coding Artisan"
 const description = "Full Stack Developer crafting exceptional digital experiences. Explore my portfolio and witness the fusion of creativity and technology. Let's build the future of the web together"
 const url = "https://freemanmadudili.com"
 const imageUrl = "/images/socialmedia.png"

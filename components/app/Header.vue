@@ -4,9 +4,9 @@
         <div class="container py-4 flex justify-between space-x-4 items-center">
             <NuxtLink aria-label="Go to the top" to="/">
                 <img
-                    src="/images/christmas-logo.png"
+                    src="/images/logo.png"
                     alt="Freemancodz"
-                    class="w-40 -mt-4"
+                    class="w-40"
                 />
             </NuxtLink>
 
