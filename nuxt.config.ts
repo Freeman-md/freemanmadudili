@@ -10,6 +10,11 @@ export default defineNuxtConfig({
       ],
     },
   },
+  runtimeConfig: {
+    public: {
+      api_url: process.env.API_URL
+    }
+  },
   devtools: {
     enabled: true,
 
@@ -42,4 +47,9 @@ export default defineNuxtConfig({
       'Josefin+Sans': true
     }
   },
+  vue: {  
+    compilerOptions: {
+      isCustomElement: (tag) => ['lottie-player'].includes(tag),
+    },
+  }
 })

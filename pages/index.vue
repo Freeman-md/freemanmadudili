@@ -6,7 +6,7 @@
 
         <!-- <JobExperiences id="experience" class="scroll-mt-24" /> -->
 
-        <!-- <FeaturedProjects id="portfolio" class="scroll-mt-24" /> -->
+        <FeaturedProjects id="portfolio" class="scroll-mt-24" />
         
         <AboutMe id="about" class="scroll-mt-24" />
     </div>
