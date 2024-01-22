@@ -7,7 +7,7 @@
 
         <div class="w-full flex md:flex-col">
             <button
-                @click.prevent="selectCompanyTab(index, company.slug)"
+                @click.prevent="selectCompanyTab(index, company.id)"
                 class="text-center md:text-left text-sm w-full text-white p-3 transition duration-200 hover:text-primary hover:bg-primary/10"
                 :class="{
                     '!text-primary !bg-primary/10': activeTabIndex === index,
@@ -50,14 +50,14 @@ const tabWidthInPercent = computed(() =>
     companies ? `${Math.floor(100 / companies.length)}%` : "100%"
 );
 
-const selectCompanyTab = (index: number, slug: string | undefined) => {
+const selectCompanyTab = (index: number, id: number | undefined | null) => {
     activeTabIndex.value = index;
-    activeExperienceCompany.value = slug!;
+    activeExperienceCompany.value = id!;
 };
 
 onMounted(() => {
     activeTabIndex.value = 0;
-    activeExperienceCompany.value = companies ? companies[0].slug! : "";
+    activeExperienceCompany.value = companies ? companies[0].id! : null;
 });
 </script>
   ~/composables/models/experience

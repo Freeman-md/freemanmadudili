@@ -60,4 +60,8 @@ const { experience } = defineProps({
         required: true,
     },
 });
-</script>~/composables/models/experience
+
+// watch(experience!, (oldVal) => {
+//     console.log(oldVal)
+// })
+</script>

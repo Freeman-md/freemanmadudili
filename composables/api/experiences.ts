@@ -1,15 +1,68 @@
-// export const useExperiences = () => {
-//     const supabaseClient = useSupabaseClient()
+export const useExperiences = () => {
+    const activeExperienceCompany = useActiveExperienceCompany();
+    const runtimeConfig = useRuntimeConfig();
+    const { showNotification } = useNotification();
 
-//     const getAllExperiences = async () => await supabaseClient.from('experiences').select('*');
+    const apiUrl = runtimeConfig.public.api_url;
 
-//     const getExperience = async (slug: string) =>  await supabaseClient.from('experiences').select('*').eq('slug', slug).single();
+    const {
+        data: experiences,
+        error: fetchingExperiencesError,
+        pending: isFetchingExperiences,
+    } = useFetch(`${apiUrl}/api/experiences`, {
+        transform: (experiences: { data: any[]; meta: object }) => {
+            return experiences.data.map((experience) => ({
+                ...experience.attributes,
+                id: experience.id,
+            }));
+        },
+    });
 
-//     const getExperienceCompanies = async () => await supabaseClient.from('experiences').select('company, slug').order('id', { ascending: true });
+    const {
+        data: experience,
+        pending: isFetchingExperience,
+        error: fetchingExperienceError,
+    } = useAsyncData(
+        `experiences:${activeExperienceCompany.value}`,
+        (ctx) => {
+            const url = `${apiUrl}/api/experiences/${activeExperienceCompany.value}?populate=*`;
 
-//     return {
-//         getAllExperiences,
-//         getExperience,
-//         getExperienceCompanies,
-//     }
-// }
+            return $fetch(url);
+        },
+        {
+            transform: (experience: { data: any; meta: object }) => {
+                const fields = experience.data.attributes;
+
+                return {
+                    ...fields,
+                    id: experience.data.id,
+                    projects: fields.projects.data.map(
+                        (project: any) => project.attributes
+                    ),
+                };
+            },
+            watch: [activeExperienceCompany],
+        }
+    );
+
+    const companies = computed(() => {
+        if (experiences.value) {
+            return experiences.value.map((experience) => ({
+                company: experience.company,
+                id: experience.id,
+            }));
+        }
+
+        return [];
+    });
+
+    return {
+        experiences,
+        experience,
+        companies,
+        isFetchingExperiences,
+        isFetchingExperience,
+        fetchingExperiencesError,
+        fetchingExperienceError
+    }
+}
