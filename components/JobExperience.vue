@@ -7,7 +7,7 @@
             <span class="text-primary">@ {{ experience?.company }}</span>
         </h6>
         <p class="text-smoky">
-            {{ experience?.start_year }} - {{ experience?.end_year }}
+            {{ duration }}
         </p>
 
         <!-- Responsibilities -->
@@ -61,7 +61,18 @@ const { experience } = defineProps({
     },
 });
 
-// watch(experience!, (oldVal) => {
-//     console.log(oldVal)
-// })
+const duration = computed(() => {
+    let startDate: string | number = 'N/A'
+    let endDate: string | number = 'Present'
+
+    if (experience?.start_date) {
+        startDate = new Date(experience.start_date).toLocaleString('default', { month: 'long', year: 'numeric' })
+    }
+
+    if (experience?.end_date) {
+        endDate = new Date(experience.end_date).toLocaleString('default', { month: 'long', year: 'numeric' })
+    }
+
+    return `${startDate} - ${endDate}`
+})
 </script>

@@ -7,8 +7,8 @@ class Experience {
     company: string = '';
     slug: string = '';
     position: string = '';
-    start_year: number = 0;
-    end_year: number | null = null;
+    start_date: number = 0;
+    end_date: number | null = null;
     responsibilities: string[] = [];
     projects: Partial<Project>[] = [];
     technologies: string[] = [];
