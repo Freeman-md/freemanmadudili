@@ -2,7 +2,7 @@
     <div class="space-y-20">
         <Hero />
 
-        <Skills id="skills" class="scroll-mt-24" />
+        <!-- <Skills id="skills" class="scroll-mt-24" /> -->
 
         <JobExperiences id="experience" class="scroll-mt-24" />
 

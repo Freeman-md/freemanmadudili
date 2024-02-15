@@ -266,7 +266,6 @@ import MobileIcon from "~/assets/svgs/mobile.svg";
 import BriefcaseIcon from "~/assets/svgs/briefcase.svg";
 import LinkIcon from "~/assets/svgs/link.svg";
 import SpinnerIcon from "~/assets/svgs/spinner.svg";
-import type Contact from "~/composables/models/contact";
 
 const isProcessingForm = ref(false);
 
@@ -297,19 +296,19 @@ const handleSubmit = async () => {
     try {
         isProcessingForm.value = true;
 
-        const contactsApi = useContacts();
+        // const contactsApi = useContacts();
 
-        const contact = form as unknown as Contact;
+        // const contact = form as unknown as Contact;
 
-        const response = await contactsApi.createContact(contact);
+        // const response = await contactsApi.createContact(contact);
 
-        if (response && response.status === 201) {
-            resetForm();
+        // if (response && response.status === 201) {
+        //     resetForm();
 
-            showNotification(
-                "Thanks for connecting! 👋 Exciting times ahead! 🚀"
-            );
-        }
+        //     showNotification(
+        //         "Thanks for connecting! 👋 Exciting times ahead! 🚀"
+        //     );
+        // }
     } catch (error: any) {
         showNotification(error.message || "An error has occurred", "error");
     } finally {

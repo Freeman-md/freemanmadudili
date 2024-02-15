@@ -48,8 +48,6 @@
 import PlayIcon from "~/assets/svgs/play.svg";
 import LinkIcon from "~/assets/svgs/link.svg";
 
-import Experience from "~/composables/models/experience";
-
 const { experience } = defineProps({
     experience: {
         type: Object as () => Partial<Experience> | null,

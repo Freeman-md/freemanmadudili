@@ -1,4 +1,4 @@
-export const useExperiences = () => {
+export const useExperiences = async () => {
     const activeExperienceCompany = useActiveExperienceCompany();
     const runtimeConfig = useRuntimeConfig();
     const { showNotification } = useNotification();
@@ -9,8 +9,8 @@ export const useExperiences = () => {
         data: experiences,
         error: fetchingExperiencesError,
         pending: isFetchingExperiences,
-    } = useFetch(`${apiUrl}/api/experiences`, {
-        transform: (experiences: { data: any[]; meta: object }) => {
+    } = await useFetch(`${apiUrl}/api/experiences`, {
+        transform: (experiences: StrapiCollectionResponse<Experience>) => {
             return experiences.data.map((experience) => ({
                 ...experience.attributes,
                 id: experience.id,
@@ -22,7 +22,7 @@ export const useExperiences = () => {
         data: experience,
         pending: isFetchingExperience,
         error: fetchingExperienceError,
-    } = useAsyncData(
+    } = await useAsyncData(
         `experiences:${activeExperienceCompany.value}`,
         (ctx) => {
             const url = `${apiUrl}/api/experiences/${activeExperienceCompany.value}?populate=*`;
@@ -46,7 +46,7 @@ export const useExperiences = () => {
     );
 
     const companies = computed(() => {
-        if (experiences.value) {
+        if (experiences && experiences.value) {
             return experiences.value.map((experience) => ({
                 company: experience.company,
                 id: experience.id,

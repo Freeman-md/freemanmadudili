@@ -1,34 +1,24 @@
 <template>
     <div class="flex flex-col w-full md:flex-row md:w-1/4 h-full">
-        <TabVerticalLine
-            :translate-y-value-in-rem="translateYValueInRem"
-            :tab-container-height-in-rem="tabContainerHeightInRem"
-        />
+        <TabVerticalLine :translate-y-value-in-rem="translateYValueInRem"
+            :tab-container-height-in-rem="tabContainerHeightInRem" />
 
         <div class="w-full flex md:flex-col">
-            <button
-                @click.prevent="selectCompanyTab(index, company.id)"
+            <button @click.prevent="selectCompanyTab(index, company.id)"
                 class="text-center md:text-left text-sm w-full text-white p-3 transition duration-200 hover:text-primary hover:bg-primary/10"
                 :class="{
                     '!text-primary !bg-primary/10': activeTabIndex === index,
-                }"
-                v-for="(company, index) in companies"
-                :key="index"
-            >
+                }" v-for="(company, index) in companies" :key="index">
                 {{ company.company }}
             </button>
         </div>
 
-        <TabHorizontalLine
-            :tab-width-in-percent="tabWidthInPercent"
-            :translate-x-value-in-percent="translateXValueInPercent"
-        />
+        <TabHorizontalLine :tab-width-in-percent="tabWidthInPercent"
+            :translate-x-value-in-percent="translateXValueInPercent" />
     </div>
 </template>
   
-  <script setup lang="ts">
-import Experience from "~/composables/models/experience";
-
+<script setup lang="ts">
 const { companies } = defineProps({
     companies: Object as () => Partial<Experience>[] | null,
 });

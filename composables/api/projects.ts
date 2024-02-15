@@ -1,4 +1,4 @@
-export const useProjects = () => {
+export const useProjects = async () => {
     const runtimeConfig = useRuntimeConfig();
     const apiUrl = runtimeConfig.public.api_url;
 
@@ -6,11 +6,11 @@ export const useProjects = () => {
         data: projects,
         error,
         pending,
-    } = useFetch(`${apiUrl}/api/projects?populate=*`, {
-        transform: (projects: { data: any[]; meta: object }) => {
+    } = await useFetch(`${apiUrl}/api/projects?populate=*`, {
+        transform: (projects: StrapiCollectionResponse<Project>) => {
             return projects.data.map((project) => ({
                 ...project.attributes,
-                image: `${apiUrl}${project.attributes.image.data.attributes.url}`
+                image: `${apiUrl}${project.attributes?.image?.data.attributes.url}`
             }));
         },
     });
