@@ -63,9 +63,15 @@ declare global {
         end_date: number | null = null;
         responsibilities: string[] = [];
         responsibilities_new: string = '';
-        projects: Partial<Project>[] = [];
+        projects: {
+            data: StrapiResponseData<Project>[]
+        };
         technologies: string[] = [];
     }
+
+    type FormattedExperience = Omit<Experience, 'projects'> & {
+        projects: Project[];
+    };
 
     type Project = {
         title: string = '';

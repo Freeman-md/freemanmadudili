@@ -21,13 +21,13 @@
             class="flex space-x-4 items-center w-full overflow-y-hidden overflow-x-scroll"
         >
             <NuxtLink
-                :to="link.links?.live || link.links?.github"
+                :to="project?.links.live || project.links?.github"
                 target="_blank"
-                v-for="(link, index) in experience?.projects"
+                v-for="(project, index) in experience?.projects"
                 :key="index"
                 class="text-smoky transition duration-200 hover:text-white flex space-x-2 min-w-fit"
             >
-                <LinkIcon /> <span>{{ link.title }}</span>
+                <LinkIcon /> <span>{{ project.title }}</span>
             </NuxtLink>
         </div>
 
@@ -50,7 +50,7 @@ import LinkIcon from "~/assets/svgs/link.svg";
 
 const { experience } = defineProps({
     experience: {
-        type: Object as () => Partial<Experience> | null,
+        type: Object as () => FormattedExperience,
         required: true,
     },
 });
