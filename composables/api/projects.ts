@@ -2,8 +2,6 @@ export const useProjects = () => {
     const runtimeConfig = useRuntimeConfig();
     const apiUrl = runtimeConfig.public.api_url;
 
-    const { showNotification } = useNotification();
-
     const {
         data: projects,
         error,
@@ -16,12 +14,6 @@ export const useProjects = () => {
             }));
         },
     });
-
-    if (error.value) {
-        const errorMessage = error.value.message
-
-        showNotification("Failed to fetch projects");
-    }
 
     return {
         projects,
