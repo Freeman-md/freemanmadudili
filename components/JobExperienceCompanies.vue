@@ -60,4 +60,3 @@ onMounted(() => {
     activeExperienceCompany.value = companies ? companies[0].id! : null;
 });
 </script>
-  ~/composables/models/experience

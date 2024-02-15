@@ -13,7 +13,7 @@
         text="Fetching companies"
         class="mx-auto"
       ></UiLoading>
-      <JobExperienceCompanies v-else-if="companies" :companies="companies" />
+      <JobExperienceCompanies v-else-if="companies && !hasError" :companies="companies" />
 
       <!-- Display job experience for company -->
       <UiLoading
@@ -21,12 +21,15 @@
         v-if="isFetchingExperience"
         text="Fetching experience"
       ></UiLoading>
-      <JobExperience v-else-if="experience" :experience="experience" />
+      <JobExperience v-else-if="experience && !hasError" :experience="experience" />
       <UiEmpty v-else message="Career Highlights are currently unavailable" />
     </div>
   </div>
 </template>
   
 <script setup lang="ts">
-const { companies, experience, isFetchingExperiences, isFetchingExperience } = useExperiences()
+const { companies, experience, isFetchingExperiences, isFetchingExperience, fetchingExperiencesError, fetchingExperienceError } = useExperiences()
+
+// check if either experience(s) error does not have a status code of 200
+const hasError = computed(() => !fetchingExperiencesError.value?.statusCode?.toString().startsWith('2') || !fetchingExperienceError.value?.statusCode.toString().startsWith('2'))
 </script>

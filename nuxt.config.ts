@@ -40,6 +40,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
+    '@nuxt/content'
   ],
   googleFonts: {
     download: true,

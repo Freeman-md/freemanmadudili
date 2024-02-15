@@ -10,6 +10,7 @@ class Experience {
     start_date: number = 0;
     end_date: number | null = null;
     responsibilities: string[] = [];
+    responsibilities_new: string = '';
     projects: Partial<Project>[] = [];
     technologies: string[] = [];
 }

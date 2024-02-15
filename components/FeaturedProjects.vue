@@ -23,7 +23,7 @@
       class="mx-auto"
     ></UiLoading>
     <div
-      v-else-if="featuredProjects"
+      v-else-if="featuredProjects && !error"
       class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 xl:gap-0"
     >
       <FeaturedProject
