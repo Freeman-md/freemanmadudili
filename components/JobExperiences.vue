@@ -26,6 +26,10 @@ const apiUrl = runtimeConfig.public.api_url;
 
 const { experiences, fetchingExperiencesError, isFetchingExperiences } = await useExperiences(apiUrl);
 
+if (experiences && experiences.value) {
+  activeExperienceCompany.value = experiences.value[0].id
+}
+
 const { experience, isFetchingExperience, fetchingExperienceError } = await useExperience(apiUrl, activeExperienceCompany);
 
 const companies = computed(() => {
@@ -41,7 +45,7 @@ const companies = computed(() => {
 
 // check if either experience(s) error does not have a status code of 200
 const hasError = computed(() => {
-  return fetchingExperiencesError.value || 
-           fetchingExperienceError.value;
+  return fetchingExperiencesError.value ||
+    fetchingExperienceError.value;
 })
 </script>

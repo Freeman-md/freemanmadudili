@@ -1,1 +1,1 @@
-export const useActiveExperienceCompany = () => useState<number | null>('activeExperienceCompany', () => 4)
+export const useActiveExperienceCompany = () => useState<number | null>('activeExperienceCompany', () => null)
