@@ -1,10 +1,10 @@
 const client_manifest = {
-  "_link.BZsE4y54.js": {
+  "_link.CNJlmcy7.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "link.BZsE4y54.js",
+    "file": "link.CNJlmcy7.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
@@ -32,7 +32,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "error-404.BMh4Ny-Q.js",
+    "file": "error-404.B0GKO-xs.js",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -51,7 +51,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "error-500.DgQyVis8.js",
+    "file": "error-500.DAG_WI7j.js",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -70,7 +70,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "entry.BlMGvcq_.js",
+    "file": "entry.CGdaUaSw.js",
     "src": "node_modules/nuxt/dist/app/entry.js",
     "isEntry": true,
     "dynamicImports": [
@@ -93,12 +93,12 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "get-in-touch.IVGcGH4I.js",
+    "file": "get-in-touch.Dd2baRoe.js",
     "src": "pages/get-in-touch.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_link.BZsE4y54.js"
+      "_link.CNJlmcy7.js"
     ]
   },
   "pages/index.vue": {
@@ -106,12 +106,12 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "index.C24T0aNo.js",
+    "file": "index.nmRDlAiV.js",
     "src": "pages/index.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_link.BZsE4y54.js"
+      "_link.CNJlmcy7.js"
     ],
     "css": [
       "index.83rPw6sV.css"

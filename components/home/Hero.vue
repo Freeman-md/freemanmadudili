@@ -31,7 +31,7 @@
 
             <div class="order-first md:order-last flex flex-col space-y-4 items-center justify-center">
                 <div class="w-1/2 md:w-full md:h-96 overflow-hidden rounded-xl">
-                    <NuxtImg src="/images/banner.jpg" alt="Freeman Madudili" class="object-contain object-center w-full" />
+                    <NuxtImg preload placeholder src="/images/banner.jpg" alt="Freeman Madudili" class="object-contain object-center w-full" />
                 </div>
                 <p class="text-smoky">A.K.A <span class="text-primary text-lg">Freemancodz</span></p>
             </div>
