@@ -705,7 +705,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_nuxt/index-up_ICobE.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-BUwYtX2M.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -1435,7 +1435,7 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent({
         }),
         _: 1
       }, _parent));
-      _push(`</div><button class="space-y-2 inline-block md:hidden hamburger"><div class="${ssrRenderClass([{ "rotate-45 translate-y-1": unref(isSidebarOpen) }, "w-6 h-0.5 bg-primary transform transition duration-200"])}"></div><div class="${ssrRenderClass([{
+      _push(`</div><button class="space-y-2 inline-block md:hidden hamburger" title="Hamburger"><div class="${ssrRenderClass([{ "rotate-45 translate-y-1": unref(isSidebarOpen) }, "w-6 h-0.5 bg-primary transform transition duration-200"])}"></div><div class="${ssrRenderClass([{
         "-rotate-45 -translate-y-[0.35rem]": unref(isSidebarOpen)
       }, "w-6 h-0.5 bg-primary transform transition duration-200"])}"></div></button></div></header>`);
     };
@@ -1595,7 +1595,24 @@ const _export_sfc = (sfc, props) => {
 };
 const _sfc_main$8 = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex flex-col space-y-4 items-center justify-center text-center w-4/5 sm:w-3/5 lg:w-1/2 mx-auto" }, _attrs))}><p class="text-smoky">Get in touch</p><h3 class="text-6xl font-bold text-white">Let&#39;s work together</h3><p class="text-lg text-smoky"> Open for collaboration and exploring new opportunities! Whether it&#39;s a website, mobile app, or full-time and contract roles in software development as a full stack, frontend or backend developer, let&#39;s <a href="mailto:hello@freemanmadudili.com" aria-label="Send a mail" class="text-primary font-semibold transition duration-200 hover:underline">connect</a>. Timely communication benefits us both. 🚀📬 </p><a href="mailto:hello@freemanmadudili.com" class="btn btn-primary">hello@freemanmadudili.com</a></div>`);
+  const _component_NuxtLink = __nuxt_component_0;
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "flex flex-col space-y-4 items-center justify-center text-center w-4/5 sm:w-3/5 lg:w-1/2 mx-auto" }, _attrs))}><p class="text-smoky">Get in touch</p><h3 class="text-6xl font-bold text-white">Let&#39;s work together</h3><p class="text-lg text-smoky"> Open for collaboration and exploring new opportunities! Whether it&#39;s a website, mobile app, or full-time and contract roles in software development as a full stack, frontend or backend developer, let&#39;s <a href="mailto:hello@freemanmadudili.com" aria-label="Send a mail" class="text-primary font-semibold transition duration-200 hover:underline">connect</a>. Timely communication benefits us both. 🚀📬 </p>`);
+  _push(ssrRenderComponent(_component_NuxtLink, {
+    to: "mailto:hello@freemanmadudili.com",
+    class: "btn btn-primary"
+  }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(`hello@freemanmadudili.com`);
+      } else {
+        return [
+          createTextVNode("hello@freemanmadudili.com")
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(`</div>`);
 }
 const _sfc_setup$8 = _sfc_main$8.setup;
 _sfc_main$8.setup = (props, ctx) => {

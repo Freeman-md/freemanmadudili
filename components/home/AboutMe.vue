@@ -8,7 +8,7 @@
             I'm Freeman Madudili, a Full Stack Software Developer based in London, UK.
         </p>
         <p>
-            Currently, I'm crafting seamless user interfaces and innovative web solutions at <b>Xclusive Designs</strong>.
+            Currently, I'm crafting seamless user interfaces and innovative web solutions at <b>Xclusive Designs</b>.
                 With a track record of transforming ideas into functional applications, I bring a blend of creativity,
                 technical expertise, and passion for delivering exceptional user experiences.
         </p>

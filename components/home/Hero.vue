@@ -1,90 +1,43 @@
 <template>
-    <div
-        class="container flex flex-col space-y-6 sm:space-y-0 sm:flex-row sm:-space-x-16 md:-space-x-20 lg:-space-x-28 xl:-space-x-32 justify-center items-center py-20 lg:py-32"
-    >
-        <!-- Banner section with social links -->
-        <div class="flex flex-col space-y-6 items-center w-1/2 min-w-1/2">
-            <div class="sm:w-3/4 overflow-hidden">
-                <img
-                    src="/images/banner.png"
-                    alt="Freeman Madudili"
-                    class="object-cover w-full"
-                />
-            </div>
+    <section id="hero" class="container py-20 lg:py-32 grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
 
-            <!-- Social Links -->
-            <SocialLinks class="hidden sm:inline-block" />
-        </div>
+        <div class="lg:col-span-2 flex flex-col space-y-8">
 
-        <!-- About Me Intro -->
-        <div class="w-full bgxs:w-1/2 min-h-[6rem]">
-            <h1
-                ref="typewriter"
-                class="text-white text-center sm:text-left text-5xl sm:text-4xl md:text-5xl lg:text-6xl"
-            >
-                I am <span class="text-primary lowercase"></span>
+            <p class="text-primary text-lg">— Freeman Madudili</p>
+
+            <h1 class="text-5xl md:text-7xl text-smoky">
+                I'm a <span class="text-primary">
+                    Certified Full Stack Developer
+                </span>
             </h1>
+
+            <p class="text-white">
+                A distinguished Full Stack Developer with over <strong>3 years of experience</strong> and a <strong>First
+                    Class Honours</strong> degree in <strong>Information Technology</strong> from Middlesex University.
+                Expert in crafting advanced web solutions, evidenced by numerous successful projects. Awarded a
+                <strong>Distinction</strong> in <strong>BTEC Level 3 Advanced Diploma in Software Engineering</strong> from
+                Aptech Computer Education.
+            </p>
+
+            <SocialLinks class="inline-block" />
+
+            <NuxtLink to="#skills" class="text-white underline text-sm">More about me</NuxtLink>
+
         </div>
 
-        <SocialLinks class="inline-block sm:hidden" />
-    </div>
+        <div class="order-first md:order-last flex flex-col space-y-4 items-center justify-center">
+            <div class="w-1/2 md:w-full md:h-96 overflow-hidden rounded-xl">
+                <img src="/images/banner.jpg" alt="Freeman Madudili" class="object-contain object-center w-full" />
+            </div>
+            <p class="text-smoky">A.K.A <span class="text-primary text-lg">Freemancodz</span></p>
+            <a href="/freeman-madudili-cv.pdf" target="_blank" class="btn btn-primary">My Resume</a>
+        </div>
+
+    </section>
 </template>
-  
-  <script>
-export default {
-    data() {
-        return {
-            texts: [
-                "An Infinite Possibilities Architect",
-                "A Creative Technologist",
-                "A Digital Visionary",
-                "A Future-Forward Developer",
-                "An Innovation Enthusiast",
-            ],
-            currentIndex: 0,
-        };
-    },
-    mounted() {
-        this.typeWriter();
-    },
-    methods: {
-        typeWriter() {
-            const currentText = this.texts[this.currentIndex];
-            const span =
-                this.$refs.typewriter.querySelector("span.text-primary");
 
-            if (span.textContent.length < currentText.length) {
-                span.textContent += currentText.charAt(span.textContent.length);
-                setTimeout(() => this.typeWriter(), 100);
-            } else {
-                // Wait for some seconds before starting the backspacing
-                setTimeout(() => this.backspaceText(), 1500);
-            }
-        },
-        backspaceText() {
-            const span =
-                this.$refs.typewriter.querySelector("span.text-primary");
-            const currentText = span.textContent;
-
-            if (currentText.length > 0) {
-                span.textContent = currentText.slice(0, -1);
-                setTimeout(() => this.backspaceText(), 100);
-            } else {
-                // Move to the next text after backspacing
-                this.nextText();
-            }
-        },
-        nextText() {
-            const span =
-                this.$refs.typewriter.querySelector("span.text-primary");
-            span.textContent = ""; // Clear the current text
-
-            // Move to the next index, or loop back to the first index
-            this.currentIndex = (this.currentIndex + 1) % this.texts.length;
-
-            this.typeWriter(); // Start typing the next text
-        },
-    },
-};
-</script>
-  
+<style scoped>
+p strong {
+    @apply text-primary font-bold
+}
+</style>

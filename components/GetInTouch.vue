@@ -8,6 +8,6 @@
             Open for collaboration and exploring new opportunities! Whether it's a website, mobile app, or full-time and contract roles in software development as a full stack, frontend or backend developer, let's <a href="mailto:hello@freemanmadudili.com" aria-label="Send a mail" class="text-primary font-semibold transition duration-200 hover:underline">connect</a>. Timely communication benefits us both. 🚀📬
         </p>
 
-        <a href="mailto:hello@freemanmadudili.com" class="btn btn-primary">hello@freemanmadudili.com</a>
+        <NuxtLink to="mailto:hello@freemanmadudili.com" class="btn btn-primary">hello@freemanmadudili.com</NuxtLink>
     </div>
 </template>
