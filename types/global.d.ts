@@ -92,6 +92,10 @@ declare global {
         featured: boolean = false
     }
 
+    type FormattedProject = Omit<Project, 'image'> & {
+        image: string;
+    };
+
     type Contact = {
         id: number | null = null;
         name: string = '';
