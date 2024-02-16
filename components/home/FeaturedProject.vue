@@ -52,7 +52,7 @@
 import GithubIcon from "~/assets/svgs/github.svg";
 import ExternalLinkIcon from "~/assets/svgs/external-link.svg";
 
-const { project } = defineProps({
-    project: Object,
-});
+const { project } = defineProps<{
+    project: Project
+}>();
 </script>

@@ -3,7 +3,9 @@
         <div class="bg-secondary w-screen min-h-screen">
             <AppHeader />
 
-            <NuxtPage />
+            <main class="pt-28">
+                <NuxtPage />
+            </main>
 
             <GetInTouch id="contact" class="mt-20" />
 

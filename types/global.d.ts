@@ -86,6 +86,7 @@ declare global {
         github: undefined,
         live: undefined,
         };
+        link: string;
         technologies: string[] = [];
         slug?: string;
         featured: boolean = false

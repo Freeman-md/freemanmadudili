@@ -1,5 +1,5 @@
 <template>
-    <div class="container space-y-4 pt-28">
+    <main class="container space-y-4 pt-28">
         <h1 class="uppercase text-sm text-white">Get In Touch</h1>
 
         <h2 class="font-bold text-primary text-5xl">
@@ -256,7 +256,7 @@
                 Submit & Connect with Freemancodz
             </button>
         </form>
-    </div>
+    </main>
 </template>
 
 <script setup lang="ts">

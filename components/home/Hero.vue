@@ -1,5 +1,5 @@
 <template>
-    <section id="hero" class="container py-20 lg:py-32 space-y-8">
+    <section id="hero" class="container space-y-8">
 
         <p class="text-primary text-lg text-center md:text-left">— Freeman Madudili —</p>
 
