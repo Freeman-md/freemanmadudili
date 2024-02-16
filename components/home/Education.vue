@@ -20,7 +20,7 @@
             <li class="mb-10 ms-4">
                 <div class="absolute w-3 h-3 bg-white rounded-full mt-1.5 -start-1.5 border border-white">
                 </div>
-                <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">July 2023</time>
+                <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Feb 2022</time>
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
                     BTEC Level 3 Advanced Diploma in Software Engineering (ADSE)<span class="text-primary"> -
                         Distinction</span><br>

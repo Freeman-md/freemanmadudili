@@ -96,6 +96,17 @@ declare global {
         image: string;
     };
 
+    type Tool = {
+        title: string = '';
+        image?: {
+            data: StrapiResponseData<StrapiMedia>
+        };
+    }
+
+    type FormattedTool = Omit<Tool, 'image'> & {
+        image: string;
+    };
+
     type Contact = {
         id: number | null = null;
         name: string = '';
