@@ -37,11 +37,7 @@ export default defineNuxtConfig({
       svgLoader(),
     ],
   },
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/google-fonts',
-    '@nuxt/content'
-  ],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/google-fonts', '@nuxt/image'],
   googleFonts: {
     download: true,
     families: {
@@ -51,6 +47,17 @@ export default defineNuxtConfig({
   vue: {  
     compilerOptions: {
       isCustomElement: (tag) => ['lottie-player'].includes(tag),
+    },
+  },
+  image: {
+    screens: {
+      'xs': 320,
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      'xxl': 1536,
+      '2xl': 1536
     },
   }
 })

@@ -1,4 +1,4 @@
-import { hasInjectionContext, inject, version, ref, watchEffect, watch, getCurrentInstance, defineAsyncComponent, toRef, isRef, useSSRContext, defineComponent, provide, shallowReactive, h, Suspense, nextTick, Transition, unref, computed, resolveComponent, mergeProps, withCtx, createVNode, createTextVNode, toDisplayString, openBlock, createElementBlock, createApp, effectScope, reactive, createElementVNode, onErrorCaptured, onServerPrefetch, resolveDynamicComponent, shallowRef, isReadonly, isShallow, isReactive, toRaw } from 'vue';
+import { version, ref, watchEffect, watch, getCurrentInstance, toRef, isRef, useSSRContext, defineComponent, provide, shallowReactive, h, inject, Suspense, nextTick, Transition, unref, computed, resolveComponent, mergeProps, withCtx, createVNode, createTextVNode, toDisplayString, openBlock, createElementBlock, createApp, effectScope, reactive, hasInjectionContext, createElementVNode, defineAsyncComponent, onErrorCaptured, onServerPrefetch, resolveDynamicComponent, shallowRef, isReadonly, isShallow, isReactive, toRaw } from 'vue';
 import { h as useRuntimeConfig$1, $ as $fetch, c as createError$1, m as defu, n as hasProtocol, j as joinURL, p as parseURL, o as parseQuery, q as createHooks, w as withQuery, r as isScriptProtocol, t as withTrailingSlash, v as withoutTrailingSlash, x as sanitizeStatusCode } from '../nitro/node-server.mjs';
 import { getActiveHead } from 'unhead';
 import { defineHeadPlugin, composableNames, unpackMeta } from '@unhead/shared';
@@ -10,27 +10,7 @@ import 'fs';
 import 'path';
 import 'node:fs';
 import 'node:url';
-import 'unified';
-import 'mdast-util-to-string';
-import 'micromark';
-import 'unist-util-stringify-position';
-import 'micromark-util-character';
-import 'micromark-util-chunked';
-import 'micromark-util-resolve-all';
-import 'micromark-util-sanitize-uri';
-import 'slugify';
-import 'remark-parse';
-import 'remark-rehype';
-import 'remark-mdc';
-import 'hast-util-to-string';
-import 'github-slugger';
-import 'detab';
-import 'remark-emoji';
-import 'remark-gfm';
-import 'rehype-external-links';
-import 'rehype-sort-attribute-values';
-import 'rehype-sort-attributes';
-import 'rehype-raw';
+import 'ipx';
 
 function createContext$1(opts = {}) {
   let currentInstance;
@@ -705,7 +685,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_nuxt/index-BHbDqu0h.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-CW3lHyX1.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -1008,88 +988,8 @@ const revive_payload_server_eJ33V7gbc6 = /* @__PURE__ */ defineNuxtPlugin({
     }
   }
 });
-const LazyContentDoc = defineAsyncComponent(() => import('./_nuxt/ContentDoc-CPKk5QrE.mjs').then((r) => r.default));
-const LazyContentList = defineAsyncComponent(() => import('./_nuxt/ContentList-DiXMlgz0.mjs').then((r) => r.default));
-const LazyContentNavigation = defineAsyncComponent(() => import('./_nuxt/ContentNavigation-D5hkep5J.mjs').then((r) => r.default));
-const LazyContentQuery = defineAsyncComponent(() => import('./_nuxt/ContentQuery-rqW0wjSy.mjs').then((r) => r.default));
-const LazyContentRenderer = defineAsyncComponent(() => import('./_nuxt/ContentRenderer-DuxH-4Js.mjs').then((r) => r.default));
-const LazyContentRendererMarkdown = defineAsyncComponent(() => import('./_nuxt/ContentRendererMarkdown-BdN0q86Z.mjs').then((r) => r.default));
-const LazyContentSlot = defineAsyncComponent(() => import('./_nuxt/ContentSlot-DY7LiAz9.mjs').then((r) => r.default));
-const LazyDocumentDrivenEmpty = defineAsyncComponent(() => import('./_nuxt/DocumentDrivenEmpty-CVfz7tly.mjs').then((r) => r.default));
-const LazyDocumentDrivenNotFound = defineAsyncComponent(() => import('./_nuxt/DocumentDrivenNotFound-4pTrsASA.mjs').then((r) => r.default));
-const LazyMarkdown = defineAsyncComponent(() => import('./_nuxt/Markdown-DyICXKoB.mjs').then((r) => r.default));
-const LazyProseCode = defineAsyncComponent(() => import('./_nuxt/ProseCode-pTmlp-wa.mjs').then((r) => r.default));
-const LazyProseCodeInline = defineAsyncComponent(() => import('./_nuxt/ProseCodeInline-CrCwFUrE.mjs').then((r) => r.default));
-const LazyProsePre = defineAsyncComponent(() => import('./_nuxt/ProsePre-B0teryc4.mjs').then((r) => r.default));
-const LazyProseA = defineAsyncComponent(() => import('./_nuxt/ProseA-p6JmwyKy.mjs').then((r) => r.default));
-const LazyProseBlockquote = defineAsyncComponent(() => import('./_nuxt/ProseBlockquote-oxGglG1G.mjs').then((r) => r.default));
-const LazyProseEm = defineAsyncComponent(() => import('./_nuxt/ProseEm-ChXBDLLq.mjs').then((r) => r.default));
-const LazyProseH1 = defineAsyncComponent(() => import('./_nuxt/ProseH1-BZa-N7pL.mjs').then((r) => r.default));
-const LazyProseH2 = defineAsyncComponent(() => import('./_nuxt/ProseH2-ew3XCHRI.mjs').then((r) => r.default));
-const LazyProseH3 = defineAsyncComponent(() => import('./_nuxt/ProseH3-Ck-D65CL.mjs').then((r) => r.default));
-const LazyProseH4 = defineAsyncComponent(() => import('./_nuxt/ProseH4-BnhsIQVO.mjs').then((r) => r.default));
-const LazyProseH5 = defineAsyncComponent(() => import('./_nuxt/ProseH5-DHvQn2XQ.mjs').then((r) => r.default));
-const LazyProseH6 = defineAsyncComponent(() => import('./_nuxt/ProseH6-DhDagV8r.mjs').then((r) => r.default));
-const LazyProseHr = defineAsyncComponent(() => import('./_nuxt/ProseHr-Gi7NoCBW.mjs').then((r) => r.default));
-const LazyProseImg = defineAsyncComponent(() => import('./_nuxt/ProseImg-C-G_h0mI.mjs').then((r) => r.default));
-const LazyProseLi = defineAsyncComponent(() => import('./_nuxt/ProseLi-B1evsr4t.mjs').then((r) => r.default));
-const LazyProseOl = defineAsyncComponent(() => import('./_nuxt/ProseOl-C6wGo5ly.mjs').then((r) => r.default));
-const LazyProseP = defineAsyncComponent(() => import('./_nuxt/ProseP-DPFs8ep9.mjs').then((r) => r.default));
-const LazyProseScript = defineAsyncComponent(() => import('./_nuxt/ProseScript-B6KFhxs2.mjs').then((r) => r.default));
-const LazyProseStrong = defineAsyncComponent(() => import('./_nuxt/ProseStrong-CyikYUrV.mjs').then((r) => r.default));
-const LazyProseTable = defineAsyncComponent(() => import('./_nuxt/ProseTable-X08Ibyxe.mjs').then((r) => r.default));
-const LazyProseTbody = defineAsyncComponent(() => import('./_nuxt/ProseTbody-7JZ9LlZT.mjs').then((r) => r.default));
-const LazyProseTd = defineAsyncComponent(() => import('./_nuxt/ProseTd-8s_5MNbk.mjs').then((r) => r.default));
-const LazyProseTh = defineAsyncComponent(() => import('./_nuxt/ProseTh-C4T3Sn6I.mjs').then((r) => r.default));
-const LazyProseThead = defineAsyncComponent(() => import('./_nuxt/ProseThead-GFeGFpMA.mjs').then((r) => r.default));
-const LazyProseTr = defineAsyncComponent(() => import('./_nuxt/ProseTr-Dx5kCHnT.mjs').then((r) => r.default));
-const LazyProseUl = defineAsyncComponent(() => import('./_nuxt/ProseUl-Dljw7CYM.mjs').then((r) => r.default));
-const lazyGlobalComponents = [
-  ["ContentDoc", LazyContentDoc],
-  ["ContentList", LazyContentList],
-  ["ContentNavigation", LazyContentNavigation],
-  ["ContentQuery", LazyContentQuery],
-  ["ContentRenderer", LazyContentRenderer],
-  ["ContentRendererMarkdown", LazyContentRendererMarkdown],
-  ["MDCSlot", LazyContentSlot],
-  ["DocumentDrivenEmpty", LazyDocumentDrivenEmpty],
-  ["DocumentDrivenNotFound", LazyDocumentDrivenNotFound],
-  ["Markdown", LazyMarkdown],
-  ["ProseCode", LazyProseCode],
-  ["ProseCodeInline", LazyProseCodeInline],
-  ["ProsePre", LazyProsePre],
-  ["ProseA", LazyProseA],
-  ["ProseBlockquote", LazyProseBlockquote],
-  ["ProseEm", LazyProseEm],
-  ["ProseH1", LazyProseH1],
-  ["ProseH2", LazyProseH2],
-  ["ProseH3", LazyProseH3],
-  ["ProseH4", LazyProseH4],
-  ["ProseH5", LazyProseH5],
-  ["ProseH6", LazyProseH6],
-  ["ProseHr", LazyProseHr],
-  ["ProseImg", LazyProseImg],
-  ["ProseLi", LazyProseLi],
-  ["ProseOl", LazyProseOl],
-  ["ProseP", LazyProseP],
-  ["ProseScript", LazyProseScript],
-  ["ProseStrong", LazyProseStrong],
-  ["ProseTable", LazyProseTable],
-  ["ProseTbody", LazyProseTbody],
-  ["ProseTd", LazyProseTd],
-  ["ProseTh", LazyProseTh],
-  ["ProseThead", LazyProseThead],
-  ["ProseTr", LazyProseTr],
-  ["ProseUl", LazyProseUl]
-];
 const components_plugin_KR1HBZs4kY = /* @__PURE__ */ defineNuxtPlugin({
-  name: "nuxt:global-components",
-  setup(nuxtApp) {
-    for (const [name, component] of lazyGlobalComponents) {
-      nuxtApp.vueApp.component(name, component);
-      nuxtApp.vueApp.component("Lazy" + name, component);
-    }
-  }
+  name: "nuxt:global-components"
 });
 const click_outside_D2NiLGp7dJ = /* @__PURE__ */ defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive("click-outside", {
@@ -2019,5 +1919,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { GithubIcon as G, MailIcon as M, _export_sfc as _, __nuxt_component_0 as a, useNotification as b, createError as c, useSeoMeta as d, entry$1 as default, _sfc_main$7 as e, fetchDefaults as f, useState as g, useRuntimeConfig as h, useRoute as i, asyncDataDefaults as j, useNuxtApp as k, useHead as u };
+export { GithubIcon as G, MailIcon as M, _export_sfc as _, __nuxt_component_0 as a, useNotification as b, createError as c, useSeoMeta as d, entry$1 as default, useNuxtApp as e, useRuntimeConfig as f, _sfc_main$7 as g, asyncDataDefaults as h, fetchDefaults as i, useState as j, useHead as u };
 //# sourceMappingURL=server.mjs.map

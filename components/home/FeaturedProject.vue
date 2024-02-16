@@ -7,7 +7,7 @@
                 target="_blank"
                 class="block transform translate-y-4 translate-x-4 xs:w-48 xs:h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-60 lg:h-60 xl:w-72 xl:h-72 overflow-hidden rounded-lg transition duration-200 group-hover:!translate-x-0 group-hover:!translate-y-0"
             >
-                <img
+                <NuxtImg
                     :src="project.image"
                     :alt="project.title"
                     class="object-cover w-full h-full"
