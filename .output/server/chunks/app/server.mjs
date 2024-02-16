@@ -705,7 +705,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_nuxt/index-BUwYtX2M.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-BHbDqu0h.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
