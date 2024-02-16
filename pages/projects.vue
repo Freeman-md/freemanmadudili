@@ -77,7 +77,10 @@
 import ArrowLeftIcon from '~/assets/svgs/arrow-left.svg'
 import ArrowUpRightIcon from '~/assets/svgs/arrow-up-right.svg'
 
-const { pending, error, projects } = await useProjects()
+const runtimeConfig = useRuntimeConfig();
+const apiUrl = runtimeConfig.public.api_url + `/api/projects?populate=*`;
+
+const { projects, pending, error } = await useProjects(apiUrl);
 
 const modifiedProjects = computed(() => {
     if (projects && projects.value) {

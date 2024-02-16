@@ -14,11 +14,11 @@
 
         <UiLoading v-if="pending" text="Fetching projects" class="mx-auto"></UiLoading>
 
-        <UiEmpty v-else-if="featuredProjects.length === 0 || error" message="Featured Projects are currently unavailable">
+        <UiEmpty v-else-if="projects?.length === 0 || error" message="Featured Projects are currently unavailable">
         </UiEmpty>
 
         <div v-else class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 xl:gap-0">
-            <HomeFeaturedProject v-for="(project, index) in featuredProjects" :key="index" :project="project" />
+            <HomeFeaturedProject v-for="(project, index) in projects" :key="index" :project="project" />
         </div>
     </div>
 </template>
@@ -26,13 +26,8 @@
 <script setup lang="ts">
 import ArrowRightIcon from "~/assets/svgs/arrow-right.svg";
 
-const { projects, pending, error } = await useProjects();
+const runtimeConfig = useRuntimeConfig();
+const apiUrl = runtimeConfig.public.api_url + `/api/projects?populate=*&filters[featured][$eq]=true`;
 
-const featuredProjects = computed(() => {
-    if (projects && projects.value) {
-        return projects.value.filter((project: { featured: boolean }) => project.featured);
-    }
-
-    return [];
-});
+const { projects, pending, error } = await useProjects(apiUrl);
 </script>
