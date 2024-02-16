@@ -7,13 +7,13 @@
     <div class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4 items-start">
       <!-- Display job experience companies -->
       <UiLoading v-if="isFetchingExperiences" text="Fetching companies" class="mx-auto"></UiLoading>
-      <JobExperienceCompanies v-else-if="companies.length > 0 && !hasError" :companies="companies" />
+      <HomeJobExperienceCompanies v-else-if="companies.length > 0 && !hasError" :companies="companies" />
 
       <!-- Display job experience for company -->
       <UiLoading class="mx-auto my-auto w-full md:w-3/4" v-if="isFetchingExperience" text="Fetching experience">
       </UiLoading>
       <UiEmpty v-else-if="!experience || hasError" message="Career Highlights are currently unavailable" class="w-full" />
-      <JobExperience v-else :experience="experience" />
+      <HomeJobExperience v-else :experience="experience" />
     </div>
   </div>
 </template>

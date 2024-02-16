@@ -5,13 +5,15 @@
         <h2 class="text-6xl text-primary font-bold">Hi there, I’m Freeman Madudili</h2>
 
         <p class="text-lg">
-            I'm Freeman Madudili, a Full Stack Software Developer based in London, UK. 
-            </p>
-            <p>
-Currently, I'm crafting seamless user interfaces and innovative web solutions. With a track record of transforming ideas into functional applications, I bring a blend of creativity, technical expertise, and passion for delivering exceptional user experiences. 
-</p>
-<p>
-Let's create something extraordinary together.
+            I'm Freeman Madudili, a Full Stack Software Developer based in London, UK.
+        </p>
+        <p>
+            Currently, I'm crafting seamless user interfaces and innovative web solutions at <b>Xclusive Designs</strong>.
+                With a track record of transforming ideas into functional applications, I bring a blend of creativity,
+                technical expertise, and passion for delivering exceptional user experiences.
+        </p>
+        <p>
+            Let's create something extraordinary together.
         </p>
 
         <div class="flex flex-col space-y-4 xs:flex-row xs:space-y-0 xs:space-x-4 xs:items-center xs:justify-between">

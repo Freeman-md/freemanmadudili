@@ -34,6 +34,7 @@
             <button
                 class="space-y-2 inline-block md:hidden hamburger"
                 @click="() => toggleSidebar()"
+                title="Hamburger"
             >
                 <div
                     class="w-6 h-0.5 bg-primary transform transition duration-200"

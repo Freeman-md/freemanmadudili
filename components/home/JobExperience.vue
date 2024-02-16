@@ -1,9 +1,9 @@
 <template>
     <div class="w-full md:w-3/4 flex flex-col space-y-3 overflow-hidden">
-        <h6 class="text-white">
+        <p class="text-white">
             {{ experience?.position }}
             <span class="text-primary">@ {{ experience?.company }}</span>
-        </h6>
+        </p>
         <p class="text-smoky">
             {{ duration }}
         </p>

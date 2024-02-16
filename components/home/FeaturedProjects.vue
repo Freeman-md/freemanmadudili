@@ -32,7 +32,7 @@
             v-else
             class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 xl:gap-0"
         >
-            <FeaturedProject
+            <HomeFeaturedProject
                 v-for="(project, index) in featuredProjects"
                 :key="index"
                 :project="project"
