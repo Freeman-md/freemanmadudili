@@ -247,7 +247,7 @@
             <button
                 type="submit"
                 class="btn btn-primary disabled:!btn-smoky flex items-center justify-center"
-                :disabled="!isFormValid"
+                :disabled="!isFormValid" 
             >
                 <SpinnerIcon
                     v-if="isProcessingForm"
@@ -281,15 +281,18 @@ const {
     isSelectedInterest,
     isSelectedBudget,
     isFormValid,
-    validateRequiredFields,
-    resetForm,
+    validateForm,
+    initializeForm: resetForm,
 } = useContactForm();
 
 const { showNotification } = useNotification();
 
 const handleSubmit = async () => {
-    if (!validateRequiredFields()) {
-        alert("form is invalid");
+    validateForm()
+
+    if (!isFormValid.value) {
+        showNotification('Please make sure all fields are valid', 'error')
+
         return false;
     }
 
@@ -317,6 +320,6 @@ const handleSubmit = async () => {
 };
 
 useSeoMeta({
-    title: "Merry Christmas! 🎄🎁 | Connect with Freemancodz",
+    title: "Connect with Freemancodz",
 });
 </script>

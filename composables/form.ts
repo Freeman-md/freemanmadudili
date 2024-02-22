@@ -1,100 +1,66 @@
-import { reactive, computed, watch } from 'vue';
-import type { FormFields } from '~/types/global';
-
-export const useForm = (initialFields: FormFields, requiredFields: string[] = []) => {
-    const form = reactive<{ [key: string]: string }>({});
+export const useForm = <T extends Record<string, any>>(initialFields: T, validationRules: ValidationRules, requiredFields: string[]) => {
+    const form = reactive<{ [key: string]: any }>({});
     const errors = reactive<{ [key: string]: string }>({});
     const touched = reactive<{ [key: string]: boolean }>({});
 
-    // Initialize form fields, errors, and touched states
-    for (const key in initialFields) {
-        form[key] = initialFields[key].value;
-        errors[key] = '';
-        touched[key] = false;
-    }
+    const isEmpty = (value: string) => !value
 
-    // Function to validate if a field is required and non-empty
-    const isRequiredAndEmpty = (fieldName: string, value: string) => {
-        return requiredFields.includes(fieldName) && !value;
+    // check if field is required
+    const isARequiredField = (fieldName: string) => {
+        return requiredFields.includes(fieldName);
     };
 
-    // Function to validate a single field
-    const validateField = (fieldName: string, value: string) => {
-        if (!touched[fieldName]) return '';
-        if (isRequiredAndEmpty(fieldName, value)) return 'This field is required';
-        return initialFields[fieldName].validation(value);
-    };
-
-    // Watch each form field for changes
-    Object.keys(form).forEach((key) => {
-        watch(() => form[key], (newValue) => {
-            touchField(key)
-
-            // if (touched[key]) {
-                errors[key] = validateField(key, newValue);
-            // }
-        });
-    });
-
-    // Function to mark a field as touched
-    const touchField = (fieldName: string) => {
-        touched[fieldName] = true;
-        errors[fieldName] = validateField(fieldName, form[fieldName]);
-    };
-
-    const validateAll = () => {
-        let isValid = true;
-    
-        // First, mark all fields as touched and validate them
-        for (const key in form) {
-            touchField(key);
-        }
-    
-        // Then, check if there are any errors
-        for (const key in errors) {
-            if (errors[key]) {
-                isValid = false;
-                break;
-            }
-        }
-    
-        return isValid;
-    };
-
-    const validateRequiredFields = () => {
-        let isRequiredFieldsValid = true;
-    
-        requiredFields.forEach(fieldName => {
-            if (!form[fieldName]) {
-                errors[fieldName] = 'This field is required';
-                isRequiredFieldsValid = false;
-            } else {
-                errors[fieldName] = ''; // Clear error if field is filled
-            }
-        });
-    
-        return isRequiredFieldsValid;
-    };
-    
-
-    const isFormValid = computed(() => {
-        // Check if all required fields are filled        
-        const requiredFieldsFilled = requiredFields.every(field => form[field]);
-    
-        // Check if there are no errors
-        const noErrors = Object.keys(errors).every(key => !errors[key]);
-    
-        return requiredFieldsFilled && noErrors;
-    });
-
-    const resetForm = () => {
+    const initializeForm = () => {
         for (const key in initialFields) {
-            form[key] = initialFields[key].value;
+            form[key] = initialFields[key];
             errors[key] = '';
             touched[key] = false;
         }
     };
-    
+
+    // validate a single field
+    const validateField = (fieldName: string, value: string) => {
+        if (!touched[fieldName]) return '';
+
+        if (isARequiredField(fieldName) && isEmpty(value)) return 'This field is required'
+
+        if (fieldName in validationRules) return validationRules[fieldName](value)
+
+        return ''
+    };
+
+    // mark field as touched
+    const touchField = (fieldName: string) => {
+        touched[fieldName] = true;
+        
+        errors[fieldName] = validateField(fieldName, form[fieldName]);
+    };
+
+
+    const isFormValid = computed(() => {
+        // Check if all required fields are filled        
+        const requiredFieldsFilled = requiredFields.every(field => form[field]);
+
+        // Check if there are no errors
+        const noErrors = Object.keys(errors).every(key => !errors[key]);
+
+        return requiredFieldsFilled && noErrors;
+    });
+
+    const validateForm = () => {
+        Object.keys(form).forEach(key => {
+            touchField(key)
+        })
+    }
+
+    initializeForm()
+
+    // Watch each form field for changes
+    Object.keys(form).forEach((key) => {
+        watch(() => form[key], (newValue, oldValue) => {
+            touchField(key)
+        });
+    });
 
     return {
         form,
@@ -102,8 +68,7 @@ export const useForm = (initialFields: FormFields, requiredFields: string[] = []
         touched,
         touchField,
         isFormValid,
-        validateAll,
-        validateRequiredFields,
-        resetForm,
+        validateForm,
+        initializeForm,
     };
 };

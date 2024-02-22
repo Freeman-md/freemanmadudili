@@ -45,84 +45,35 @@ const budgets = [
     }
 ]
 
-const validateField = (value: string) => value.length ? '' : `This field is required`;
-const validateEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Invalid email format';
-const validateName = (value: string) => value.length > 5 ? '' : 'Name must be at least 6 characters long';
-const validatePhone = (value: string) => /^\+?([0-9]{1,3})\s?([0-9]{1,4})[\s-]?([0-9]{1,4})[\s-]?([0-9]{1,4})[\s-]?([0-9]{1,9})$/.test(value) ? '' : 'Phone must be a valid number';
-const validateInterest = (value: string) => value && interests.includes(value) ? '' : 'Selected interest is invalid';
-const validateDescription = (value: string) => value.length > 20 ? '' : 'Description must be at least 20 characters long';
-const validateBudget = (value: string) => value && budgets.some(budget => budget.value === value) ? '' : 'Selected budget is not valid';
-const validateRole = (value: string) => value && roles.some(role => role === value) ? '' : 'Selected role is not valid';
-const validateCollaboration = (value: string) => value && collaborations.some(collaboration => collaboration === value) ? '' : 'Selected collaboration is not valid';
-
 export const useContactForm = () => {
     // Define the fields specific to the contact form
-    const fields = {
-        name: {
-            value: '',
-            validation: validateName
-        },
-        email: {
-            value: '',
-            validation: validateEmail
-        },
-        phone: {
-            value: '',
-            validation: validatePhone
-        },
-        interest: {
-            value: 'Portfolio Website',
-            validation: validateInterest
-        },
-        field_of_study: {
-            value: '',
-            validation: validateField
-        },
-        profile_url: {
-            value: '',
-            validation: validateField
-        },
-        portfolio_purpose: {
-            value: '',
-            validation: validateField
-        },
-        portfolio_description: {
-            value: '',
-            validation: validateField
-        },
-        personal_information: {
-            value: '',
-            validation: validateField
-        },
-        role: {
-            value: '',
-            validation: validateField
-        },
-        role_description: {
-            value: '',
-            validation: validateField
-        },
-        budget: {
-            value: '',
-            validation: validateField
-        },
-        collaboration: {
-            value: '',
-            validation: validateField
-        },
-        collaboration_overview: {
-            value: '',
-            validation: validateField
-        },
-        inquiry: {
-            value: '',
-            validation: validateField
-        },
+    const formFields: Contact = {
+        name: '',
+        email: '',
+        phone: '',
+        interest: 'Portfolio Website',
+        field_of_study: '',
+        profile_url: '',
+        portfolio_purpose: '',
+        portfolio_description: '',
+        personal_information: '',
+        role: '',
+        role_description: '',
+        budget: '',
+        collaboration: '',
+        collaboration_overview: '',
+        inquiry: '',
     };
 
     const requiredFields = ['name', 'email', 'phone', 'interest']
 
-    const { form, errors, isFormValid, touchField, validateAll, validateRequiredFields, resetForm } = useForm(fields, requiredFields);
+    const validationRules = {
+        email: (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Invalid email format',
+        phone: (value: string) => /^\+?([0-9]{1,3})\s?([0-9]{1,4})[\s-]?([0-9]{1,4})[\s-]?([0-9]{1,4})[\s-]?([0-9]{1,9})$/.test(value) ? '' : 'Phone must be a valid number',
+        interest: (value: string) => value && interests.includes(value) ? '' : 'Selected interest is invalid'
+    };
+
+    const { form, errors, isFormValid, touchField, validateForm, initializeForm } = useForm<Contact>(formFields, validationRules, requiredFields);
 
     const selectInterest = (interest: string) => {
         touchField('interest')
@@ -145,16 +96,15 @@ export const useContactForm = () => {
         interests,
         roles,
         collaborations,
-        form,
-        errors,
         selectInterest,
         selectBudget,
         isSelectedInterest,
         isSelectedBudget,
+        form,
+        errors,
         isFormValid,
         touchField,
-        validateAll,
-        validateRequiredFields,
-        resetForm,
+        validateForm,
+        initializeForm,
     }
 }

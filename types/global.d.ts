@@ -1,4 +1,4 @@
-export * from './form-fields'
+export {  }
 
 declare global {
 
@@ -108,7 +108,7 @@ declare global {
     };
 
     type Contact = {
-        id: number | null = null;
+        id?: number | null = null;
         name: string = '';
         email: string = '';
         phone: string = '';
@@ -124,6 +124,10 @@ declare global {
         collaboration?: string;
         collaboration_overview?: string;
         inquiry?: string;
+    }
+
+    type ValidationRules = {
+        [key: string]: (value: string) => string
     }
 
 }
