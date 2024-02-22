@@ -1,4 +1,4 @@
-import { defineComponent, ref, mergeProps, unref, useSSRContext, reactive, watch, computed, openBlock, createElementBlock, createElementVNode } from 'vue';
+import { defineComponent, ref, mergeProps, unref, useSSRContext, reactive, computed, watch, openBlock, createElementBlock, createElementVNode } from 'vue';
 import { b as useNotification, d as useSeoMeta, M as MailIcon } from '../server.mjs';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr, ssrInterpolate, ssrRenderList, ssrRenderClass, ssrIncludeBooleanAttr, ssrLooseContain, ssrLooseEqual } from 'vue/server-renderer';
 import { L as LinkIcon } from './link-d7eV5WBs.mjs';
@@ -14,81 +14,58 @@ import 'unhead';
 import '@unhead/shared';
 import 'vue-router';
 
-const useForm = (initialFields, requiredFields = []) => {
+const useForm = (initialFields, validationRules, requiredFields) => {
   const form = reactive({});
   const errors = reactive({});
   const touched = reactive({});
-  for (const key in initialFields) {
-    form[key] = initialFields[key].value;
-    errors[key] = "";
-    touched[key] = false;
-  }
-  const isRequiredAndEmpty = (fieldName, value) => {
-    return requiredFields.includes(fieldName) && !value;
+  const isEmpty = (value) => !value;
+  const isARequiredField = (fieldName) => {
+    return requiredFields.includes(fieldName);
   };
-  const validateField2 = (fieldName, value) => {
+  const initializeForm = () => {
+    for (const key in initialFields) {
+      form[key] = initialFields[key];
+      errors[key] = "";
+      touched[key] = false;
+    }
+  };
+  const validateField = (fieldName, value) => {
     if (!touched[fieldName])
       return "";
-    if (isRequiredAndEmpty(fieldName, value))
+    if (isARequiredField(fieldName) && isEmpty(value))
       return "This field is required";
-    return initialFields[fieldName].validation(value);
+    if (fieldName in validationRules)
+      return validationRules[fieldName](value);
+    return "";
   };
-  Object.keys(form).forEach((key) => {
-    watch(() => form[key], (newValue) => {
-      touchField(key);
-      errors[key] = validateField2(key, newValue);
-    });
-  });
   const touchField = (fieldName) => {
     touched[fieldName] = true;
-    errors[fieldName] = validateField2(fieldName, form[fieldName]);
-  };
-  const validateAll = () => {
-    let isValid = true;
-    for (const key in form) {
-      touchField(key);
-    }
-    for (const key in errors) {
-      if (errors[key]) {
-        isValid = false;
-        break;
-      }
-    }
-    return isValid;
-  };
-  const validateRequiredFields = () => {
-    let isRequiredFieldsValid = true;
-    requiredFields.forEach((fieldName) => {
-      if (!form[fieldName]) {
-        errors[fieldName] = "This field is required";
-        isRequiredFieldsValid = false;
-      } else {
-        errors[fieldName] = "";
-      }
-    });
-    return isRequiredFieldsValid;
+    errors[fieldName] = validateField(fieldName, form[fieldName]);
   };
   const isFormValid = computed(() => {
     const requiredFieldsFilled = requiredFields.every((field) => form[field]);
     const noErrors = Object.keys(errors).every((key) => !errors[key]);
     return requiredFieldsFilled && noErrors;
   });
-  const resetForm = () => {
-    for (const key in initialFields) {
-      form[key] = initialFields[key].value;
-      errors[key] = "";
-      touched[key] = false;
-    }
+  const validateForm = () => {
+    Object.keys(form).forEach((key) => {
+      touchField(key);
+    });
   };
+  initializeForm();
+  Object.keys(form).forEach((key) => {
+    watch(() => form[key], (newValue, oldValue) => {
+      touchField(key);
+    });
+  });
   return {
     form,
     errors,
     touched,
     touchField,
     isFormValid,
-    validateAll,
-    validateRequiredFields,
-    resetForm
+    validateForm,
+    initializeForm
   };
 };
 const interests = [
@@ -134,76 +111,31 @@ const budgets = [
     text: "Over \xA375000"
   }
 ];
-const validateField = (value) => value.length ? "" : `This field is required`;
-const validateEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? "" : "Invalid email format";
-const validateName = (value) => value.length > 5 ? "" : "Name must be at least 6 characters long";
-const validatePhone = (value) => /^\+?([0-9]{1,3})\s?([0-9]{1,4})[\s-]?([0-9]{1,4})[\s-]?([0-9]{1,4})[\s-]?([0-9]{1,9})$/.test(value) ? "" : "Phone must be a valid number";
-const validateInterest = (value) => value && interests.includes(value) ? "" : "Selected interest is invalid";
 const useContactForm = () => {
-  const fields = {
-    name: {
-      value: "",
-      validation: validateName
-    },
-    email: {
-      value: "",
-      validation: validateEmail
-    },
-    phone: {
-      value: "",
-      validation: validatePhone
-    },
-    interest: {
-      value: "Portfolio Website",
-      validation: validateInterest
-    },
-    field_of_study: {
-      value: "",
-      validation: validateField
-    },
-    profile_url: {
-      value: "",
-      validation: validateField
-    },
-    portfolio_purpose: {
-      value: "",
-      validation: validateField
-    },
-    portfolio_description: {
-      value: "",
-      validation: validateField
-    },
-    personal_information: {
-      value: "",
-      validation: validateField
-    },
-    role: {
-      value: "",
-      validation: validateField
-    },
-    role_description: {
-      value: "",
-      validation: validateField
-    },
-    budget: {
-      value: "",
-      validation: validateField
-    },
-    collaboration: {
-      value: "",
-      validation: validateField
-    },
-    collaboration_overview: {
-      value: "",
-      validation: validateField
-    },
-    inquiry: {
-      value: "",
-      validation: validateField
-    }
+  const formFields = {
+    name: "",
+    email: "",
+    phone: "",
+    interest: "Portfolio Website",
+    field_of_study: "",
+    profile_url: "",
+    portfolio_purpose: "",
+    portfolio_description: "",
+    personal_information: "",
+    role: "",
+    role_description: "",
+    budget: "",
+    collaboration: "",
+    collaboration_overview: "",
+    inquiry: ""
   };
   const requiredFields = ["name", "email", "phone", "interest"];
-  const { form, errors, isFormValid, touchField, validateAll, validateRequiredFields, resetForm } = useForm(fields, requiredFields);
+  const validationRules = {
+    email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? "" : "Invalid email format",
+    phone: (value) => /^\+?([0-9]{1,3})\s?([0-9]{1,4})[\s-]?([0-9]{1,4})[\s-]?([0-9]{1,4})[\s-]?([0-9]{1,9})$/.test(value) ? "" : "Phone must be a valid number",
+    interest: (value) => value && interests.includes(value) ? "" : "Selected interest is invalid"
+  };
+  const { form, errors, isFormValid, touchField, validateForm, initializeForm } = useForm(formFields, validationRules, requiredFields);
   const selectInterest = (interest) => {
     touchField("interest");
     form.interest = interest;
@@ -219,17 +151,16 @@ const useContactForm = () => {
     interests,
     roles,
     collaborations,
-    form,
-    errors,
     selectInterest,
     selectBudget,
     isSelectedInterest,
     isSelectedBudget,
+    form,
+    errors,
     isFormValid,
     touchField,
-    validateAll,
-    validateRequiredFields,
-    resetForm
+    validateForm,
+    initializeForm
   };
 };
 const _hoisted_1$3 = {
@@ -327,15 +258,15 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       isSelectedInterest,
       isSelectedBudget,
       isFormValid,
-      validateRequiredFields,
-      resetForm
+      validateForm,
+      initializeForm: resetForm
     } = useContactForm();
     useNotification();
     useSeoMeta({
-      title: "Merry Christmas! \u{1F384}\u{1F381} | Connect with Freemancodz"
+      title: "Connect with Freemancodz"
     });
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "container space-y-4 pt-28" }, _attrs))}><h1 class="uppercase text-sm text-white">Get In Touch</h1><h2 class="font-bold text-primary text-5xl"> Connect with Freemancodz </h2><p class="text-smoky"> Welcome to the hub of creativity and technology. Whether you&#39;re seeking a professional portfolio, project inquiry, collaboration, or just want to connect, let&#39;s make something amazing together. </p><form class="text-white pt-4 space-y-4"><div class="grid sm:grid-cols-2 gap-4"><div class="space-y-1"><div class="form-control">`);
+      _push(`<main${ssrRenderAttrs(mergeProps({ class: "container space-y-4 pt-28" }, _attrs))}><h1 class="uppercase text-sm text-white">Get In Touch</h1><h2 class="font-bold text-primary text-5xl"> Connect with Freemancodz </h2><p class="text-smoky"> Welcome to the hub of creativity and technology. Whether you&#39;re seeking a professional portfolio, project inquiry, collaboration, or just want to connect, let&#39;s make something amazing together. </p><form class="text-white pt-4 space-y-4"><div class="grid sm:grid-cols-2 gap-4"><div class="space-y-1"><div class="form-control">`);
       _push(ssrRenderComponent(unref(UserIcon), { class: "w-10" }, null, _parent));
       _push(`<input name="name" type="text" placeholder="Fullname"${ssrRenderAttr("value", unref(form).name)}></div><small class="text-red-500">${ssrInterpolate(unref(errors).name)}</small></div><div class="space-y-1"><div class="form-control">`);
       _push(ssrRenderComponent(unref(MailIcon), { class: "w-10" }, null, _parent));
@@ -396,7 +327,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       } else {
         _push(`<!---->`);
       }
-      _push(` Submit &amp; Connect with Freemancodz </button></form></div>`);
+      _push(` Submit &amp; Connect with Freemancodz </button></form></main>`);
     };
   }
 });
@@ -408,4 +339,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=get-in-touch-D7s0VUNK.mjs.map
+//# sourceMappingURL=get-in-touch-CegVHjO8.mjs.map

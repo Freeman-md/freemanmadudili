@@ -9,6 +9,7 @@ export const useContacts = () => {
             body: {
                 data
             },
+            watch: false
         })
     }
 

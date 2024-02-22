@@ -1,5 +1,5 @@
 import { version, ref, watchEffect, watch, getCurrentInstance, toRef, isRef, useSSRContext, defineComponent, provide, shallowReactive, h, inject, Suspense, nextTick, Transition, unref, computed, resolveComponent, mergeProps, withCtx, createVNode, createTextVNode, toDisplayString, openBlock, createElementBlock, createApp, effectScope, reactive, hasInjectionContext, createElementVNode, defineAsyncComponent, onErrorCaptured, onServerPrefetch, resolveDynamicComponent, shallowRef, isReadonly, isShallow, isReactive, toRaw } from 'vue';
-import { h as useRuntimeConfig$1, $ as $fetch, c as createError$1, m as defu, n as hasProtocol, j as joinURL, p as parseURL, o as parseQuery, q as createHooks, w as withQuery, r as isScriptProtocol, t as withTrailingSlash, v as withoutTrailingSlash, x as sanitizeStatusCode } from '../nitro/node-server.mjs';
+import { d as useRuntimeConfig$1, $ as $fetch, h as createError$1, l as defu, m as hasProtocol, j as joinURL, p as parseURL, n as parseQuery, o as createHooks, w as withQuery, q as isScriptProtocol, r as withTrailingSlash, t as withoutTrailingSlash, v as sanitizeStatusCode } from '../nitro/node-server.mjs';
 import { getActiveHead } from 'unhead';
 import { defineHeadPlugin, composableNames, unpackMeta } from '@unhead/shared';
 import { RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
@@ -677,7 +677,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_nuxt/get-in-touch-D7s0VUNK.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/get-in-touch-CegVHjO8.mjs').then((m) => m.default || m)
   },
   {
     name: "index",
@@ -685,7 +685,15 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_nuxt/index-CW3lHyX1.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-BWU10g7E.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "projects",
+    path: "/projects",
+    meta: {},
+    alias: [],
+    redirect: void 0 ,
+    component: () => import('./_nuxt/projects-B7tyfevU.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -1797,7 +1805,9 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       const _component_UiNotification = __nuxt_component_6;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "relative" }, _attrs))}><div class="bg-secondary w-screen min-h-screen">`);
       _push(ssrRenderComponent(_component_AppHeader, null, null, _parent));
+      _push(`<main class="pt-28">`);
       _push(ssrRenderComponent(_component_NuxtPage, null, null, _parent));
+      _push(`</main>`);
       _push(ssrRenderComponent(_component_GetInTouch, {
         id: "contact",
         class: "mt-20"
@@ -1919,5 +1929,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { GithubIcon as G, MailIcon as M, _export_sfc as _, __nuxt_component_0 as a, useNotification as b, createError as c, useSeoMeta as d, entry$1 as default, useNuxtApp as e, useRuntimeConfig as f, _sfc_main$7 as g, asyncDataDefaults as h, fetchDefaults as i, useState as j, useHead as u };
+export { GithubIcon as G, MailIcon as M, _export_sfc as _, __nuxt_component_0 as a, useNotification as b, createError as c, useSeoMeta as d, entry$1 as default, useRuntimeConfig as e, useNuxtApp as f, _sfc_main$7 as g, useState as h, asyncDataDefaults as i, fetchDefaults as j, useHead as u };
 //# sourceMappingURL=server.mjs.map
