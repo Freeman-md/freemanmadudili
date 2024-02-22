@@ -1,11 +1,18 @@
-// import type Contact from "../models/contact";
+export const useContacts = () => {
+    const runtimeConfig = useRuntimeConfig()
+    const apiUrl = runtimeConfig.public.api_url
 
-// export const useContacts = () => {
-//     const supabaseClient = useSupabaseClient()
+    const createContact = async (data: Contact) => {
+        console.log('making request')
+        return await useFetch(`${apiUrl}/api/contacts`, {
+            method: 'POST',
+            body: {
+                data
+            },
+        })
+    }
 
-//     const createContact = async (data: Contact) => await supabaseClient.from('contacts').insert([data]).single();
-
-//     return {
-//         createContact
-//     }
-// }
+    return {
+        createContact
+    }
+}

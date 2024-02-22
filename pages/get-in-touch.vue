@@ -18,12 +18,7 @@
                     <div class="form-control">
                         <UserIcon class="w-10" />
 
-                        <input
-                            name="name"
-                            type="text"
-                            placeholder="Fullname"
-                            v-model="form.name"
-                        />
+                        <input name="name" type="text" placeholder="Fullname" v-model="form.name" />
                     </div>
 
                     <small class="text-red-500">{{ errors.name }}</small>
@@ -33,12 +28,7 @@
                     <div class="form-control">
                         <MailIcon class="w-10" />
 
-                        <input
-                            name="email"
-                            type="text"
-                            placeholder="Email Address"
-                            v-model="form.email"
-                        />
+                        <input name="email" type="text" placeholder="Email Address" v-model="form.email" />
                     </div>
                     <small class="text-red-500">{{ errors.email }}</small>
                 </div>
@@ -47,12 +37,7 @@
                     <div class="form-control">
                         <MobileIcon class="w-10" />
 
-                        <input
-                            name="phone"
-                            type="text"
-                            placeholder="Phone Number"
-                            v-model="form.phone"
-                        />
+                        <input name="phone" type="text" placeholder="Phone Number" v-model="form.phone" />
                     </div>
                     <small class="text-red-500">{{ errors.phone }}</small>
                 </div>
@@ -62,18 +47,12 @@
                 <p class="text-primary">Select your interest</p>
 
                 <div class="flex flex-wrap">
-                    <button
-                        @click="selectInterest(interest)"
-                        v-for="(interest, index) in interests"
-                        :key="index"
-                        type="button"
-                        class="flex-1 btn mr-4 mb-4"
-                        :class="[
+                    <button @click="selectInterest(interest)" v-for="(interest, index) in interests" :key="index"
+                        type="button" class="flex-1 btn mr-4 mb-4" :class="[
                             isSelectedInterest(interest)
                                 ? 'btn-primary bg-primary/10'
                                 : 'btn-white',
-                        ]"
-                    >
+                        ]">
                         {{ interest }}
                     </button>
                 </div>
@@ -82,177 +61,100 @@
             </div>
 
             <div>
-                <section
-                    id="portfolio-website"
-                    v-if="form.interest === 'Portfolio Website'"
-                    class="space-y-4"
-                >
+                <section id="portfolio-website" v-if="form.interest === 'Portfolio Website'" class="space-y-4">
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div class="form-control">
                             <BriefcaseIcon class="w-10" />
 
-                            <input
-                                name="field-of-study"
-                                type="text"
-                                placeholder="Field of Study"
-                                v-model="form.field_of_study"
-                            />
+                            <input name="field-of-study" type="text" placeholder="Field of Study"
+                                v-model="form.field_of_study" />
                         </div>
 
                         <div class="form-control">
                             <LinkIcon class="w-6" />
 
-                            <input
-                                name="field-of-study"
-                                type="text"
-                                placeholder="Linkedin Profile"
-                                v-model="form.profile_url"
-                            />
+                            <input name="field-of-study" type="text" placeholder="Linkedin Profile"
+                                v-model="form.profile_url" />
                         </div>
                     </div>
 
                     <div class="form-control">
-                        <textarea
-                            name="portfolio-purpose"
-                            placeholder="Purpose of Needing a Portfolio Website"
-                            rows="4"
-                            class="resize-none"
-                            v-model="form.portfolio_purpose"
-                        ></textarea>
+                        <textarea name="portfolio-purpose" placeholder="Purpose of Needing a Portfolio Website" rows="4"
+                            class="resize-none" v-model="form.portfolio_purpose"></textarea>
                     </div>
 
                     <div class="form-control">
-                        <textarea
-                            name="portfolio-description"
-                            placeholder="Description of Ideal Portfolio Website"
-                            rows="4"
-                            class="resize-none"
-                            v-model="form.portfolio_description"
-                        ></textarea>
+                        <textarea name="portfolio-description" placeholder="Description of Ideal Portfolio Website" rows="4"
+                            class="resize-none" v-model="form.portfolio_description"></textarea>
                     </div>
 
                     <div class="form-control">
-                        <textarea
-                            name="personal-information"
-                            placeholder="Personal Information (Optional)"
-                            rows="4"
-                            class="resize-none"
-                            v-model="form.personal_information"
-                        ></textarea>
+                        <textarea name="personal-information" placeholder="Personal Information (Optional)" rows="4"
+                            class="resize-none" v-model="form.personal_information"></textarea>
                     </div>
                 </section>
 
-                <section
-                    id="project-inquiry"
-                    v-if="form.interest === 'Project Inquiry / Hiring'"
-                    class="space-y-4"
-                >
+                <section id="project-inquiry" v-if="form.interest === 'Project Inquiry / Hiring'" class="space-y-4">
                     <div class="form-control">
                         <BriefcaseIcon class="w-10" />
 
                         <select name="project-role" v-model="form.role">
                             <option value="">Type of Project / Role</option>
-                            <option
-                                :value="role"
-                                v-for="(role, index) in roles"
-                                :key="index"
-                            >
+                            <option :value="role" v-for="(role, index) in roles" :key="index">
                                 {{ role }}
                             </option>
                         </select>
                     </div>
 
                     <div class="form-control">
-                        <textarea
-                            name="project-description"
-                            placeholder="Brief Description of Project/Role"
-                            rows="4"
-                            class="resize-none"
-                            v-model="form.role_description"
-                        ></textarea>
+                        <textarea name="project-description" placeholder="Brief Description of Project/Role" rows="4"
+                            class="resize-none" v-model="form.role_description"></textarea>
                     </div>
 
                     <div class="space-y-2">
                         <p class="text-primary">Budget Range</p>
                         <div class="flex flex-wrap">
-                            <button
-                                @click="selectBudget(budget.value)"
-                                v-for="(budget, index) in budgets"
-                                :key="index"
-                                type="button"
-                                class="flex-1 btn mr-4 mb-4"
-                                :class="[
+                            <button @click="selectBudget(budget.value)" v-for="(budget, index) in budgets" :key="index"
+                                type="button" class="flex-1 btn mr-4 mb-4" :class="[
                                     isSelectedBudget(budget.value)
                                         ? 'btn-primary bg-primary/10'
                                         : 'btn-white',
-                                ]"
-                            >
+                                ]">
                                 {{ budget.text }}
                             </button>
                         </div>
                     </div>
                 </section>
 
-                <section
-                    id="collaboration"
-                    v-if="form.interest === 'Collaboration'"
-                    class="space-y-4"
-                >
+                <section id="collaboration" v-if="form.interest === 'Collaboration'" class="space-y-4">
                     <div class="form-control">
                         <BriefcaseIcon class="w-10" />
 
-                        <select
-                            name="collaboration"
-                            v-model="form.collaboration"
-                        >
+                        <select name="collaboration" v-model="form.collaboration">
                             <option value="">Area of Collaboration</option>
-                            <option
-                                :value="collaboration"
-                                v-for="(collaboration, index) in collaborations"
-                                :key="index"
-                            >
+                            <option :value="collaboration" v-for="(collaboration, index) in collaborations" :key="index">
                                 {{ collaboration }}
                             </option>
                         </select>
                     </div>
 
                     <div class="form-control">
-                        <textarea
-                            name="collaboration-overview"
-                            placeholder="Overview of Collaboration Idea"
-                            rows="4"
-                            class="resize-none"
-                            v-model="form.collaboration_overview"
-                        ></textarea>
+                        <textarea name="collaboration-overview" placeholder="Overview of Collaboration Idea" rows="4"
+                            class="resize-none" v-model="form.collaboration_overview"></textarea>
                     </div>
                 </section>
 
-                <section
-                    id="other-inquiries"
-                    v-if="form.interest === 'Other Inquiries'"
-                    class="space-y-4"
-                >
+                <section id="other-inquiries" v-if="form.interest === 'Other Inquiries'" class="space-y-4">
                     <div class="form-control">
-                        <textarea
-                            name="other-inquiries"
-                            placeholder="What do you have in mind?"
-                            rows="4"
-                            class="resize-none"
-                            v-model="form.inquiry"
-                        ></textarea>
+                        <textarea name="other-inquiries" placeholder="What do you have in mind?" rows="4"
+                            class="resize-none" v-model="form.inquiry"></textarea>
                     </div>
                 </section>
             </div>
 
-            <button
-                type="submit"
-                class="btn btn-primary disabled:!btn-smoky flex items-center justify-center"
-                :disabled="!isFormValid" 
-            >
-                <SpinnerIcon
-                    v-if="isProcessingForm"
-                    class="animate-spin w-5 h-5 mr-3"
-                />
+            <button type="submit" class="btn btn-primary disabled:!btn-smoky flex items-center justify-center"
+                :disabled="!isFormValid">
+                <SpinnerIcon v-if="isProcessingForm" class="animate-spin w-5 h-5 mr-3" />
                 Submit & Connect with Freemancodz
             </button>
         </form>
@@ -299,19 +201,18 @@ const handleSubmit = async () => {
     try {
         isProcessingForm.value = true;
 
-        // const contactsApi = useContacts();
+        const { createContact } = useContacts();
 
-        // const contact = form as unknown as Contact;
+        const contact = form as Contact;
 
-        // const response = await contactsApi.createContact(contact);
+        const { data, error } = await createContact(contact);
 
-        // if (response && response.status === 201) {
-        //     resetForm();
-
-        //     showNotification(
-        //         "Thanks for connecting! 👋 Exciting times ahead! 🚀"
-        //     );
-        // }
+        if (error.value) {
+            showNotification(error.value?.data.status.toString().startsWith('4') ? "Please make sure all inputs are correct" : "An error has occurred", "error");
+        } else if (data.value) {
+            resetForm();
+            showNotification("Thanks for connecting! 👋 Exciting times ahead! 🚀", "success");
+        }
     } catch (error: any) {
         showNotification(error.message || "An error has occurred", "error");
     } finally {
