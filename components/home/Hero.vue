@@ -1,7 +1,7 @@
 <template>
     <section id="hero" class="container space-y-8">
 
-        <p class="text-primary text-lg text-center md:text-left">— Freeman Madudili —</p>
+        <p class="text-primary text-lg text-center md:text-left">— {{ appConfig.professional_name }} —</p>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
 
@@ -9,31 +9,24 @@
 
                 <h1 class="text-5xl md:text-7xl text-smoky">
                     I'm a <span class="text-primary">
-                        Certified Full Stack Developer
+                        {{ appConfig.hero_headline }}
                     </span>
                 </h1>
 
-                <p class="text-white">
-                    A distinguished Full Stack Developer with over <strong>3 years of experience</strong> and a
-                    <strong>First
-                        Class Honours</strong> degree in <strong>Information Technology</strong> from Middlesex University.
-                    Expert in crafting advanced web solutions, evidenced by numerous successful projects. Awarded a
-                    <strong>Distinction</strong> in <strong>BTEC Level 3 Advanced Diploma in Software Engineering</strong>
-                    from
-                    Aptech Computer Education.
-                </p>
+                <div class="text-white" v-html="appConfig.hero_intro">
+                </div>
 
                 <SocialLinks class="inline-block" />
 
-                <a href="/freeman-madudili-cv.pdf" target="_blank" class="btn btn-primary">My Resume</a>
+                <a :href="appConfig.resume" target="_blank" class="btn btn-primary">My Resume</a>
 
             </div>
 
             <div class="order-first md:order-last flex flex-col space-y-4 items-center justify-center">
                 <div class="w-1/2 md:w-full md:h-96 overflow-hidden rounded-xl">
-                    <NuxtImg preload placeholder src="/images/banner.jpg" alt="Freeman Madudili" class="object-contain object-center w-full" />
+                    <NuxtImg preload placeholder :src="appConfig.hero_image" :alt="appConfig.professional_name" class="object-contain object-center w-full" />
                 </div>
-                <p class="text-smoky">A.K.A <span class="text-primary text-lg">Freemancodz</span></p>
+                <p class="text-smoky">A.K.A <span class="text-primary text-lg">{{ appConfig.nickname }}</span></p>
             </div>
 
         </div>
@@ -46,3 +39,9 @@ p strong {
     @apply text-primary font-bold
 }
 </style>
+
+<script setup lang="ts">
+
+const appConfig = useState<FormattedAppConfig>('appConfig')
+
+</script>

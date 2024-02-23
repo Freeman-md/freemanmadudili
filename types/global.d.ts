@@ -129,6 +129,7 @@ declare global {
     type AppConfig = {
         professional_name: string,
         professional_email: string,
+        nickname: string,
         hero_headline: string,
         about_me_intro: string,
         introduction: string,
@@ -149,8 +150,19 @@ declare global {
         personal_photo: {
             data: StrapiResponseData<StrapiMedia>
         },
+        socials: {
+            linkedin: string,
+            github: string,
+        }
         createdAt: string,
         publishedAt: string,
+    }
+
+    type FormattedAppConfig = Omit<AppConfig, 'professional_logo' | "resume" | "hero_image" | "personal_photo"> & {
+        professional_logo: string;
+        resume: string;
+        hero_image: string;
+        personal_photo: string;
     }
 
     type ValidationRules = {

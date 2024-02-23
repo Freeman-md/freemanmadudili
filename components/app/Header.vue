@@ -4,8 +4,8 @@
         <div class="container py-4 flex justify-between space-x-4 items-center">
             <NuxtLink aria-label="Go to the top" to="/">
                 <img
-                    src="/images/logo.png"
-                    alt="Freemancodz"
+                    :src="appConfig.professional_logo"
+                    :alt="appConfig.nickname"
                     class="w-40"
                 />
             </NuxtLink>
@@ -54,4 +54,6 @@
 <script setup lang="ts">
 const { links, isLinkActive } = useAppLinks();
 const { isSidebarOpen, toggleSidebar } = useSidebar();
+
+const appConfig = useState<FormattedAppConfig>('appConfig')
 </script>

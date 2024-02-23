@@ -28,6 +28,6 @@ export default <Partial<Config>>{
           DEFAULT: '#AAAAAA'
         }
       },
-    }
+    },
   }
 }
