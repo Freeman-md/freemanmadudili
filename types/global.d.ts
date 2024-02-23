@@ -126,6 +126,33 @@ declare global {
         inquiry?: string;
     }
 
+    type AppConfig = {
+        professional_name: string,
+        professional_email: string,
+        hero_headline: string,
+        about_me_intro: string,
+        introduction: string,
+        about_me: string,
+        hero_intro: string,
+        contact_me_intro: string,
+        meta_title: string,
+        meta_description: string,
+        professional_logo: {
+            data: StrapiResponseData<StrapiMedia>
+        },
+        resume: {
+            data: StrapiResponseData<StrapiMedia>
+        },
+        hero_image: {
+            data: StrapiResponseData<StrapiMedia>
+        },
+        personal_photo: {
+            data: StrapiResponseData<StrapiMedia>
+        },
+        createdAt: string,
+        publishedAt: string,
+    }
+
     type ValidationRules = {
         [key: string]: (value: string) => string
     }

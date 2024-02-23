@@ -71,4 +71,8 @@ useHead({
         },
     ],
 });
+
+const { fetchAppConfig } = useDefaultAppConfig()
+
+await fetchAppConfig()
 </script>
