@@ -1,6 +1,6 @@
 <template>
     <div class="space-y-20">
-        <!-- <HomeHero /> -->
+        <HomeHero />
 
         <HomeTools id="skills" class="scroll-mt-24" />
 
