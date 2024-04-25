@@ -34,7 +34,7 @@ const { experience, isFetchingExperience, fetchingExperienceError } = await useE
 
 const companies = computed(() => {
   if (experiences && experiences.value) {
-    return experiences.value.map((experience) => ({
+    return experiences.value.map((experience: Experience) => ({
       company: experience.company,
       id: experience.id,
     }));

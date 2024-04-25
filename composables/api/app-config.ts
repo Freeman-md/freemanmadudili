@@ -4,6 +4,7 @@ export const useDefaultAppConfig = () => {
     const fetchAppConfig = async () => {
         const apiUrl = useRuntimeConfig().public.api_url
 
+
         const { data, error, pending } = await useFetch<StrapiSingleResponse<AppConfig>>(apiUrl + '/api/app-config?populate=*')
 
         if (!data.value && error) {

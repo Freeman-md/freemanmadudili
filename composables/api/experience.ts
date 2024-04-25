@@ -16,7 +16,8 @@ export const useExperience = async (apiUrl: string, activeExperienceCompany: glo
         return {
           ...fields,
           id: experience.data.id,
-          projects: fields.projects.data.map(project => project.attributes)
+          projects: fields.projects.data.map(project => project.attributes),
+          tools: fields.tools.data.map(tool => tool.attributes)
         };
       },
       watch: [activeExperienceCompany],

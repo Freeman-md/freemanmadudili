@@ -67,10 +67,14 @@ declare global {
             data: StrapiResponseData<Project>[]
         };
         technologies: string[] = [];
+        tools: {
+            data: StrapiResponseData<Tool>[]
+        };
     }
 
-    type FormattedExperience = Omit<Experience, 'projects'> & {
+    type FormattedExperience = Omit<Experience, 'projects' | 'tools'> & {
         projects: Project[];
+        tools: Tool[]
     };
 
     type Project = {
