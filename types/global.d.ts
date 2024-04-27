@@ -72,11 +72,6 @@ declare global {
         };
     }
 
-    type FormattedExperience = Omit<Experience, 'projects' | 'tools'> & {
-        projects: Project[];
-        tools: Tool[]
-    };
-
     type Project = {
         title: string = '';
         image?: {
@@ -96,20 +91,12 @@ declare global {
         featured: boolean = false
     }
 
-    type FormattedProject = Omit<Project, 'image'> & {
-        image: string;
-    };
-
     type Tool = {
         title: string = '';
         image?: {
             data: StrapiResponseData<StrapiMedia>
         };
     }
-
-    type FormattedTool = Omit<Tool, 'image'> & {
-        image: string;
-    };
 
     type Contact = {
         id?: number | null = null;
@@ -161,6 +148,29 @@ declare global {
         createdAt: string,
         publishedAt: string,
     }
+
+    type Education = {
+        course_title: string;
+        grade: string;
+        institution: string;
+        start_date: Date;
+        end_date: Date;
+        courses: string;
+        description: string;
+    }
+
+    type FormattedExperience = Omit<Experience, 'projects' | 'tools'> & {
+        projects: Project[];
+        tools: Tool[]
+    };
+
+type FormattedProject = Omit<Project, 'image'> & {
+        image: string;
+    };
+
+type FormattedTool = Omit<Tool, 'image'> & {
+        image: string;
+    };
 
     type FormattedAppConfig = Omit<AppConfig, 'professional_logo' | "resume" | "hero_image" | "personal_photo"> & {
         professional_logo: string;

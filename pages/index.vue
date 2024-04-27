@@ -6,7 +6,7 @@
 
         <HomeJobExperiences id="experience" class="scroll-mt-24" />
 
-        <HomeEducation />
+        <HomeEducations />
 
         <HomeFeaturedProjects id="portfolio" class="scroll-mt-24" />
 
