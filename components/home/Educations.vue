@@ -6,7 +6,7 @@
 
         <UiLoading class="mx-auto my-auto w-full" v-if="pending" text="Fetching educational data" />
 
-        <ol v-else-if="educations" class="relative border-s border-gray-200 dark:border-gray-700">
+        <ol v-else-if="educations && educations.length > 0" class="relative border-s border-gray-200 dark:border-gray-700">
             <li v-for="education in educations" :key="education.course_title" class="mb-10 ms-4">
                 <div class="absolute w-3 h-3 bg-white rounded-full mt-1.5 -start-1.5 border border-white">
                 </div>

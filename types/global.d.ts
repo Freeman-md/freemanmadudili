@@ -88,7 +88,10 @@ declare global {
         link: string;
         technologies: string[] = [];
         slug?: string;
-        featured: boolean = false
+        featured: boolean = false,
+        tools: {
+            data: StrapiResponseData<Tool>[]
+        };
     }
 
     type Tool = {
@@ -164,8 +167,9 @@ declare global {
         tools: Tool[]
     };
 
-type FormattedProject = Omit<Project, 'image'> & {
+type FormattedProject = Omit<Project, 'image' | 'tools'> & {
         image: string;
+        tools: Tool[]
     };
 
 type FormattedTool = Omit<Tool, 'image'> & {

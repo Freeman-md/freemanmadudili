@@ -14,7 +14,7 @@
 
         <UiLoading v-if="pending" text="Fetching projects" class="mx-auto"></UiLoading>
 
-        <UiEmpty v-else-if="projects?.length === 0 || error" message="Featured Projects are currently unavailable">
+        <UiEmpty v-else-if="(projects && projects.length === 0) || error" message="Featured Projects are currently unavailable">
         </UiEmpty>
 
         <div v-else class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 xl:gap-0">

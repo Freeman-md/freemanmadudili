@@ -27,8 +27,8 @@
 
             <p class="text-smoky">{{ project.description }}</p>
 
-            <div class="flex space-x-4 items-center w-full overflow-y-hidden overflow-x-scroll">
-                <UiBadge v-for="(technology, index) in project.technologies" :key="index" :text="technology" />
+            <div v-if="project.tools.length > 0" class="flex space-x-4 items-center w-full overflow-y-hidden overflow-x-scroll">
+                <UiBadge v-for="(tool, index) in project.tools" :key="index" :text="tool.title" />
             </div>
         </div>
     </div>
