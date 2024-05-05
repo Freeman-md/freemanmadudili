@@ -26,8 +26,7 @@
 <script setup lang="ts">
 import ArrowRightIcon from "~/assets/svgs/arrow-right.svg";
 
-const runtimeConfig = useRuntimeConfig();
-const apiUrl = runtimeConfig.public.api_url + `/api/projects?populate=*&filters[featured][$eq]=true`;
+const endpoint = `/api/projects?populate=*&filters[featured][$eq]=true`;
 
-const { projects, pending, error } = await useProjects(apiUrl);
+const { projects, pending, error } = await useProjects(endpoint);
 </script>
