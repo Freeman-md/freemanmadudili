@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import ArrowRightIcon from "~/assets/svgs/arrow-right.svg";
 
-const endpoint = `/api/projects?populate=*&filters[featured][$eq]=true`;
+const endpoint = ref(`/api/projects?populate=*&filters[featured][$eq]=true`);
 
 const { projects, pending, error } = await useProjects(endpoint);
 </script>

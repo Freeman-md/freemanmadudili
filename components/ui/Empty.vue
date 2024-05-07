@@ -9,7 +9,7 @@
             loop
             autoplay
         ></lottie-player>
-        <p class="text-smoky">{{ message }}</p>
+        <p class="text-smoky text-center" v-html="message"></p>
     </div>
 </template>
 
