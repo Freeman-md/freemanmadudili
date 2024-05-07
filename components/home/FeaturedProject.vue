@@ -1,5 +1,5 @@
 <template>
-    <div class="group grayscale xs:w-48 sm:w-64 md:w-80 lg:w-60 xl:w-72 transition duration-200 hover:!grayscale-0">
+    <div class="group grayscale xs:w-48 sm:w-64 md:w-80 lg:w-60 xl:w-72 transition duration-200 hover:!grayscale-0 project-card">
         <div
             class="relative rounded-lg border-4 border-smoky xs:w-48 xs:h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-60 lg:h-60 xl:w-72 xl:h-72 transition duration-200 group-hover:!border-transparent">
 
@@ -11,9 +11,9 @@
 
         <div class="space-y-4 pt-10 sm:pt-16 w-full overflow-hidden">
             <div class="flex space-x-4 justify-between items-center">
-                <span class="text-xl text-smoky">{{ project.title }}</span>
+                <span class="text-xl text-smoky text-wrap break-normal">{{ project.title }}</span>
 
-                <div class="flex space-x-2 items-center stroke-smoky">
+                <div class="flex space-x-2 items-center stroke-smoky flex-shrink-0">
                     <NuxtLink :aria-label="`View Github Repo for ${project.title}`" :to="project.links.github"
                         target="_blank" v-if="project.links.github">
                         <GithubIcon class="w-8 stroke-smoky transition duration-200 hover:stroke-primary" />

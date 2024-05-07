@@ -17,7 +17,7 @@
         <UiEmpty v-else-if="(projects && projects.length === 0) || error" message="Featured Projects are currently unavailable">
         </UiEmpty>
 
-        <div v-else class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 xl:gap-0">
+        <div v-else class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 xl:gap-0 xl:gap-y-10">
             <HomeFeaturedProject v-for="(project, index) in projects" :key="index" :project="project" />
         </div>
     </div>
