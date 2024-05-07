@@ -12,21 +12,19 @@
 
         <h1 class="text-5xl text-white">All Projects</h1>
 
-        <div class="relative overflow-x-auto">
-            <UiLoading
-                v-if="pending"
-                text="Fetching projects and tools"
+        <UiLoading
+                v-if="fetchingTools"
+                text="Fetching tools"
             ></UiLoading>
 
             <UiEmpty
-                v-else-if="error"
-                message="Projects are currently unavailable"
+                v-else-if="fetchingToolsError"
+                message="Tools are currently unavailable"
             >
             </UiEmpty>
 
-            <section v-else class="space-y-4">
-                <div
-                    v-if="tools && tools.length > 0"
+        <div
+                    v-else-if="tools && tools.length > 0"
                     class="flex space-x-4 items-center w-full overflow-y-hidden overflow-x-scroll"
                 >
                     <UiBadge
@@ -39,6 +37,21 @@
                     />
                 </div>
 
+        <div class="relative overflow-x-auto">
+            <transition name="fade" mode="out-in">
+
+            <SkeletonsProjectsArchiveTable
+                v-if="pending"
+                key="skeletons"
+            ></SkeletonsProjectsArchiveTable>
+
+            <UiEmpty
+                v-else-if="error"
+                message="Projects are currently unavailable"
+            >
+            </UiEmpty>
+
+            <section v-else key="content" class="space-y-4">
                 <table
                     class="w-full text-sm text-left rtl:text-right text-smoky"
                     v-if="projects && projects?.length > 0"
@@ -126,6 +139,8 @@
                 >
                 </UiEmpty>
             </section>
+
+            </transition>
         </div>
     </div>
 </template>
@@ -183,3 +198,13 @@ const sortedTools = computed(() => {
     return [...selected, ...unselected];
 });
 </script>
+
+<style scoped>
+/* Define the fade transition */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter, .fade-leave-to /* Starting and ending state for fade */ {
+  opacity: 0;
+}
+</style>
