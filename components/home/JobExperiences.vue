@@ -1,5 +1,5 @@
 <template>
-    <div class="container space-y-10" ref="experienceRef">
+    <div class="container space-y-10" ref="experiencesSection">
         <h2 class="text-center sm:text-left text-4xl lg:text-5xl text-primary">
             Career Highlights
         </h2>
@@ -72,13 +72,13 @@ const hasError = computed(() => {
     return fetchingExperiencesError.value || fetchingExperienceError.value;
 });
 
-const experienceRef = ref(null);
+const experiencesSection = ref(null);
 
 onMounted(() => {
-  if (experienceRef.value) {
-    gsap.from(experienceRef.value, {
+  if (experiencesSection.value) {
+    gsap.from(experiencesSection.value, {
       scrollTrigger: {
-        trigger: experienceRef.value,
+        trigger: experiencesSection.value,
         start: "top bottom", // Animation starts when the top of the element hits the bottom of the viewport
         toggleActions: "play none none none",
       },
