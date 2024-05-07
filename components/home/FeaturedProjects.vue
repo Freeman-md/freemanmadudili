@@ -12,7 +12,7 @@
             </NuxtLink>
         </div>
 
-        <UiLoading v-if="pending" text="Fetching projects" class="mx-auto"></UiLoading>
+        <SkeletonsFeaturedProjects v-if="pending" />
 
         <UiEmpty v-else-if="(projects && projects.length === 0) || error" message="Featured Projects are currently unavailable">
         </UiEmpty>
