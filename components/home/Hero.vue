@@ -57,9 +57,10 @@ p strong {
 </style>
 
 <script setup lang="ts">
-import gsap from 'gsap';
 
 const appConfig = useState<FormattedAppConfig>('appConfig');
+
+const { $gsap: gsap } = useNuxtApp()
 
 const heroLoaded = ref(false);
 

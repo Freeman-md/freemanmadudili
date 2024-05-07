@@ -47,14 +47,11 @@
 </template>
 
 <script setup lang="ts">
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
-
 const { educations, pending, error } = await useEducations();
 
 const educationSection = ref<HTMLElement | null>(null);
+
+const { $gsap: gsap } = useNuxtApp()
 
 onMounted(() => {
     if (educationSection.value) {

@@ -35,10 +35,7 @@
 </template>
   
 <script setup lang="ts">
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+const { $gsap: gsap } = useNuxtApp()
 
 const activeExperienceCompany = useActiveExperienceCompany();
 const runtimeConfig = useRuntimeConfig();
