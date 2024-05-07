@@ -3,5 +3,8 @@
   "extends": "./.nuxt/tsconfig.json",
   "includes": [
     "types/*.d.ts"
-  ]
+  ],
+  "compilerOptions": {
+    "moduleResolution": "Node"
+  }
 }

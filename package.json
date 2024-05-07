@@ -22,6 +22,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "gsap": "^3.12.5",
     "vue3-marquee": "^4.1.0"
   }
 }
