@@ -19,12 +19,11 @@
             />
 
             <!-- Display job experience for company -->
-            <UiLoading
+            <SkeletonsJobExperience
                 class="mx-auto my-auto w-full md:w-3/4"
                 v-if="isFetchingExperience"
-                text="Fetching experience"
             >
-            </UiLoading>
+            </SkeletonsJobExperience>
             <UiEmpty
                 v-else-if="!experience || hasError"
                 message="Career Highlights are currently unavailable"
