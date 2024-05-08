@@ -160,6 +160,27 @@ declare global {
         publishedAt: string,
     }
 
+    type MetaData = {
+        title: string;
+        description: string;
+        url: string;
+        image: {
+            data: StrapiResponseData<StrapiMedia>
+        },
+        apple_touch_icon: {
+            data: StrapiResponseData<StrapiMedia>
+        },
+        favicon_32x32: {
+            data: StrapiResponseData<StrapiMedia>
+        },
+        favicon_16x16: {
+            data: StrapiResponseData<StrapiMedia>
+        },
+        manifest_file: {
+            data: StrapiResponseData<StrapiMedia>
+        },
+    }
+
     type Education = {
         course_title: string;
         grade: string;
@@ -189,6 +210,14 @@ type FormattedTool = Omit<Tool, 'image'> & {
         resume: string;
         hero_image: string;
         personal_photo: string;
+    }
+
+    type FormattedMetaData = Omit<MetaData, 'image' | "apple_touch_icon" | "favicon_32x32" | "favicon_16x16" | "manifest_file"> & {
+        image: string;
+        apple_touch_icon: string;
+        favicon_32x32: string;
+        favicon_16x16: string;
+        manifest_file: string;
     }
 
     type ValidationRules = {

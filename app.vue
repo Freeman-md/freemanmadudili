@@ -21,58 +21,67 @@
 </template>
 
 <style>
-@import url("~/assets/css/main.css");
+@import url('~/assets/css/main.css');
 </style>
 
 <script setup lang="ts">
-const title = "Freeman Madudili - Digital Coding Artisan"
-const description = "Full Stack Developer crafting exceptional digital experiences. Explore my portfolio and witness the fusion of creativity and technology. Let's build the future of the web together"
-const url = "https://freemanmadudili.com"
-const imageUrl = "/images/socialmedia.png"
+import { useDefaultMetaData } from './composables/api/meta-data';
 
-useSeoMeta({
-    title: title,
-    description: description,
-    ogTitle: title,
-    ogDescription: description,
-    ogImage: imageUrl,
-    ogUrl: url,
-    twitterTitle: title,
-    twitterDescription: description,
-    twitterImage: imageUrl,
-    twitterCard: "summary",
-});
+const title = 'Freeman Madudili - Digital Coding Artisan';
+const description =
+    "Full Stack Developer crafting exceptional digital experiences. Explore my portfolio and witness the fusion of creativity and technology. Let's build the future of the web together";
+const url = 'https://freemanmadudili.com';
+const imageUrl = '/images/socialmedia.png';
 
-useHead({
-    htmlAttrs: {
-        lang: "en",
-    },
-    link: [
-        {
-            rel: "apple-touch-icon",
-            sizes: "180x180",
-            href: "/apple-touch-icon.png",
-        },
-        {
-            rel: "icon",
-            type: "image/png",
-            sizes: "32x32",
-            href: "/favicon-32x32.png",
-        },
-        {
-            rel: "icon",
-            type: "image/png",
-            sizes: "16x16",
-            href: "/favicon-16x16.png",
-        },
-        {
-            rel: "manifest",
-            href: "/site.webmanifest",
-        },
-    ],
-});
+const { fetchAppConfig } = useDefaultAppConfig();
+const { fetchMetaData, metaData } = useDefaultMetaData();
 
-const { fetchAppConfig } = useDefaultAppConfig()
+await fetchAppConfig();
 
-await fetchAppConfig()
+await fetchMetaData();
+
+if (metaData) {
+    const metaInformation = metaData.value;
+    useSeoMeta({
+        title: metaInformation?.title,
+        description: metaInformation?.description,
+        ogTitle: metaInformation?.title,
+        ogDescription: metaInformation?.description,
+        ogImage: metaInformation?.image,
+        ogUrl: metaInformation?.url,
+        twitterTitle: metaInformation?.title,
+        twitterDescription: metaInformation?.description,
+        twitterImage: metaInformation?.image,
+        twitterCard: 'summary',
+    });
+
+    useHead({
+        htmlAttrs: {
+            lang: 'en',
+        },
+        link: [
+            {
+                rel: 'apple-touch-icon',
+                sizes: '180x180',
+                href: metaInformation?.apple_touch_icon,
+            },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '32x32',
+                href: metaInformation?.favicon_32x32,
+            },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '16x16',
+                href: metaInformation?.favicon_16x16,
+            },
+            {
+                rel: 'manifest',
+                href: metaInformation?.manifest_file,
+            },
+        ],
+    });
+}
 </script>

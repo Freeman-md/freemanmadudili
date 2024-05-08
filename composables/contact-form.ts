@@ -33,7 +33,7 @@ export const useContactForm = () => {
         name: '',
         email: '',
         phone: '',
-        interest: 'Collaboration',
+        interest: 'Project Inquiry / Hiring',
         role: '',
         role_description: '',
         budget: '',
