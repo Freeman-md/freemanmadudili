@@ -3,7 +3,7 @@
         <h1 class="uppercase text-sm text-white">Get In Touch</h1>
 
         <h2 class="font-bold text-primary text-5xl">
-            Connect with Freemancodz
+            Connect with {{ appConfig.nickname }}
         </h2>
 
         <p class="text-smoky">
@@ -155,7 +155,7 @@
             <button type="submit" class="btn btn-primary disabled:!btn-smoky flex items-center justify-center"
                 :disabled="!isFormValid">
                 <SpinnerIcon v-if="isProcessingForm" class="animate-spin w-5 h-5 mr-3" />
-                Submit & Connect with Freemancodz
+                Submit & Connect with {{ appConfig.nickname }}
             </button>
         </form>
     </main>
@@ -168,6 +168,8 @@ import MobileIcon from "~/assets/svgs/mobile.svg";
 import BriefcaseIcon from "~/assets/svgs/briefcase.svg";
 import LinkIcon from "~/assets/svgs/link.svg";
 import SpinnerIcon from "~/assets/svgs/spinner.svg";
+
+const appConfig = useState<AppConfig>('appConfig')
 
 const isProcessingForm = ref(false);
 

@@ -1,5 +1,4 @@
 const interests = [
-    "Portfolio Website",
     "Project Inquiry / Hiring",
     "Collaboration",
     "Other Inquiries",
@@ -26,7 +25,7 @@ const budgets = [
     {
         value: '0-30000',
         text: 'Under £30,000'
-    },
+    },k
     {
         value: '30000-40000',
         text: '£30000 - £40000'
