@@ -4,23 +4,6 @@ const interests = [
     "Other Inquiries",
 ];
 
-const roles = [
-    "Web Developer",
-    "E-Commerce Developer",
-    "Frontend Developer",
-    "Backend Developer",
-    "Full Stack Developer"
-]
-
-const collaborations = [
-    'Web Development Projects',
-    'UI/UX Design Collaborations',
-    'Tech Community Events (Workshops, Seminars)',
-    'Open Source Contributions',
-    'Joint Venture Tech Startups',
-    'Educational Content Creation (Blogs, Tutorials)',
-]
-
 const budgets = [
     {
         value: '0-30000',
@@ -88,8 +71,6 @@ export const useContactForm = () => {
     return {
         budgets,
         interests,
-        roles,
-        collaborations,
         selectInterest,
         selectBudget,
         isSelectedInterest,
