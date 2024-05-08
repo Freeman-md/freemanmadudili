@@ -13,3 +13,13 @@
         <HomeAboutMe id="about" class="scroll-mt-24" />
     </div>
 </template>
+
+<style>
+/* Define the fade transition */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter, .fade-leave-to /* Starting and ending state for fade */ {
+  opacity: 0;
+}
+</style>

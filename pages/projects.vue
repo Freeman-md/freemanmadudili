@@ -87,8 +87,8 @@
                             2022
                         </th> -->
                             <td class="px-6 py-4">
-                                <a
-                                    :href="project.link"
+                                <NuxtLink
+                                    :to="project.links.live || project.links.github"
                                     target="_blank"
                                     class="flex space-x-2 group transition text-white hover:text-primary md:hover:text-white"
                                 >
@@ -98,7 +98,7 @@
                                     <ArrowUpRightIcon
                                         class="!w-3 transition transform group-hover:-translate-y-1 group-hover:translate-x-1 md:hidden"
                                     />
-                                </a>
+                                </NuxtLink>
                             </td>
                             <!-- <td class="px-6 py-4">
 
@@ -112,8 +112,8 @@
                                 />
                             </td>
                             <td class="px-6 py-4 hidden md:table-cell">
-                                <a
-                                    :href="project.link"
+                                <NuxtLink
+                                    :to="project.links.live || project.links.github"
                                     target="_blank"
                                     class="flex space-x-2 group transition hover:text-primary"
                                 >
@@ -121,7 +121,7 @@
                                     <ArrowUpRightIcon
                                         class="!w-3 transition transform group-hover:-translate-y-1 group-hover:translate-x-1"
                                     />
-                                </a>
+                                </NuxtLink>
                             </td>
                         </tr>
                     </tbody>
@@ -198,13 +198,3 @@ const sortedTools = computed(() => {
     return [...selected, ...unselected];
 });
 </script>
-
-<style scoped>
-/* Define the fade transition */
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-.fade-enter, .fade-leave-to /* Starting and ending state for fade */ {
-  opacity: 0;
-}
-</style>

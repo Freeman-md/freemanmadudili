@@ -18,24 +18,27 @@
                 :companies="companies"
             />
 
-            <!-- Display job experience for company -->
-            <SkeletonsJobExperience
-                class="mx-auto my-auto w-full md:w-3/4"
-                v-if="isFetchingExperience"
-            >
-            </SkeletonsJobExperience>
-            <UiEmpty
-                v-else-if="!experience || hasError"
-                message="Career Highlights are currently unavailable"
-                class="w-full"
-            />
-            <HomeJobExperience v-else :experience="experience" />
+            <transition name="fade" mode="out-in">
+                <!-- Display job experience for company -->
+                <SkeletonsJobExperience
+                    class="mx-auto my-auto w-full md:w-3/4"
+                    key="experience-skeleton"
+                    v-if="isFetchingExperience"
+                >
+                </SkeletonsJobExperience>
+                <UiEmpty
+                    v-else-if="!experience || hasError"
+                    message="Career Highlights are currently unavailable"
+                    class="w-full"
+                />
+                <HomeJobExperience v-else key="experience-content" :experience="experience" />
+            </transition>
         </div>
     </div>
 </template>
   
 <script setup lang="ts">
-const { $gsap: gsap } = useNuxtApp()
+const { $gsap: gsap } = useNuxtApp();
 
 const activeExperienceCompany = useActiveExperienceCompany();
 const runtimeConfig = useRuntimeConfig();
@@ -71,18 +74,18 @@ const hasError = computed(() => {
 const experiencesSection = ref(null);
 
 onMounted(() => {
-  if (experiencesSection.value) {
-    gsap.from(experiencesSection.value, {
-      scrollTrigger: {
-        trigger: experiencesSection.value,
-        start: "top bottom", // Animation starts when the top of the element hits the bottom of the viewport
-        toggleActions: "play none none none",
-      },
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: "power3.out"
-    });
-  }
+    if (experiencesSection.value) {
+        gsap.from(experiencesSection.value, {
+            scrollTrigger: {
+                trigger: experiencesSection.value,
+                start: 'top bottom', // Animation starts when the top of the element hits the bottom of the viewport
+                toggleActions: 'play none none none',
+            },
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: 'power3.out',
+        });
+    }
 });
 </script>
