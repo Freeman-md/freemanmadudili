@@ -25,7 +25,7 @@ const budgets = [
     {
         value: '0-30000',
         text: 'Under £30,000'
-    },k
+    },
     {
         value: '30000-40000',
         text: '£30000 - £40000'
@@ -50,12 +50,7 @@ export const useContactForm = () => {
         name: '',
         email: '',
         phone: '',
-        interest: 'Portfolio Website',
-        field_of_study: '',
-        profile_url: '',
-        portfolio_purpose: '',
-        portfolio_description: '',
-        personal_information: '',
+        interest: 'Collaboration',
         role: '',
         role_description: '',
         budget: '',

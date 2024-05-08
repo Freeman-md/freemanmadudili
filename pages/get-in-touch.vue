@@ -61,47 +61,15 @@
             </div>
 
             <div>
-                <section id="portfolio-website" v-if="form.interest === 'Portfolio Website'" class="space-y-4">
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div class="form-control">
-                            <BriefcaseIcon class="w-10" />
-
-                            <input name="field-of-study" type="text" placeholder="Field of Study"
-                                v-model="form.field_of_study" />
-                        </div>
-
-                        <div class="form-control">
-                            <LinkIcon class="w-6" />
-
-                            <input name="field-of-study" type="text" placeholder="Linkedin Profile"
-                                v-model="form.profile_url" />
-                        </div>
-                    </div>
-
-                    <div class="form-control">
-                        <textarea name="portfolio-purpose" placeholder="Purpose of Needing a Portfolio Website" rows="4"
-                            class="resize-none" v-model="form.portfolio_purpose"></textarea>
-                    </div>
-
-                    <div class="form-control">
-                        <textarea name="portfolio-description" placeholder="Description of Ideal Portfolio Website" rows="4"
-                            class="resize-none" v-model="form.portfolio_description"></textarea>
-                    </div>
-
-                    <div class="form-control">
-                        <textarea name="personal-information" placeholder="Personal Information (Optional)" rows="4"
-                            class="resize-none" v-model="form.personal_information"></textarea>
-                    </div>
-                </section>
-
                 <section id="project-inquiry" v-if="form.interest === 'Project Inquiry / Hiring'" class="space-y-4">
-                    <div class="form-control">
+                    <SkeletonsSelect v-if="fetchingProjectRoles" />
+                    <div class="form-control" v-else-if="projectRoles">
                         <BriefcaseIcon class="w-10" />
 
                         <select name="project-role" v-model="form.role">
                             <option value="">Type of Project / Role</option>
-                            <option :value="role" v-for="(role, index) in roles" :key="index">
-                                {{ role }}
+                            <option :value="role.title" v-for="(role, index) in projectRoles" :key="index">
+                                {{ role.title }}
                             </option>
                         </select>
                     </div>
@@ -127,13 +95,14 @@
                 </section>
 
                 <section id="collaboration" v-if="form.interest === 'Collaboration'" class="space-y-4">
-                    <div class="form-control">
+                    <SkeletonsSelect v-if="fetchingCollaborationAreas" />
+                    <div class="form-control" v-else-if="collaborationAreas">
                         <BriefcaseIcon class="w-10" />
 
                         <select name="collaboration" v-model="form.collaboration">
                             <option value="">Area of Collaboration</option>
-                            <option :value="collaboration" v-for="(collaboration, index) in collaborations" :key="index">
-                                {{ collaboration }}
+                            <option :value="area.title" v-for="(area, index) in collaborationAreas" :key="index">
+                                {{ area.title }}
                             </option>
                         </select>
                     </div>
@@ -171,13 +140,14 @@ import SpinnerIcon from "~/assets/svgs/spinner.svg";
 
 const appConfig = useState<AppConfig>('appConfig')
 
+const { projectRoles, pending: fetchingProjectRoles, error: fetchingProjectRolesError } = await useProjectRoles()
+const { collaborationAreas, pending: fetchingCollaborationAreas, error: fetchingCollaborationAreasError } = await useCollaborationAreas()
+
 const isProcessingForm = ref(false);
 
 const {
     interests,
     budgets,
-    roles,
-    collaborations,
     form,
     errors,
     selectInterest,

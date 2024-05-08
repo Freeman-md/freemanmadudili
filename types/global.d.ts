@@ -94,6 +94,14 @@ declare global {
         };
     }
 
+    type ProjectRole = {
+        title: string;
+    }
+
+    type CollaborationArea = {
+        title: string;
+    }
+
     type Tool = {
         title: string = '';
         image?: {
