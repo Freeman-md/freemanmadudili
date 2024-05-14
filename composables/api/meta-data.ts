@@ -12,13 +12,14 @@ export const useDefaultMetaData = () => {
         }
 
         if (data.value) {
+
             const metaDataAttributes = data.value?.data.attributes
 
-            const image = `${apiUrl}${metaDataAttributes.image.data.attributes.url}`
-            const appleTouchIcon = `${apiUrl}${metaDataAttributes.apple_touch_icon.data.attributes.url}`
-            const favicon16x16 = `${apiUrl}${metaDataAttributes.favicon_16x16.data.attributes.url}`
-            const favicon32x32 = `${apiUrl}${metaDataAttributes.favicon_32x32.data.attributes.url}`
-            const manifestFile = `${apiUrl}${metaDataAttributes.manifest_file.data.attributes.url}`
+            const image = `${apiUrl}${metaDataAttributes.image?.data?.attributes.url}`
+            const appleTouchIcon = `${apiUrl}${metaDataAttributes.apple_touch_icon?.data?.attributes.url}`
+            const favicon16x16 = `${apiUrl}${metaDataAttributes.favicon_16x16?.data?.attributes.url}`
+            const favicon32x32 = `${apiUrl}${metaDataAttributes.favicon_32x32?.data?.attributes.url}`
+            const manifestFile = `${apiUrl}${metaDataAttributes.manifest_file?.data?.attributes.url}`
 
             metaData.value = {
                 ...metaDataAttributes,
@@ -30,6 +31,7 @@ export const useDefaultMetaData = () => {
             }
         }
     }
+
 
     return {
         metaData,
