@@ -9,6 +9,8 @@ export const useNotification = () => {
         isVisible.value = true;
         setTimeout(() => {
             isVisible.value = false;
+            notificationType.value = ''
+            notificationMessage.value = ''
         }, 5000); // Hide after 5 seconds
     };
 
