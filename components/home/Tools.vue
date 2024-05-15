@@ -2,7 +2,7 @@
     <div class="space-y-4">
         <div class="container">
             <h2 class="text-center sm:text-left text-4xl lg:text-5xl text-white">
-                Adaptable Coding Artisan!
+                {{ appConfig.skills_title }}!
                 <span class="text-primary">Strengths</span>
             </h2>
         </div>
@@ -19,4 +19,6 @@
 
 <script setup lang="ts">
 const { tools, pending, error } = await useTools()
+
+const appConfig = useState<AppConfig>('appConfig')
 </script>

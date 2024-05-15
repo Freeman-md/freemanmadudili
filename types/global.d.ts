@@ -131,6 +131,7 @@ declare global {
     type AppConfig = {
         professional_name: string,
         professional_email: string,
+        skills_title: string,
         nickname: string,
         hero_headline: string,
         about_me_intro: string,

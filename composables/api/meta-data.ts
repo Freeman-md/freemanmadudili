@@ -35,11 +35,11 @@ export const useDefaultMetaData = () => {
     title: '{Your Name}\'s Personal Website',
     description: '{Your Name}\'s Website Description',
     url: 'https://yourdomain.com',
-    image: `${apiUrl}/default-image.png`,
-    apple_touch_icon: `${apiUrl}/default-apple-touch-icon.png`,
-    favicon_16x16: `${apiUrl}/default-favicon-16x16.png`,
-    favicon_32x32: `${apiUrl}/default-favicon-32x32.png`,
-    manifest_file: `${apiUrl}/default-manifest.json`,
+    image: `/images/socialmedia.pnh`,
+    apple_touch_icon: `/apple-touch-icon.png`,
+    favicon_16x16: `/favicon-16x16.png`,
+    favicon_32x32: `/favicon-32x32.png`,
+    manifest_file: `/site.webmanifest`,
   });
 
   return {
