@@ -138,8 +138,6 @@ declare global {
         about_me: string,
         hero_intro: string,
         contact_me_intro: string,
-        meta_title: string,
-        meta_description: string,
         professional_logo: {
             data: StrapiResponseData<StrapiMedia>
         },
