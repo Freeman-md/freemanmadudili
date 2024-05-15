@@ -48,7 +48,7 @@ const activeExperienceCompany = useActiveExperienceCompany();
 const { experiences, fetchingExperiencesError, isFetchingExperiences } = await useExperiences(apiUrl);
 
 // Set active experience company if experiences are available
-if (experiences && experiences.value && experiences.value?.entries?.length > 0) {
+if (experiences.value && experiences.value?.length > 0) {
     activeExperienceCompany.value = experiences.value[0].id;
 }
 
