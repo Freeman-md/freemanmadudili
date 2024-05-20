@@ -8,9 +8,9 @@ This is the main application repository for my personal portfolio. It is built w
 
 ### Prerequisites
 
-- Node.js (v12 or higher)
+- Node.js (v20 or higher)
 
-- npm (v6 or higher)
+- npm (v9 or higher)
 
 ### Installation
 
