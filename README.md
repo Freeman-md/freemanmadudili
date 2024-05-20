@@ -1,75 +1,75 @@
-# Nuxt 3 Minimal Starter
+# Freeman Madudili Nuxt App
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Introduction
 
-## Setup
+This is the main application repository for Freeman Madudili's portfolio. It is built with Nuxt.js and is designed to showcase various projects and skills.
 
-Make sure to install the dependencies:
+## Getting Started
 
-```bash
-# npm
-npm install
+### Prerequisites
 
-# pnpm
-pnpm install
+- Node.js (v12 or higher)
 
-# yarn
-yarn install
+- npm (v6 or higher)
 
-# bun
-bun install
-```
+### Installation
 
-## Development Server
+1\. **Clone the repository**
 
-Start the development server on `http://localhost:3000`:
+ ```bash
+ git clone https://github.com/Freeman-md/freemanmadudili.git
+ cd freemanmadudili
+ ```
 
-```bash
-# npm
-npm run dev
+2\. **Install dependencies**
 
-# pnpm
-pnpm run dev
+ ```bash
+ npm install
+ ```
 
-# yarn
-yarn dev
+3\. **Copy environment variables**
 
-# bun
-bun run dev
-```
+ ```bash
+ cp .env.example .env
+ ```
 
-## Production
+4\. **Update environment variables**
 
-Build the application for production:
+   - Open the `.env` file and set the `API_URL` to your local server's URL. 
 
-```bash
-# npm
-npm run build
+5\. **Customize Colors and Fonts**
 
-# pnpm
-pnpm run build
+   - Update the primary and secondary color hex codes in `tailwind.config.ts` to match your brand.
 
-# yarn
-yarn build
+   - To change the font, add it under the Google Fonts families config option in `nuxt.config.ts` and update `assets/main.css`.
 
-# bun
-bun run build
-```
+6\. **Run the application**
 
-Locally preview production build:
+ ```bash
+ npm run dev
+ ```
 
-```bash
-# npm
-npm run preview
+## Deployment
 
-# pnpm
-pnpm run preview
+1\. **Build the application**
 
-# yarn
-yarn preview
+ ```bash
+ npm run build
+ ```
 
-# bun
-bun run preview
-```
+2\. **Start the application**
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+ ```bash
+ npm run preview
+ ```
+
+3\. **Deploy to a hosting service (e.g., Render)**
+
+   - Follow the hosting service's instructions to deploy your Nuxt.js application.
+
+   - Make sure to set the environment variables in your hosting environment.
+
+
+## Contributing
+
+Contributions are welcomed!
