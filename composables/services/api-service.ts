@@ -2,7 +2,7 @@ export const useApiService = async <T, R>(
   key: string,
   endpoint: globalThis.Ref<string>,
   transform: (data: T) => R,
-  watchParams: any[] = []
+  watchParams: any[] = [],
 ) => {
   const runtimeConfig = useRuntimeConfig();
   const apiUrl = runtimeConfig.public.api_url;
