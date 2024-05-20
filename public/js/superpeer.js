@@ -1,0 +1,1 @@
+window.addEventListener("load", () => {new Superpeer.Widget({embed:{type:"popup"},launcher:{type:"superpeer-logo",options:{}},config:{username:"freemancodz",serviceSlug:""}})})

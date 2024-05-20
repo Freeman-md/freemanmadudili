@@ -14,7 +14,7 @@
             <UiSidebar />
         </div>
 
-        <UiQuickContact />
+        <!-- <UiQuickContact /> -->
 
         <UiNotification />
     </div>

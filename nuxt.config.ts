@@ -7,7 +7,20 @@ export default defineNuxtConfig({
         {
           src: 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js',
         },
+        {
+          src: 'https://widgets.superpeer.com/widget.js'
+        },
+        {
+          src: '/js/superpeer.js'
+        }
       ],
+      link: [
+        {
+          as: 'style',
+          rel: 'stylesheet',
+          href: 'https://widgets.superpeer.com/widget.css'
+        }
+      ]
     },
   },
   runtimeConfig: {
