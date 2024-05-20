@@ -47,7 +47,7 @@ export default defineNuxtConfig({
   },
   vue: {  
     compilerOptions: {
-      isCustomElement: (tag) => ['lottie-player', 'VueMarquee'].includes(tag),
+      isCustomElement: (tag) => ['lottie-player'].includes(tag),
     },
   },
   image: {

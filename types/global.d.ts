@@ -195,6 +195,10 @@ declare global {
         tools: Tool[]
     };
 
+    type FormattedEducation = Omit<Education, 'end_date'> & {
+        end_date: string;
+    }
+
 type FormattedProject = Omit<Project, 'image' | 'tools'> & {
         image: string;
         tools: Tool[]

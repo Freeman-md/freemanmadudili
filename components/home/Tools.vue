@@ -8,11 +8,11 @@
         </div>
 
         <UiLoading class="mx-auto my-auto w-full" v-if="pending" text="Fetching skills" />
-        <VueMarquee :duration="50" v-else-if="tools && tools.length > 0">
+        <Vue3Marquee :duration="50" v-else-if="tools && tools.length > 0">
             <div class="flex items-end">
                 <HomeTool v-for="(tool, index) in tools" :key="index" :tool="tool" />
             </div>
-        </VueMarquee>
+        </Vue3Marquee>
         <UiEmpty v-else message="Skills are currently unavailable" />
     </div>
 </template>
