@@ -20,7 +20,7 @@
                 class="mb-10 ms-4"
             >
                 <div
-                    class="absolute w-3 h-3 bg-white rounded-full mt-1.5 -start-1.5 border border-white"
+                    class="absolute w-3 h-3 bg-white rounded-full mt-2.5 -start-[22px] border border-white"
                 ></div>
                 <time
                     class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
