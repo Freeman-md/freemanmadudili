@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is the main application repository for Freeman Madudili's portfolio. It is built with Nuxt.js and is designed to showcase various projects and skills.
+This is the main application repository for my personal portfolio. It is built with Nuxt.js and is designed to showcase various information about myself.
 
 ## Getting Started
 
