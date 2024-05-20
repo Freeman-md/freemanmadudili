@@ -47,7 +47,7 @@
 </template>
 
 <script setup lang="ts">
-const { educations, pending, error } = await useEducations();
+const { data: educations, pending, error } = await useEducations();
 
 const educationSection = ref<HTMLElement | null>(null);
 

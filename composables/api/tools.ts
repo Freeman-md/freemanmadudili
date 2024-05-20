@@ -1,23 +1,14 @@
 export const useTools = async () => {
     const runtimeConfig = useRuntimeConfig();
     const apiUrl = runtimeConfig.public.api_url;
+    const endpoint = ref('/api/tools?populate=*');
 
-    const {
-        data: tools,
-        error,
-        pending,
-    } = await useFetch(`${apiUrl}/api/tools?populate=*`, {
-        transform: (tools: StrapiCollectionResponse<Tool>) => {
-            return tools.data.map((tool) => ({
-                ...tool.attributes,
-                image: `${apiUrl}${tool.attributes?.image?.data.attributes.url}`
-            }));
-        },
-    });
+    const transform = (tools: StrapiCollectionResponse<Tool>) => {
+        return tools.data.map((tool) => ({
+            ...tool.attributes,
+            image: `${apiUrl}${tool.attributes?.image?.data.attributes.url}`
+        }));
+    };
 
-    return {
-        tools,
-        error,
-        pending
-    }
-}
+    return await useApiService<StrapiCollectionResponse<Tool>, FormattedTool[]>('tools', endpoint, transform);
+};

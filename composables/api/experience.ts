@@ -1,28 +1,14 @@
-export const useExperience = async (apiUrl: string, activeExperienceCompany: globalThis.Ref<number | null>) => {
-  const {
-    data: experience,
-    pending: isFetchingExperience,
-    error: fetchingExperienceError,
-  } = await useAsyncData(
-    `experiences:${activeExperienceCompany.value}`,
-    async () => {
-      const url = `${apiUrl}/api/experiences/${activeExperienceCompany.value}?populate=*`;
-      const response = await $fetch<StrapiSingleResponse<Experience>>(url);
-      return response;
-    },
-    {
-      transform: (experience: StrapiSingleResponse<Experience>): FormattedExperience => {
-        const fields = experience.data.attributes;
-        return {
-          ...fields,
-          id: experience.data.id,
-          projects: fields.projects.data.map(project => project.attributes),
-          tools: fields.tools.data.map(tool => tool.attributes)
-        };
-      },
-      watch: [activeExperienceCompany],
-    }
-  );
+export const useExperience = async (activeExperienceCompany: globalThis.Ref<number | null>) => {
+  const endpoint = computed(() => `/api/experiences/${activeExperienceCompany.value}?populate=*`);
+  const transform = (experience: StrapiSingleResponse<Experience>): FormattedExperience => {
+    const fields = experience.data.attributes;
+    return {
+      ...fields,
+      id: experience.data.id,
+      projects: fields.projects.data.map(project => project.attributes),
+      tools: fields.tools.data.map(tool => tool.attributes)
+    };
+  };
 
-  return { experience, isFetchingExperience, fetchingExperienceError };
+  return await useApiService<StrapiSingleResponse<Experience>, FormattedExperience>(`experiences:${activeExperienceCompany.value}`, endpoint, transform, [activeExperienceCompany]);
 };

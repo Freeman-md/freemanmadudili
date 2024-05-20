@@ -176,10 +176,10 @@ const endpoint = computed(() => {
     return url;
 });
 
-const { projects, pending, error } = await useProjects(endpoint);
+const { data: projects, pending, error } = await useProjects(endpoint);
 
 const {
-    tools,
+    data: tools,
     pending: fetchingTools,
     error: fetchingToolsError,
 } = await useTools();

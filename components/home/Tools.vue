@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-const { tools, pending, error } = await useTools()
+const { data: tools, pending, error } = await useTools()
 
 const appConfig = useState<AppConfig>('appConfig')
 </script>

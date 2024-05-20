@@ -1,22 +1,10 @@
 export const useProjectRoles = async () => {
-    const runtimeConfig = useRuntimeConfig();
-    const apiUrl = runtimeConfig.public.api_url;
+  const endpoint = ref('/api/project-roles');
+  const transform = (projectRoles: StrapiCollectionResponse<ProjectRole>) => {
+    return projectRoles.data.map((projectRole) => ({
+      ...projectRole.attributes,
+    }));
+  };
 
-    const {
-        data: projectRoles,
-        error,
-        pending,
-    } = await useFetch(`${apiUrl}/api/project-roles`, {
-        transform: (projectRoles: StrapiCollectionResponse<ProjectRole>) => {
-            return projectRoles.data.map((projectRole) => ({
-                ...projectRole.attributes,
-            }));
-        },
-    });
-
-    return {
-        projectRoles,
-        error,
-        pending
-    }
-}
+  return await useApiService<StrapiCollectionResponse<ProjectRole>, ProjectRole[]>('project-roles', endpoint, transform);
+};

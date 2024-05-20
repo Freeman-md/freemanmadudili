@@ -28,5 +28,5 @@ import ArrowRightIcon from "~/assets/svgs/arrow-right.svg";
 
 const endpoint = ref(`/api/projects?populate=*&filters[featured][$eq]=true&pagination[pageSize]=6`);
 
-const { projects, pending, error } = await useProjects(endpoint);
+const { data: projects, pending, error } = await useProjects(endpoint);
 </script>

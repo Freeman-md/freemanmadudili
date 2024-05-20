@@ -39,13 +39,11 @@
   
 <script setup lang="ts">
 const { $gsap: gsap } = useNuxtApp();
-const runtimeConfig = useRuntimeConfig();
-const apiUrl = runtimeConfig.public.api_url;
 
 const activeExperienceCompany = useActiveExperienceCompany();
 
 // Fetch experiences
-const { experiences, fetchingExperiencesError, isFetchingExperiences } = await useExperiences(apiUrl);
+const { data: experiences, error: fetchingExperiencesError, pending: isFetchingExperiences } = await useExperiences();
 
 // Set active experience company if experiences are available
 if (experiences.value && experiences.value?.length > 0) {
@@ -53,7 +51,7 @@ if (experiences.value && experiences.value?.length > 0) {
 }
 
 // Fetch single experience based on active experience company
-const { experience, isFetchingExperience, fetchingExperienceError } = await useExperience(apiUrl, activeExperienceCompany);
+const { data: experience, pending: isFetchingExperience, error: fetchingExperienceError } = await useExperience(activeExperienceCompany);
 
 // Computed properties
 const companies = computed(() => {
@@ -67,7 +65,7 @@ const hasError = computed(() => {
   return fetchingExperiencesError.value || fetchingExperienceError.value;
 });
 
-// Reference for the experiences section
+// GSAP Reference for the experiences section
 const experiencesSection = ref(null);
 
 // GSAP animation

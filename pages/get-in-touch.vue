@@ -63,7 +63,7 @@
             <div>
                 <section id="project-inquiry" v-if="form.interest === 'Project Inquiry / Hiring'" class="space-y-4">
                     <SkeletonsSelect v-if="fetchingProjectRoles" />
-                    <div class="form-control" v-else-if="projectRoles">
+                    <div class="form-control" v-else-if="projectRoles && projectRoles.length > 0">
                         <BriefcaseIcon class="w-10" />
 
                         <select name="project-role" v-model="form.role">
@@ -96,7 +96,7 @@
 
                 <section id="collaboration" v-if="form.interest === 'Collaboration'" class="space-y-4">
                     <SkeletonsSelect v-if="fetchingCollaborationAreas" />
-                    <div class="form-control" v-else-if="collaborationAreas">
+                    <div class="form-control" v-else-if="collaborationAreas && collaborationAreas.length > 0">
                         <BriefcaseIcon class="w-10" />
 
                         <select name="collaboration" v-model="form.collaboration">
@@ -140,8 +140,8 @@ import SpinnerIcon from "~/assets/svgs/spinner.svg";
 
 const appConfig = useState<AppConfig>('appConfig')
 
-const { projectRoles, pending: fetchingProjectRoles, error: fetchingProjectRolesError } = await useProjectRoles()
-const { collaborationAreas, pending: fetchingCollaborationAreas, error: fetchingCollaborationAreasError } = await useCollaborationAreas()
+const { data: projectRoles, pending: fetchingProjectRoles, error: fetchingProjectRolesError } = await useProjectRoles()
+const { data: collaborationAreas, pending: fetchingCollaborationAreas, error: fetchingCollaborationAreasError } = await useCollaborationAreas()
 
 const isProcessingForm = ref(false);
 

@@ -2,7 +2,7 @@
 export const useDefaultAppConfig = () => {
   const appConfig = useState<FormattedAppConfig | null>('appConfig', () => null);
   const apiUrl = useRuntimeConfig().public.api_url;
-  
+
   const fetchAppConfig = async () => {
     const { data, error, pending } = await useFetch<StrapiSingleResponse<AppConfig>>(
       `${apiUrl}/api/app-config?populate=*`
@@ -49,7 +49,7 @@ export const useDefaultAppConfig = () => {
     hero_headline: '{Your Headline}',
     about_me_intro: '{Your About Intro}',
     introduction: '{Your Introduction}',
-    about_me:  '{About Information}',
+    about_me: '{About Information}',
     hero_intro: '{Your Hero Intro}',
     contact_me_intro: '{Your Contact Intro}',
     professional_logo: `/images/logo.png`,
