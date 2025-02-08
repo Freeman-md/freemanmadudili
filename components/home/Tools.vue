@@ -2,8 +2,8 @@
     <div class="space-y-4">
         <div class="container">
             <h2 class="text-center sm:text-left text-4xl lg:text-5xl text-white">
-                {{ appConfig.skills_title }}!
-                <span class="text-primary">Strengths</span>
+                Tools & 
+                <span class="text-primary">Technologies</span>
             </h2>
         </div>
 

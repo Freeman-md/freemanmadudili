@@ -1,5 +1,5 @@
 <template>
-    <div class="container space-y-8 text-smoky">
+    <div class="container space-y-8 text-white">
         <p class="text-sm">Nice to meet you</p>
 
         <h2 class="text-6xl text-primary font-bold">{{ appConfig.about_me_intro }}</h2>

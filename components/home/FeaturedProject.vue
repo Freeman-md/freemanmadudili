@@ -1,5 +1,6 @@
 <template>
-    <div class="group grayscale xs:w-48 sm:w-64 md:w-80 lg:w-60 xl:w-72 transition duration-200 hover:!grayscale-0 project-card">
+    <div
+        class="group grayscale xs:w-48 sm:w-64 md:w-80 lg:w-60 xl:w-72 transition duration-200 hover:!grayscale-0 project-card">
         <div
             class="relative rounded-lg border-4 border-smoky xs:w-48 xs:h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-60 lg:h-60 xl:w-72 xl:h-72 transition duration-200 group-hover:!border-transparent">
 
@@ -11,7 +12,7 @@
 
         <div class="space-y-4 pt-10 sm:pt-16 w-full overflow-hidden">
             <div class="flex space-x-4 justify-between items-center">
-                <span class="text-xl text-smoky text-wrap break-normal">{{ project.title }}</span>
+                <span class="text-xl text-white text-wrap break-normal">{{ project.title }}</span>
 
                 <div class="flex space-x-2 items-center stroke-smoky flex-shrink-0">
                     <NuxtLink :aria-label="`View Github Repo for ${project.title}`" :to="project.links.github"
@@ -25,9 +26,10 @@
                 </div>
             </div>
 
-            <p class="text-smoky">{{ project.description }}</p>
+            <p class="text-white">{{ project.description }}</p>
 
-            <div v-if="project.tools.length > 0" class="flex space-x-4 items-center w-full overflow-y-hidden overflow-x-scroll">
+            <div v-if="project.tools.length > 0"
+                class="flex space-x-4 items-center w-full overflow-y-hidden overflow-x-scroll">
                 <UiBadge v-for="(tool, index) in project.tools" :key="index" :text="tool.title" />
             </div>
         </div>

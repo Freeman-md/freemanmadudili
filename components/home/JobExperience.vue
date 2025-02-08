@@ -4,7 +4,7 @@
             {{ experience?.position }}
             <span class="text-primary">@ {{ experience?.company }}</span>
         </p>
-        <p class="text-smoky">
+        <p class="text-white">
             {{ duration }}
         </p>
 
@@ -14,7 +14,7 @@
             class="w-full flex space-x-4 items-start"
         >
             <div class="w-4"><PlayIcon class="mt-1" /></div>
-            <span class="text-smoky">{{ responsibility }}</span>
+            <span class="text-white">{{ responsibility }}</span>
         </div>
 
         <div
@@ -25,7 +25,7 @@
                 target="_blank"
                 v-for="(project, index) in experience?.projects"
                 :key="index"
-                class="text-smoky transition duration-200 hover:text-white flex space-x-2 min-w-fit"
+                class="text-white transition duration-200 hover:text-white/90 flex space-x-2 min-w-fit"
             >
                 <LinkIcon /> <span>{{ project.title }}</span>
             </NuxtLink>

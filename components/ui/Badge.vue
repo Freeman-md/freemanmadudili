@@ -1,8 +1,5 @@
 <template>
-    <span
-        ref="spanRef"
-        :class="classes"
-    >
+    <span ref="spanRef" :class="classes">
         {{ text }}
     </span>
 </template>
@@ -20,10 +17,10 @@ const classes = computed(() => {
 
     if (element.value === 'span') {
         return defaultClasses + ' text-primary bg-primary/10'
-    } 
+    }
 
     if (props.selected === false) {
-        return defaultClasses + ' !border-smoky text-smoky'
+        return defaultClasses + ' !border-smoky text-white'
     } else {
         return defaultClasses + ' text-primary bg-primary/10'
     }

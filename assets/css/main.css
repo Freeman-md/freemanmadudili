@@ -9,7 +9,7 @@
   }
 
   .btn {
-    @apply px-4 py-2 text-smoky border-2 border-smoky rounded transition duration-200 hover:bg-smoky/10
+    @apply px-4 py-2 text-white border-2 border-smoky rounded transition duration-200 hover:bg-smoky/10
   }
 
   .btn-primary {
@@ -21,7 +21,7 @@
   }
 
   .btn-smoky {
-    @apply !border-smoky !text-smoky hover:!bg-smoky/10
+    @apply !border-smoky !text-white hover:!bg-smoky/10
   }
 
   .form-control {

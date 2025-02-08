@@ -6,7 +6,7 @@
             </h2>
 
             <NuxtLink aria-label="View projects archive" to="/projects"
-                class="text-sm flex space-x-2 items-center text-smoky stroke-smoky transition duration-200 hover:text-primary hover:stroke-primary">
+                class="text-sm flex space-x-2 items-center text-white stroke-smoky transition duration-200 hover:text-primary hover:stroke-primary">
                 <span>view the archive</span>
                 <ArrowRightIcon />
             </NuxtLink>
@@ -14,7 +14,8 @@
 
         <SkeletonsFeaturedProjects v-if="pending" />
 
-        <UiEmpty v-else-if="(projects && projects.length === 0) || error" message="Featured Projects are currently unavailable">
+        <UiEmpty v-else-if="(projects && projects.length === 0) || error"
+            message="Featured Projects are currently unavailable">
         </UiEmpty>
 
         <div v-else class="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 xl:gap-0 xl:gap-y-10">

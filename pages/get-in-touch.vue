@@ -6,7 +6,7 @@
             Connect with {{ appConfig.nickname }}
         </h2>
 
-        <p class="text-smoky">
+        <p class="text-white">
             Welcome to the hub of creativity and technology. Whether you're
             seeking a professional portfolio, project inquiry, collaboration, or
             just want to connect, let's make something amazing together.
